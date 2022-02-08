@@ -1,0 +1,258 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+
+header {
+     
+    background-color: rgb(87, 194, 66);;
+   
+}
+
+body{
+    background-color: #fff; 
+}
+ 
+
+.logo-head {
+    height: 35px;
+    width: 60px;
+    margin: 2px;
+}
+
+.banner-2 {
+    width: 100%;
+    height: 120px;
+}
+
+.form {
+    width: 100%;
+     
+}
+
+/* hacer un contenedor con fondo blanco que contiene el input + icono search*/
+.contenedor-de-input-search {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.input-search{
+    width: 100%;
+    margin: 5px;
+    background-color: white;
+    font-size: 13px;
+    border-style: none;
+}
+
+.fa-search{
+    padding: 5px 5px 3px 0px;
+    color: rgb(54, 54, 54);
+
+}
+
+.burger {
+    padding: 5px 5px 5px 10px;
+    color: rgb(54, 54, 54);
+    border-radius: 4px;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.fa-shopping-cart {
+    margin: 10px;
+    color:rgb(54, 54, 54);
+    font-size: 20px;
+}
+
+.ubicacion {
+    padding-bottom: 5px;
+    border-top: 1px solid rgb(99, 94, 94);
+    font-size: 13px;
+}
+
+ 
+
+.fa-map-marker-alt {
+    margin: 5px;
+    color: rgb(54, 54, 54);
+    font-size: 15px;
+}
+
+.logo-mas-buscador {
+    display: flex;
+     
+}
+
+
+.redes-sociales {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 30px;
+}
+
+.fa-facebook, .fa-instagram,.fa-twitter-square  {
+    margin: 10px;
+}
+
+  
+ 
+footer {
+    background-color: #efefef;
+}
+
+.input-mas-boton-suscribirse {
+    display: flex; 
+     
+}
+
+.input-suscripcion{
+    margin: 10px;
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+}
+
+.boton-suscribirse{
+    margin: 10px;
+    width: 20%;
+    height: 30px;
+    color: white;
+    background-color:  #ec2f2f;;
+    border-radius: 5px;
+    border: none;
+     
+}
+
+.recaptcha-mas-submit {
+     width: 100%;
+     margin: 10px;
+     
+}
+
+.recaptcha {
+    width: 200px;
+    box-shadow: 0px 0px 2px 2px grey;
+}
+ 
+
+.contenedor-input-suscripcion-recaptcha{
+    border-top: 1px solid grey;
+    padding-top: 30px;
+    padding-left: 15px;
+    text-align: center;
+     
+}
+
+footer h4 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.texto-suscripcion {
+text-transform: uppercase;
+line-height: 20px;
+font-size: 12px;
+}
+
+.navegadores-footers {
+    text-align: center;   
+   
+}
+ 
+.logo-footer {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+.contenedor-logo-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+.nav-cliente li a, .nav-nosotros li a  {
+    text-decoration: none;
+    line-height: 30px;
+    color:#8b8b8b;
+    
+}
+.nav-cliente li , .nav-nosotros li {
+    list-style-type: none;
+}
+
+.footer-copyright {
+    background-color: black;
+    padding: 10px;
+    line-height: 20px;
+   
+}
+
+.footer-copyright p {
+    font-size: 12px;
+    color: white;
+    text-align: center;
+     
+     
+}
+
+.equipo-devs {
+    background-color: black;
+    font-size: 12px;
+    color: orange;
+    text-align: center;
+    padding: 10px;
+}
+
+.fondo-copyright {
+    background-color: black;
+}
+
+.tarjetas-pago {
+    color: white;
+    text-align: center;
+    padding: 10px 0px 15px 0px;
+    font-size: 30px;
+}
+
+@media (min-width:768px) {
+    .contenedor-input-suscripcion-recaptcha {
+        text-align: left;
+        padding-left: 15px;
+    }
+     .navegadores-footers {
+         display: flex;
+         width: 100%;
+         padding-bottom: 20px;
+     } 
+     .cliente {
+         width: 33.33%;
+     }
+     .nosotros {
+         width: 33.33%;
+     }
+     .contenedor-logo-footer {
+         width: 33.33%;
+     }
+     
+     .redes-sociales{
+         text-align: left;
+         padding-left: 80px;
+         padding-top: 30px;
+     }
+
+     
+     
+}

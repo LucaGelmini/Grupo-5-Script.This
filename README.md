@@ -29,3 +29,8 @@ La tipografía y los colores que utilizan hacen que la marca sea amigable y salu
 ★ Wireframe de las siguientes páginas (Miro):
 
 https://miro.com/app/board/uXjVOUykK-I=/
+
+★ Tablero de trabajo para aplicar la metodología Scrum:
+
+https://trello.com/b/Ekn4dm3X/scriptthis-ecommerce
+
