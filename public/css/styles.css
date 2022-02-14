@@ -14,7 +14,13 @@ header {
 }
 
 body{
-    background-color: #fff; 
+    background-color: #ebebeb; 
+    
+}
+
+main{
+    width: 90%;
+    margin: auto;
 }
  
 
@@ -27,6 +33,7 @@ body{
 .banner-2 {
     width: 100%;
     height: 120px;
+    object-fit: cover;
 }
 
 .form {
@@ -226,6 +233,120 @@ font-size: 12px;
     padding: 10px 0px 15px 0px;
     font-size: 30px;
 }
+
+/*Estilos para formularios*/
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0 25px 0;
+    width: 100%;
+}
+.perfil-usr{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.perfil-usr label{
+    margin:30px;
+}
+
+.perfil-usr div{
+    display: flex;
+    align-items: center;
+    
+}
+
+.categorias-interes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.categoria-int{
+    background-color: #1259c3;
+    color: white;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.input-texto{
+    height: 30px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
+.label-header{
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.img-perfil {
+    margin: 15px 0 15px 0;
+    /*margin: auto;*/
+    
+}
+.img-perfil input{
+    display: flex;
+    flex-direction: column;
+}
+input[type="file"]::-webkit-file-upload-button{
+    background-color: #39b54a;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.botones-register{
+    
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.botones-register button{
+    display: flex;
+    width:fit-content;
+    margin: 15px 0 5px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    align-items: center;
+    height: 35px;
+}
+
+.botones-register button[type="submit"]{
+    background-color: #1259c3;
+}
+.botones-register a{
+    color: white;
+}
+.botones-register button[type="reset"]{
+    background-color: #666666;
+    color: white;
+}
+
+.boton-login{
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #1259c3;
+    height: 30px;
+}
+.boton-login a{
+    color: white;
+}
+
+
+
 
 @media (min-width:768px) {
     .contenedor-input-suscripcion-recaptcha {
