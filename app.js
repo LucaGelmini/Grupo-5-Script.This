@@ -23,7 +23,18 @@ app.get('/productCart',(req, res)=> {
     res.sendFile(path.join(__dirname, '/views/productCart.html'));
 });
 
+app.get('/detail', (req,res) => {
+    res.sendFile(path.resolve(__dirname,'./views/detail.html'))
+})
+
 app.listen(3001, ()=>{
     console.log('Servidor encendido !');
 })
 
+ 
+ 
+
+
+
+ 
+ 
