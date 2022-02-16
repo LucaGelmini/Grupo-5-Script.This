@@ -14,7 +14,11 @@
 <body>
     <header>
         <div class="logo-mas-buscador">
-                <img class="logo-head"  src='/img/logo-opcion-dos.png' alt="imagen del logo">
+            <div class="logo-container">
+                <a href="/">
+                    <img class="logo-head"  src='/img/logo-opcion-dos.png' alt="imagen del logo">
+                </a>
+            </div>
                 <div class="form" action="#" method="GET">
                     <div class="contenedor-de-input-search">
                         <input class="input-search" type="text"   placeholder="Buscar frutas, verduras y otros productos"> 
@@ -22,39 +26,232 @@
                     </div>
                 </div>
                 
-                <i class="fa fa-bars burger"></i>
-                <i class="fas fa-shopping-cart"></i>
+                <div class="burger-container">
+                    <i class="fa fa-bars burger"></i>
+                </div>
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="nav-offers">
+                    <a href="#">% Ofertas y promos</a>
+                </div>
+        </div>
+        <div class="navs-container">
+            <div class="nav00-container">
+                <nav class="nav00">
+                    <ul>
+                        <li><a href="#">Frutas</a></li>
+                        <li><a href="#">Verduras</a></li>
+                        <li><a href="#">Hiebras y especies</a></li>
+                        <li><a href="#">Otros</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav01-container">
+                <nav class="nav01">
+                    <ul>
+                        <li><a href="#">Creá tu cuenta</a></li>
+                        <li><a href="#">Log in</a></li>
+                        <li><a href="#">Mis Pedidos</a></li>
+                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            
         </div>
         <div class="ubicacion">
            <p><i class="fas fa-map-marker-alt"></i>Enviar a tu domicilio</p> 
         </div>
     </header>
-    
+    <section class="banner-container">
+        <img class="banner-photo" src="/img/banner-2.jpg" alt="img banner">
+    </section>
+ 
     <main>
-        <section class="banner-carrusel">
-            <img class="banner-2" src="/img/banner-2.jpg" alt="img banner">
-        </section>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis illo ad recusandae, doloremque quod iste ducimus impedit vero tempora nam quia. Harum veniam provident doloribus explicabo maiores voluptatibus ab delectus!
-        </p>
+        <div class="envío-sin-cargo">
+            <p>Envío sin cargo si tu compra supera los $2.000</p>
+        </div>
         
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis illo ad recusandae, doloremque quod iste ducimus impedit vero tempora nam quia. Harum veniam provident doloribus explicabo maiores voluptatibus ab delectus!
-        </p>
-        
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis illo ad recusandae, doloremque quod iste ducimus impedit vero tempora nam quia. Harum veniam provident doloribus explicabo maiores voluptatibus ab delectus!
-        </p>
+        <section class="main-producto-container">
+            <h2>Frutas y verduras</h2>
 
+        <div class="products-container">
+            <article>
+                <div class="contenedor-foto-producto">
+                    <img class="foto-producto" src="/img/manzana.jpg" alt="foto-manzana">
+                    <div class="contenedor-título-producto">
+                        <h3>Manzana</h3>
+                    </div>
+                    <div class="contenedor-boton-producto">
+                        <a href="/">
+                            <button class="boton-producto">
+                                    <p><i class="fa-solid fa-cart-shopping"></i>Comprar ahora</p>
+                            </button>
+                        </a>
+                        <div class="producto-detail">
+                            <a href="/detail">Más detalle</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+             <article>
+                <div class="contenedor-foto-producto">
+                    <img class="foto-producto" src="/img/pera.jpg" alt="foto-pera">
+                    <div class="contenedor-título-producto">
+                        <h3>Pera</h3>
+                    </div>
+                    <div class="contenedor-boton-producto">
+                        <a href="/">
+                            <button class="boton-producto">
+                                    <p><i class="fa-solid fa-cart-shopping"></i>Comprar ahora</p>
+                            </button>
+                        </a>
+                        <div class="producto-detail">
+                            <a href="/detail">Más detalle</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="contenedor-foto-producto">
+                    <img class="foto-producto" src="/img/brocoli.jpg" alt="foto-brocoli">
+                    <div class="contenedor-título-producto">
+                        <h3>Brocoli</h3>
+                    </div>
+                    <div class="contenedor-boton-producto">
+                        <a href="/">
+                            <button class="boton-producto">
+                                    <p><i class="fa-solid fa-cart-shopping"></i>Comprar ahora</p>
+                            </button>
+                        </a>
+                        <div class="producto-detail">
+                            <a href="/detail">Más detalle</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="contenedor-foto-producto">
+                    <img class="foto-producto" src="/img/zanahoria.jpg" alt="foto-zanahoria">
+                    <div class="contenedor-título-producto">
+                        <h3>Zanahoria</h3>
+                    </div>
+                    <div class="contenedor-boton-producto">
+                        <a href="/">
+                            <button class="boton-producto">
+                                    <p><i class="fa-solid fa-cart-shopping"></i>Comprar ahora</p>
+                            </button>
+                        </a>
+                        <div class="producto-detail">
+                            <a href="/detail">Más detalle</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        </section>
+        <section class="main-ofert-container">
+            <h2>Nuestras mejores Ofertas %</h2>
+            <div class="offers-container">
+                <article>
+                    <div class="contenedor-foto-producto">
+                        <img class="foto-producto" src="/img/promo-frutas.jpg" alt="foto-promoFrutas">
+                        <div class="contenedor-título-producto">
+                            <h3>Promo Frutas</h3>
+                        </div>
+                        <div class="contenedor-boton-producto">
+                            <a href="/">
+                                <button class="boton-producto">
+                                        <p><i class="fa-solid fa-cart-shopping"></i>Comprar ahora</p>
+                                </button>
+                            </a>
+                            <div class="producto-detail">
+                                <a href="/detail">Más detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="contenedor-foto-producto">
+                        <img class="foto-producto" src="/img/promo-verduras.png" alt="foto-promoVerduras">
+                        <div class="contenedor-título-producto">
+                            <h3>Promo Verduras</h3>
+                        </div>
+                        <div class="contenedor-boton-producto">
+                            <a href="/">
+                                <button class="boton-producto">
+                                        <p><i class="fa-solid fa-cart-shopping"></i>Comprar ahora</p>
+                                </button>
+                            </a>
+                            <div class="producto-detail">
+                                <a href="/detail">Más detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+        <section>
+            <h2 class="zones-days-title">
+                 Zonas y dias de Delivery 
+            </h2>
+            <div class="delivery-container">
+                <div class="form01-form02-container">
+                    <div class="form-zones-days-container">
+                        <div class="form-zones-container">
+                            <form action="/" method="GET">
+                                <label class="delivery-zones-text" for="delivery-zones">Zonas de reparto:</label>
+                                <select class="select-delivery-zones" name="delivery-zones" id="delivery-zones">
+                                    <option value="blank" selected>-</option>
+                                    <option value="Cerro de las Rosas">Cerro de las Rosas</option>
+                                    <option value="Urca">Urca</option>
+                                    <option value="Villa Allende">Villa Allende</option>
+                                    <option value="Valle Escondido">Valle Escondido</option>
+                                    <option value="Villa Belgrano">Villa Belgrano</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="day-container">
+                            <p class="delivery-day-text">Día (hora) de reparto:</p>
+                            <p class="days-week-text">De lunes a sábado de 9 a 22hs</p>
+                        </div>
+                    </div>
+                  
+                    <div class="unreach-zones-container">
+                        <p class="title-no-zone-reach">No llegamos a tu zona?</p>
+                        <p class="title-complete-data">Dejanos tus datos para agregar tu zona a nuestra ruta:   </p>
+                        <form class="form-unreach-zone" action="/" method="GET">
+                            <input class="input-form-zones" type="text" name="name-lastname" placeholder="Ingrese su nombre y apellido">
+                            <input class="input-form-zones" type="email" name="email" placeholder="Ingrese su email">
+                            <input class="input-form-zones" type="tel" name="phone" placeholder="Ingrese su telefono">
+                            <input class="input-form-zones" type="text" name="domicilio" placeholder="Ingrese domicilio (calle N° y localidad)">
+                            <textarea name="comments" cols="10" rows="5">Escriba sus comentarios</textarea>
+                            <div class="submit-add-zone-container">
+                                <button class="add-zone-button">
+                                    <p>Enviar</p>
+                                </button>
+                                <span>*Todos los campos son obligatorios</span>
+                            </div>  
+                        </form>
+                    </div>
+                </div>
+                <div class="google-map-container">
+                    <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6572.372721735569!2d-58.44804486744222!3d-34.54883658047388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb436efe09303%3A0xfb39818e7624ac76!2sDigital%20House!5e0!3m2!1ses-419!2sar!4v1644578270259!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+        <div class="whats-app-container">
+            <a href="https://api.whatsapp.com/send?phone=5493515140462" class="btn-wsp" target="_blank"><img class="whatsapp-icon" src="/img/whatsapp.png" alt="whats-app-icon"></a>
+            
+        </div>
     </main>
     <footer>
         <div class="contenedor-input-suscripcion-recaptcha">
                 <h4>
                     SUSCRIBITE A NUESTRO NEWSLETTER
                 </h4>
-            <p class="texto-suscripcion"> 
-                Recibí las ofertas, novedades y todos los descuentos que tenemos para utilizar  en tu proxima compra.
-            </p>
+            <p class="texto-suscripcion"> Recibí las ofertas, novedades y todos los descuentos que tenemos para utilizar  en tu proxima compra.</p>
             <div class="input-mas-boton-suscribirse">
                 <input class="input-suscripcion" type="text" placeholder="  Ingresa tu correo"> 
                 <button class="boton-suscribirse">
@@ -66,12 +263,6 @@
                 <img class="recaptcha" src="/img/recaptcha.PNG" alt="">
             </div>
         </div>
-        <div class="redes-sociales">
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter-square"></i>
-        </div>
-       
             <nav class="navegadores-footers">
                 <div class="cliente">
                     <h4>
@@ -99,6 +290,11 @@
                 </div>
             </nav>
         <div class="fondo-copyright">
+            <div class="redes-sociales">
+                <a href="https://m.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i></a>
+            </div>
             <div class="footer-copyright">
                 <p>
                     www.greenmarket.com.ar Copyright © 2022 - Todos los derechos reservados 
