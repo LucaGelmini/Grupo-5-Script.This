@@ -1,12 +1,12 @@
 1. Breve Retrospectiva
 
-A continuación presentamos con la "metodología estrella de mar", nuestra primer retrospectiva del sprint #1 como equipo:
+A continuación presentamos con la "metodología estrella de mar", nuestra primer retrospectiva del sprint #3 como equipo:
 
-a. Comenzar a hacer: Planificar, definir días fijos y hora para reunirnos.
-b. Hacer más: Videos llamadas y reuniones en sala. Buscar más dinámica.
-c. Continuar haciendo: Lluvia de ideas, participar y propuestas alternativas.
-d. Hacer menos: Complejizar el proyecto con cosas adicionales que no solicito el cliente.
-e. Dejar de hacer: Dejar para mañana lo que podemos hacer hoy! ;) 
+a. Comenzar a hacer: Daily o weekly.
+b. Hacer más: Videos feedback diario, del avance de cada uno.
+c. Continuar haciendo: compromiso con la tarjeta de cada uno en tiempo y forma.
+d. Hacer menos: Concentrarnos en cosas que no pidio el cliente.
+e. Dejar de hacer: Push y merge (pullrequest) sin previamente comunicarnos. 
 
 2. Tablero de Trabajo
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include('../partials/head') %> 
+<body>
+<%-include('../partials/header')  %> 
+<main>
+    <div class="create-product-container">
+        <p class="create-producto-title">Crea tus productos</p>
+        <p class="complete-data-title">Ingresa los siguientes datos para crear tu producto:</p>
+        <form class="create-product-form" action="" method="POST">
+            <input class="create-product-input" type="text" name="product-name" placeholder="Ingrese el nombre del producto">
+            <input class="create-product-input" type="text" name="description" placeholder="Describa el producto">
+            <input class="create-product-input" type="text" name="category" placeholder="Ingrese la categoria de su producto">
+            <input class="create-product-input" type="number" name="precio" placeholder="Ingrese el precio de su producto">
+            <label class="create-product-photo-label">Adjunte la foto de tu producto:</label>
+            <input type="file" name="create-product-photo" accept=".jpg, .png" multiple>
+            <div class="submit-create-product-container">
+                <button class="create-product-button">
+                    <p>Crear producto</p>
+                </button>
+                <span>*Todos los campos son obligatorios</span>
+            </div>  
+        </form>
+    </div>
+</main>
+<%-include('../partials/footer')  %> 
+</body>
+</html>
