@@ -296,10 +296,7 @@ h3 {
     font-size:12px;
 }*/
 
-.form {
-    width: 100%;
 
-}
 
 /* hacer un contenedor con fondo blanco que contiene el input + icono search*/
 .contenedor-de-input-search {
@@ -923,6 +920,21 @@ form{
     justify-content: space-between;
     
 }
+
+.formulario-register{
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 25px black ;
+}
+.formulario-register h2{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.main-register{
+    padding: 20px;
+}
 .login-troubleshooting{
     display: flex;
     justify-content: center;
@@ -954,7 +966,7 @@ form{
     margin-top: 10px;
 }
 .categoria-int{
-    background-color: #1259c3;
+    background-color: #0a9fb2;
     color: white;
     height: 30px;
     padding: 5px;
@@ -989,7 +1001,7 @@ form{
     flex-direction: column;
 }
 input[type="file"]::-webkit-file-upload-button{
-    background-color: #39b54a;
+    background-color: #89cd4d;
     height: 30px;
     color: white;
     border: none;
