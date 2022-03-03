@@ -363,6 +363,7 @@ h3 {
 .logo-mas-buscador {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
 }
 
@@ -972,6 +973,9 @@ form{
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
+}
+.categoria-int:hover{
+    background-color: #D84D09;
 }
 
 .input-texto{
