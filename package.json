@@ -1,4 +1,7 @@
-{
+{ 
+  "scripts": {
+  "start": "nodemon -e js,ejs,html -w . -w public -w views -w routes app.js"
+},
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "debug": "^4.3.3",
