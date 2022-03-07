@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&family=Lato&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/normalize.css">
+            <link rel="stylesheet" href="/css/styles.css">
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <title>Bolson Verde</title>
+    </head>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -12,75 +22,111 @@
             const baseDeDatos = [
                 {
                     id: 1,
-                    nombre: 'Manzana Orgánica Roja',
-                    precio: 10,
-                    imagen: "manzana.jpg"
+                    nombre: 'Manzana Orgánica Verde',
+                    precio: 15,
+                    thumbnailUrl: "https://produits.bienmanger.com/36035-0w0h0_Organic_Apples_Granny_Smith_From_France.jpg"
                 },
                 {
                     id: 2,
-                    nombre: 'Manzana Orgánica Verde',
+                    nombre: 'Manzana Orgánica Roja',
                     precio: 15,
-                    imagen: 'manzanaverde.jpg'
+                    thumbnailUrl: 'https://produits.bienmanger.com/45407-0w0h0_Organic_Apples_Galaxy_From_Frnace.jpg'
                 },
                 {
                     id: 3,
                     nombre: 'Kiwi Orgánico',
                     precio: 25,
-                    imagen: 'kiwi.jpg'
+                    thumbnailUrl: 'https://produits.bienmanger.com/34089-0w0h0_Organic_Fresh_Kiwi.jpg'
                 },
                 {
                     id: 4,
                     nombre: 'Mini Sandía Orgánica',
                     precio: 20,
-                    imagen: 'sandia.jpg'
+                    thumbnailUrl: 'https://produits.bienmanger.com/35168-0w0h0_Organic_Big_Watermelon.jpg'
                 },
                 {
                     id: 5,
                     nombre: 'Papa Blanca Orgánica',
-                    precio: 8,
-                    imagen: 'papa.jpg'
+                    precio: 5,
+                    thumbnailUrl: 'https://produits.bienmanger.com/35919-0w0h0_Organic_White_Sweet_Potato.jpg'
                 },
                 {
                     id: 6,
                     nombre: 'Cebolla Orgánica',
                     precio: 10,
-                    imagen: 'cebolla.jpg'
+                    thumbnailUrl: 'https://produits.bienmanger.com/34833-0w0h0_Organic_Yellow_Onion.jpg'
                 },                
                 {
                     id: 7,
                     nombre: 'Zanahoria Orgánica',
                     precio: 8,
-                    imagen: 'zanahoria.jpg'
+                    thumbnailUrl: 'https://produits.bienmanger.com/34873-0w0h0_Organic_Chantenay_Carrot.jpg'
                 },
                 {
                     id: 8,
                     nombre: 'Repollo Orgánico',
                     precio: 15,
-                    imagen: 'repollo.jpg'
+                    thumbnailUrl: 'https://produits.bienmanger.com/35977-0w0h0_Organic_Green_Cabbage_From_France.jpg'
                 },
                 {
                     id: 9,
-                    nombre: 'Calabaza Butternut Orgánica',
-                    precio: 25,
-                    imagen: 'calabaza.jpg'
+                    nombre: 'Jengibre Orgánico',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/34571-0w0h0_Organic_Ginger.jpg'
                 },
                 {
                     id: 10,
-                    nombre: 'Champiñon Cremini Orgánico',
-                    precio: 4,
-                    imagen: 'cremini.jpg'
+                    nombre: 'Calabaza Butternut Orgánica',
+                    precio: 30,
+                    thumbnailUrl: 'https://produits.bienmanger.com/36054-0w0h0_Organic_Butternut_From_France.jpg'
                 },
                 {
                     id: 11,
                     nombre: 'Pepino Orgánico',
-                    precio: 10,
-                    imagen: 'pepino.jpg'
+                    precio: 15,
+                    thumbnailUrl: 'https://produits.bienmanger.com/35242-0w0h0_Organic_Long_Cucumber_From_France.jpg'
                 },
                 {
                     id: 12,
                     nombre: 'Puerro Orgánico',
-                    precio: 12,
-                    imagen: 'puerro.jpg'
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/34835-0w0h0_Organic_Leek_From_France.jpg'
+                },
+                {
+                    id: 13,
+                    nombre: 'Ajo Blanco Orgánico',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/29273-0w0h0_White_Garlic_From_Lomagne.jpg'
+                },
+                {
+                    id: 14,
+                    nombre: 'Brócoli Orgánico',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/39229-0w0h0_Organic_Broccoli.jpg'
+                },
+                {
+                    id: 15,
+                    nombre: 'hampiñon Cremini Orgánico',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/34671-0w0h0_Organic_Mushroom_From_Paris.jpg'
+                },
+                {
+                    id: 16,
+                    nombre: 'Limon Amarillo Orgánico',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/38438-0w0h0_Organic_Limequats.jpg'
+                },
+                {
+                    id: 16,
+                    nombre: 'Pimiento Orgánico Verde',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/38827-0w0h0_Organic_Fresh_Green_Peppers.jpg'
+                },
+                {
+                    id: 16,
+                    nombre: 'Naranja Orgánicas',
+                    precio: 17,
+                    thumbnailUrl: 'https://produits.bienmanger.com/38434-0w0h0_Organic_Navelate_Oranges.jpg'
                 }
 
             ];
@@ -111,9 +157,9 @@
                     miNodoTitle.classList.add('card-title');
                     miNodoTitle.textContent = info.nombre;
                     
-                    const miNodoImagen = document.createElement('img');
-                    miNodoImagen.classList.add('img-fluid');
-                    miNodoImagen.setAttribute('src', info.imagen);
+                    const miNodothumbnailUrl = document.createElement('img');
+                    miNodothumbnailUrl.classList.add('img-fluid');
+                    miNodothumbnailUrl.setAttribute('src', info.thumbnailUrl);
                     
                     const miNodoPrecio = document.createElement('p');
                     miNodoPrecio.classList.add('card-text');
@@ -125,7 +171,7 @@
                     miNodoBoton.setAttribute('marcador', info.id);
                     miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
                     
-                    miNodoCardBody.appendChild(miNodoImagen);
+                    miNodoCardBody.appendChild(miNodothumbnailUrl);
                     miNodoCardBody.appendChild(miNodoTitle);
                     miNodoCardBody.appendChild(miNodoPrecio);
                     miNodoCardBody.appendChild(miNodoBoton);
@@ -251,75 +297,27 @@
             renderizarCarrito();
         });
     </script>
-</head>
-<header>
-    <div class="logo-mas-buscador">
-            <img class="logo-head"  src='/img/logo-opcion-dos.png' alt="imagen del logo">
-            <div class="form" action="#" method="GET">
-                <div class="contenedor-de-input-search">
-                    <input class="input-search" type="text"   placeholder="Buscar frutas, verduras y otros productos"> 
-                    <i class="fas fa-search"></i>
-                </div>
+    <body>
+        <header>
+        <%-include("../partials/header")%>
+        </header>
+        <div class="container">
+            <div class="row">
+                
+                <main id="items" class="col-sm-8 row"></main>
+            
+                <aside class="col-sm-4">
+                    
+                    <h2>Carrito</h2>
+                
+                    <ul id="carrito" class="list-group"></ul>
+                    <hr>
+                
+                    <p class="text-right">Total: <span id="total"></span>&dollar;;</p>
+                    <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                </aside>
             </div>
-            
-            <i class="fa fa-bars burger"></i>
-            <i class="fas fa-shopping-cart"></i>
-    </div>
-    <div class="ubicacion">
-    <p><i class="fas fa-map-marker-alt"></i>Enviar a tu domicilio</p> 
-    </div>
-</header>
-<main>
-</main>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <title>Bolson Verde</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            
-            <main id="items" class="col-sm-8 row"></main>
-            
-            <aside class="col-sm-4">
-                <h2>Carrito</h2>
-                
-                <ul id="carrito" class="list-group"></ul>
-                <hr>
-                
-                <p class="text-right">Total: <span id="total"></span>&dollar;;</p>
-                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-            </aside>
         </div>
-    </div>
-    <div class="fondo-copyright">
-        <div class="footer-copyright">
-            <p>
-                www.greenmarket.com.ar Copyright © 2022 - Todos los derechos reservados 
-            </p>
-        </div>
-        <div class="equipo-devs">
-            <p>
-                <i class="fas fa-cogs"></i> Desarrollado por Script.This 
-            </p>
-        </div>
-        <div class="tarjetas-pago">
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-amex"></i>
-        </div>
-    </div>
-    <div class="tarjetas-pago">
-        <i class="fab fa-cc-visa"></i>
-        <i class="fab fa-cc-mastercard"></i>
-        <i class="fab fa-cc-amex"></i>
-    </div>
-</body>
+        <%-include('../partials/footer')  %> 
+    </body>
 </html>
