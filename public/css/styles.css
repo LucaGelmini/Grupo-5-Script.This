@@ -922,22 +922,23 @@ form{
     
 }
 
-.formulario-register, .create-product-form{
+.formulario-register, .create-product-form, .editar-product-form{
     width: 90%;
     margin: auto;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 10px 5px 25px black ;
 }
-.create-product-form{
+.create-product-form, .editar-product-form{
     margin-bottom: 25px;
 }
-.create-product-form h3{
+.create-product-form h3, .complete-data-title{
     color: black;
+    font-size: 16px;
     -webkit-text-stroke: 0;
     margin: 10px 0px;
 }
-.formulario-register h2, .create-product-container h2{
+.formulario-register h2, .create-product-title, .editar-producto-title{
     font-size: 22px;
     margin-bottom: 10px;
 }
@@ -955,8 +956,11 @@ form{
 }
 .perfil-usr{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
+}
+.perfil-usr input{
+    cursor: pointer;
 }
 .perfil-usr label{
     margin:30px;
@@ -981,6 +985,7 @@ form{
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
+    cursor: pointer;
 }
 .categoria-int:hover{
     background-color: #D84D09;
@@ -1003,7 +1008,7 @@ form{
     margin-top: 15px;
 }
 
-.img-perfil, .img-crear-producto {
+.img-perfil, .img-crear-producto, .editar-product-photo {
     margin: 15px 0;
     /*margin: auto;*/
     
@@ -1020,14 +1025,14 @@ input[type="file"]::-webkit-file-upload-button{
     border-radius: 5px;
 }
 
-.botones-register, .submit-create-product-container{
+.botones-register, .submit-create-product-container, .submit-editar-product-container{
     
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.botones-register button, .submit-create-product-container button {
+.botones-register button, .submit-create-product-container button, .editar-product-button {
     display: flex;
     width:fit-content;
     margin: 15px 0 5px 0;
@@ -1039,11 +1044,11 @@ input[type="file"]::-webkit-file-upload-button{
     height: 35px;
 }
 
-.botones-register button[type="submit"], .submit-create-product-container button{
+.botones-register button[type="submit"], .submit-create-product-container button, .editar-product-button{
     background-color: #0a9fb2;
     color: white;
 }
-.submit-create-product-container button p, .botones-register button[type="submit"] p{
+.submit-create-product-container button p, .botones-register button[type="submit"] p, .editar-product-button p{
     font-size: 16px;
 }
 .botones-register a{
@@ -1066,8 +1071,25 @@ input[type="file"]::-webkit-file-upload-button{
 .boton-login a{
     color: white;
 }
-.boton-login a:hover{
+.boton-login a:hover,
+.img-crear-producto::-webkit-file-upload-button:hover,
+.img-perfil input::-webkit-file-upload-button:hover,
+.editar-product-photo::-webkit-file-upload-button:hover,
+.create-product-button:hover,
+.botones-register button[type="submit"]:hover,
+.botones-register button[type="reset"]:hover,
+.editar-product-button:hover{
     background-color: #D84D09;
+}
+.boton-login a,
+.img-crear-producto::-webkit-file-upload-button,
+.img-perfil input::-webkit-file-upload-button,
+.editar-product-photo::-webkit-file-upload-button,
+.create-product-button,
+.botones-register button[type="submit"],
+.botones-register button[type="reset"],
+.editar-product-button{
+    cursor: pointer;
 }
 
 

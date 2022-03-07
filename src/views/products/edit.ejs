@@ -8,19 +8,19 @@
     </header>
 <main>
     <div class="editar-product-container">
-        <p class="editar-producto-title">Edita tu producto</p>
-        <p class="complete-data-title">Modifica los datos para editar tu producto:</p>
+        <h2 class="editar-producto-title">Edita tu producto</h2>
         <form class="editar-product-form" action="" method="POST">
-            <input class="editar-product-input" type="text" name="product-id" placeholder="Ingrese el id del producto que desea editar">
-            <input class="editar-product-input" type="text" name="product-name" placeholder="Ingrese el nuevo nombre del producto">
-            <input class="editar-product-input" type="text" name="description" placeholder="Ingrese la nueva descripción de su producto">
-            <input class="editar-product-input" type="text" name="category" placeholder="Modifique la categoria de su producto">
-            <input class="editar-product-input" type="number" name="precio" placeholder="Actualice el precio de su producto">
+            <h3 class="complete-data-title">Modifica los datos para editar tu producto:</h3>
+            <input class="input-texto" type="text" name="product-id" placeholder="Ingrese el id del producto que desea editar">
+            <input class="input-texto" type="text" name="product-name" placeholder="Ingrese el nuevo nombre del producto">
+            <input class="input-texto" type="text" name="description" placeholder="Ingrese la nueva descripción de su producto">
+            <input class="input-texto" type="text" name="category" placeholder="Modifique la categoria de su producto">
+            <input class="input-texto" type="number" name="precio" placeholder="Actualice el precio de su producto">
             <label class="editar-product-photo-label">Actualice la foto de su producto:</label>
-            <input type="file" name="editar-product-photo" accept=".jpg, .png" multiple>
+            <input class="editar-product-photo"type="file" name="editar-product-photo" accept=".jpg, .png" multiple>
             <div class="submit-editar-product-container">
                 <button class="editar-product-button">
-                    <p>Crear producto</p>
+                    <p>Guardar cambios</p>
                 </button>
                 <span>*Todos los campos son obligatorios</span>
             </div>  
