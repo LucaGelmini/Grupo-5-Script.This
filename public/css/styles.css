@@ -922,14 +922,22 @@ form{
     
 }
 
-.formulario-register{
+.formulario-register, .create-product-form{
     width: 90%;
     margin: auto;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 10px 5px 25px black ;
 }
-.formulario-register h2{
+.create-product-form{
+    margin-bottom: 25px;
+}
+.create-product-form h3{
+    color: black;
+    -webkit-text-stroke: 0;
+    margin: 10px 0px;
+}
+.formulario-register h2, .create-product-container h2{
     font-size: 22px;
     margin-bottom: 10px;
 }
@@ -995,8 +1003,8 @@ form{
     margin-top: 15px;
 }
 
-.img-perfil {
-    margin: 15px 0 15px 0;
+.img-perfil, .img-crear-producto {
+    margin: 15px 0;
     /*margin: auto;*/
     
 }
@@ -1012,14 +1020,14 @@ input[type="file"]::-webkit-file-upload-button{
     border-radius: 5px;
 }
 
-.botones-register{
+.botones-register, .submit-create-product-container{
     
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.botones-register button{
+.botones-register button, .submit-create-product-container button {
     display: flex;
     width:fit-content;
     margin: 15px 0 5px 0;
@@ -1031,8 +1039,12 @@ input[type="file"]::-webkit-file-upload-button{
     height: 35px;
 }
 
-.botones-register button[type="submit"]{
+.botones-register button[type="submit"], .submit-create-product-container button{
     background-color: #0a9fb2;
+    color: white;
+}
+.submit-create-product-container button p, .botones-register button[type="submit"] p{
+    font-size: 16px;
 }
 .botones-register a{
     color: white;

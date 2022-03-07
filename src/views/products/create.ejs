@@ -2,21 +2,20 @@
 <html lang="en">
     <%-include('../partials/head') %> 
     <body>
-        <header>
+        <header class="header-create">
             <%-include('../partials/header')  %>
-            <%-include('../partials/carrusel') %>
         </header>
         <main>
             <div class="create-product-container">
-                <p class="create-producto-title">Crea tus productos</p>
-                <p class="complete-data-title">Ingresa los siguientes datos para crear tu producto:</p>
+                <h2 class="create-producto-title">Crea tus productos</h2>
                 <form class="create-product-form" action="" method="POST">
-                    <input class="create-product-input" type="text" name="product-name" placeholder="Ingrese el nombre del producto">
-                    <input class="create-product-input" type="text" name="description" placeholder="Describa el producto">
-                    <input class="create-product-input" type="text" name="category" placeholder="Ingrese la categoria de su producto">
-                    <input class="create-product-input" type="number" name="precio" placeholder="Ingrese el precio de su producto">
-                    <label class="create-product-photo-label">Adjunte la foto de tu producto:</label>
-                    <input type="file" name="create-product-photo" accept=".jpg, .png" multiple>
+                    <h3 class="complete-data-title">Ingresa los siguientes datos para crear tu producto:</h3>
+                    <input class="input-texto" type="text" name="product-name" placeholder="Ingrese el nombre del producto">
+                    <input class="input-texto" type="text" name="description" placeholder="Describa el producto">
+                    <input class="input-texto" type="text" name="category" placeholder="Ingrese la categoria de su producto">
+                    <input class="input-texto" type="number" name="precio" placeholder="Ingrese el precio de su producto">
+                    <label class="label-header">Adjunte la foto de tu producto:</label>
+                    <input class="img-crear-producto" type="file" name="create-product-photo" accept=".jpg, .png" multiple>
                     <div class="submit-create-product-container">
                         <button class="create-product-button">
                             <p>Crear producto</p>
