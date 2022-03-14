@@ -1,45 +1,51 @@
+// ************ Require's ************
 const express = require('express');
 const path = require('path');
-const app = express();
-const publicPath = path.resolve(__dirname,'./public')
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const methodOverride = require('method-override')// Pasar poder usar los métodos PUT y DELETE
 
-app.use(express.static(publicPath))
+// ************ express() - (don't touch) ************
+const app = express();
 
-const indexRouter = require('./src/routes/index')
-const loginRouter = require('./src/routes/login')
-const productCartRouter = require('./src/routes/productCart')
-const registerRouter = require('./src/routes/register')
-const detailRouter = require('./src/routes/detail');
-const createRouter = require('./src/routes/create');
-const editRouter = require('./src/routes/edit');
-const listRouter = require('./src/routes/list');
-
-// view engine setup
-app.set('views',path.join(__dirname,'/src/views')) 
+// ************ Template Engine - (don't touch) ************
+app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
+ // ************ Middlewares - (don't touch) ************
+app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
+app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
+app.use(logger('dev')); 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method')); // Poder usar metodo PUT y DELETE en los formularios vistas ejs.
+
+
+
+
+
+// ************ WRITE YOUR CODE FROM HERE ************
+// ************ Route System require and use() ************
+const indexRouter = require('./src/routes/index');
+const productsRouter = require('./src/routes/products');
+const dataRouter = require('./src/routes/data');
 
 
 app.use('/', indexRouter);
-app.use('/register', registerRouter);
-app.use('/login',loginRouter);
-app.use('/productCart',productCartRouter);
-app.use('/detail', detailRouter);
-app.use('/create', createRouter);
-app.use('/edit', editRouter);
-app.use('/list', listRouter);
+app.use('/products', productsRouter);
+app.use('/data',dataRouter)
+ 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    next(createError(404));
-  });
+app.listen('3000', ()=>{
+  console.log('Servidor encendido !');
+})
+
+
+
+// ************ DON'T TOUCH FROM HERE ************
+// ************ catch 404 and forward to error handler ************
+app.use((req, res, next) => next(createError(404)));
   
   // error handler
   app.use(function(err, req, res, next) {
@@ -53,9 +59,6 @@ app.use(function(req, res, next) {
   });
   
 
-app.listen('3000', ()=>{
-    console.log('Servidor encendido !');
-})
 
  
 
