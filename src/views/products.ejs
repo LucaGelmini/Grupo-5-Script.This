@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head',{title: 'Lista Productos'}) %> 
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %> 
+    </header>
+    <main>
+        <div class="container-products-wrapper">
+             <div class="photo-container">
+               <img class="banner-photo" src="/img/banner01.jpg" alt="img banner">
+               <div class="photo-message">
+                   <h1>TODOS NUESTROS PRODUCTOS 100% ORGÁNICOS</h1>
+               </div>
+           </div>
+            <div class="filter-title-result">
+                    <p> <small>CATEGORÍA:</small>  <strong>Todos los productos</strong> </p> 
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-1">
+                    <div class="cart-title-container">
+                        <h5><i class="fas fa-shopping-cart"></i>MI CARRITO</h5>
+                    </div>
+                    <div class="subtotal-cart">
+                        <p>SUBTOTAL $ 0,00</p>
+                        <button class="detail-cart-button">
+                            <i class="fa fa-bars burger"></i>VER DETALLE
+                        </button>
+                    </div>
+                    <hr>
+                    <div class="categorías-title-container">
+                        <h5>CATEGORÍAS</h5>
+                    </div>
+                    <div class="products-category">
+                        <a class="list-group-item" href="#">TODOS LOS PRODUCTOS</a>
+                        <a class="list-group-item" href="#">FRUTAS</a>
+                        <a class="list-group-item" href="#">VERDURAS</a>
+                        <a class="list-group-item" href="#">HIERBAS</a>
+                        <a class="list-group-item" href="#">SECOS</a>
+                    </div>
+                </div>
+                <div class="products-cart-container">
+                    <% products.forEach(product=>{%>
+                        <%- include('./partials/product-box',{product}) %>
+                    <%}) %> 
+                </div>
+            </div>
+        </div>
+    </main>
+     <%-include('./partials/footer')  %> 
+</body>
+</html>

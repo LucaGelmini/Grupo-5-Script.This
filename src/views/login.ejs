@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-login">
+            <form class="formulario-login" method="GET" name= "formulario-registro">
+                
+                <input class="input-texto" type="text" name="user-name" placeholder="Nombre de usuario">
+                
+                <input class="input-texto" type="password"  placeholder="Contraseña">
+                
+                <a href="/"><button class="boton-login" type="submit">Enviar</button></a>
+
+                <div class="login-troubleshooting">
+                    <a  href="#">Olvidé mi contraseña</a>
+                    <a  href="/register">No tengo cuenta</a>
+                </div>
+                
+
+            </form>
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>
