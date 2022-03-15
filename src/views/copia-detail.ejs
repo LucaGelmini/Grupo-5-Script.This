@@ -21,18 +21,16 @@
                     <p class="price-product">$ <%= productDetail.price %> </p>
                     <p class="discount-price">OFF% <%= productDetail.discount %> </p>
                        <p class="product-name"> <%= productDetail.name %> </p>
-                    <p class="presentation">PRESENTACIÓN: <%=`${productDetail.mensure_value} ${productDetail.unit_mensure}`  %></p>
+                    <p class="presentation">PRESENTACIÓN: <%=`${productDetail.mensure_value} ${productDetail.unit_mensure}` %></p>
                     <p class="description">DESCRIPCIÓN: <%= productDetail.description %></p> 
                     <a href="/products/edit/<%= productDetail.id %> ">
                         <button class="cart-button" type="button">
                              <p>EDITAR</p> 
                         </button>
                     </a>
-                    <form action="/products/<%= productDetail.id %>?_method=DELETE" method="POST">     
-                        <button class="cart-button" type="submit">
-                            <p>ELIMINAR</p> 
-                        </button>
-                    </form>
+                    <button class="cart-button" type="button">
+                        <p>ELIMINAR</p> 
+                    </button>
                 </div>
            
             </section>

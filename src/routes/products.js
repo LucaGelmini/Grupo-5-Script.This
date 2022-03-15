@@ -23,6 +23,8 @@ const upload = multer({storage});
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.allProducts);
 
+
+
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create);
 router.post('/',upload.single('img'),productsController.store);

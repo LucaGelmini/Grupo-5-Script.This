@@ -36,9 +36,9 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter)
  
-
-app.listen('3000', ()=>{
-  console.log('Servidor encendido !');
+const PORT = 3000
+app.listen(PORT, ()=>{
+  console.log(`##########################\n\nServidor encendido en el puerto ${PORT}!!!!\n\n###########################`);
 })
 
 

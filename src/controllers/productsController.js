@@ -18,13 +18,15 @@ const productsController = {
 
     // Detail - Detail from one product
     detail: (req,res) => {
-        let idProduct = req.params.id
+        console.log('DETAILLLL')
+        let idProduct = req.params.id;
         let productDetail = products.find(product=> product.id == idProduct);
         res.render('detail', {productDetail});
     }, 
 
 	// Create - Form to create
     create: (req, res)=>{
+        console.log('DALEEEEEEEEE')
         res.render('product-create-form');
     },
 
