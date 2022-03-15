@@ -1,4 +1,5 @@
  
+const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
@@ -31,6 +32,14 @@ const productsController = {
 
     // Create -  Method to store - //PARA "CREAR Y GUARDAR" => CONSULTAR (LEER) + PUSH (INCORPORAR CAMBIOS) + SOBRE ESCRIBIR CAMBIOS
     store: (req, res)=>{
+        const newProduct = req.body;
+        newProduct.price = Number(newProduct.price);
+        newProduct.discount = Number(newProduct.discount);
+        newProduct.image = req.file.filename;
+        newProduct.id = (Math.max.apply(null,products.map(product=>product.id)))+1
+
+        products.push(newProduct);
+        uploadDataJsonProducts(products);
         res.redirect('/products');
     },
 
@@ -51,22 +60,22 @@ const productsController = {
                 product.name = productEdited.name
 				product.unit_mensure = productEdited.unit_mensure
 				product.mensure_value = productEdited.mensure_value
-				product.price = productEdited.price
-				product.discount = productEdited.discount
+				product.price = Number(productEdited.price)
+				product.discount = Number(productEdited.discount)
                 product.category = productEdited.category
                 product.exposicion = productEdited.exposicion
                 product.description = productEdited.description
                 
-        }
+            }
         })
         uploadDataJsonProducts(products)
         res.redirect('/products')
     },
 
-    delete: (req, res)=>{
+    destroy: (req, res)=>{
         let idProduct = req.params.id
 		products.splice ((idProduct-1),1)
-		updateDataJsonProducts(products)
+        uploadDataJsonProducts(products)
 		res.redirect('/products')
          
     } 

@@ -28,9 +28,11 @@
                              <p>EDITAR</p> 
                         </button>
                     </a>
-                    <button class="cart-button" type="button">
-                        <p>ELIMINAR</p> 
-                    </button>
+                    <form action="/products/<%= productDetail.id %>?_method=DELETE" method="POST">     
+                        <button class="cart-button" type="submit">
+                            <p>ELIMINAR</p> 
+                        </button>
+                    </form>
                 </div>
            
             </section>
