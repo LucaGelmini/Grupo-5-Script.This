@@ -11,7 +11,12 @@
 header {
 
     background-color: #89cd4d;
+}
 
+.logo-mas-buscador .form{
+    width: 100%;
+    max-width: 500px;
+    display: none;
 }
 .header-login{
     position: fixed;
@@ -26,14 +31,16 @@ body{
  
 .logo-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     width: 30%;
+    max-width: 220px;
     text-align: center;
     margin: 0 5px;
 }
 footer .logo-container{
     margin: auto;
+    justify-content: center;
 }
 footer .logo-container p{
     color: #D84D09;
@@ -41,7 +48,7 @@ footer .logo-container p{
 }
 .logo-container p {
     font-family: 'Gochi Hand', cursive;
-    font-size:300%;
+    font-size: 25px;
     color: white;
     padding: 5px;
 }
@@ -327,14 +334,31 @@ h3 {
     border-left: solid 2px rgb(0,0,0,0.2 );
 }
 
+.burger-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    width: 33%;
+}
+.burger-container i{
+    text-align: center;
+}
 .burger {
+    margin: auto;
+    text-align: center;
     padding: 5px 5px 5px 10px;
     color: rgb(54, 54, 54);
     border-radius: 4px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 25px;
 }
-
+.cart-container{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
 .fa-shopping-cart {
     margin: 10px;
     color:rgb(54, 54, 54);
@@ -364,6 +388,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 15px;
 
 }
 
@@ -437,9 +462,9 @@ cursor: pointer;
 }
 
 .recaptcha-mas-submit {
-     width: 100%;
-     margin: 10px;
-
+     width: 35%;
+     margin: auto;
+     min-width: 200px;
  
 }
 
@@ -457,6 +482,9 @@ cursor: pointer;
 
 
 .contenedor-input-suscripcion-recaptcha{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
     border-top: 1px solid grey;
     text-align: center;
     padding: 30px 15px 15px 15px;
@@ -537,7 +565,11 @@ padding-bottom: 10px;
     color: white;
     text-align: center;
     padding: 10px 0px 15px 0px;
+    
+}
+.tarjetas-pago i, .redes-sociales i{
     font-size: 30px;
+    margin: 0 10px;
 }
 
  
@@ -758,7 +790,9 @@ header ul {
 }
 
  .container-products-wrapper{
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
      width: 100%;
  }
  
@@ -773,6 +807,7 @@ header ul {
 
  .col-1 {
      background-color: white;
+     width: 100%;
      
  }
 
@@ -781,7 +816,7 @@ header ul {
  .cart-title-container, .categorías-title-container  {
     padding: 5px;
     margin: 5px;
-    color: #ec2f2f;
+    color: #D84D09;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
@@ -851,12 +886,19 @@ header ul {
 }
 
 .products-cart-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     width: auto;
-     
+    max-width: 1000px;
 }
+
+
+
 
 .product-box {
     width: 96%;
+    max-width: 200px;
     margin: 5px;
     border: solid 1px black;
     border-radius: 10px;
@@ -886,7 +928,7 @@ header ul {
 
 .price-product{
     padding-right: 5px;
-    color: #ec2f2f;
+    color: #D84D09;
     font-size: 24px;
     margin: 0px 5px 5px 5px;
 }
@@ -911,7 +953,8 @@ header ul {
  
 
 .filter-title-result{
-    text-align: center;
+    display: block;
+    width: 100%;
     padding: 10px;
     
 }
@@ -925,7 +968,11 @@ header ul {
 }
 
 .row{
+    display: flex;
+    flex-wrap: wrap;
     padding: 20px;
+    margin: auto;
+    justify-content: center;
 }
 
 .product-detail-cart{
@@ -966,6 +1013,8 @@ header ul {
 
 .list-group-item:hover{
     text-decoration: underline;
+    background-color: #D84D09;
+    color: white;
 }
  
 @media (min-width:277px) {
@@ -976,6 +1025,12 @@ header ul {
 
 
 @media (min-width: 361px) {
+    .logo-container p{
+        font-size: 300%;
+    }
+    .logo-mas-buscador .form{
+        display: block;
+    }
     .products-container, .offers-container {
         display: flex;
         flex-wrap: wrap;
@@ -1018,17 +1073,13 @@ header ul {
 
     .recaptcha {
         width: 50%;
+        min-width: 200px;
     }
 
     .contenedor-boton-producto  {
         bottom: 0px;
     }
 
-    .products-cart-container{
-        display: flex;
-        flex-wrap: wrap;
-        
-    }
      .product-box{
         width: 46%; 
     }
@@ -1099,6 +1150,9 @@ header ul {
  }
 
  @media (min-width:768px){
+     .burger-container{
+         display: none;
+     }
      .row{
          display: flex;
          width: 100%;
@@ -1158,6 +1212,7 @@ form{
     /*margin: 0 0 25px 0;
     width: 100%;*/
     background-color: #efefef;
+
     
 }
 .form-unreach-zone{
@@ -1173,10 +1228,14 @@ form{
     width: 35%; 
     height: 200px;
     min-width: 250px;
+    max-width: 400px;
     border-radius: 5px;
     box-shadow: 10px 5px 20px black ;
     justify-content: space-between;
     
+}
+.formulario-register, .create-product-form{
+    max-width: 600px;
 }
 
 .formulario-register, .create-product-form, .editar-product-form{
@@ -1187,6 +1246,7 @@ form{
     box-shadow: 10px 5px 25px black ;
 }
 .create-product-form, .editar-product-form{
+    margin-top: 25px;
     margin-bottom: 25px;
 }
 .create-product-form h3, .complete-data-title{
@@ -1195,12 +1255,16 @@ form{
     -webkit-text-stroke: 0;
     margin: 10px 0px;
 }
-.formulario-register h2, .create-product-title, .editar-producto-title{
-    font-size: 22px;
-    margin-bottom: 10px;
+.formulario-register h2, .create-producto-title, .editar-producto-title{
+    font-size: 28px;
+    margin: 10px; 
 }
-.main-register{
+.main-register, .main-de-create{
     padding: 20px;
+    background-image: url(../img/frutas-login.jpeg);
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
 }
 .login-troubleshooting{
     display: flex;
@@ -1210,6 +1274,9 @@ form{
 }
 .login-troubleshooting a{
     margin: 4px;
+}
+.login-troubleshooting a:hover{
+    color: #D84D09;
 }
 .perfil-usr{
     display: flex;
@@ -1232,10 +1299,12 @@ form{
 .categorias-interes{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 10px;
 }
 .categoria-int{
+    display: flex;
+    align-items: center;
     background-color: #0a9fb2;
     color: white;
     height: 30px;
@@ -1244,6 +1313,10 @@ form{
     margin: 5px;
     cursor: pointer;
 }
+.categoria-int label{
+    padding-right: 5px;
+}
+
 .categoria-int:hover{
     background-color: #D84D09;
 }
@@ -1254,7 +1327,7 @@ form{
     border-radius: 5px;
     border: none;
     outline: black 1px solid;
-    padding: 10px;
+    padding: 0 10px;
 }
 .input-texto:focus{
     outline: #D84D09 2px solid;
@@ -1275,18 +1348,39 @@ form{
     /*margin: auto;*/
     
 }
-.img-perfil input{
-    display: flex;
-    flex-direction: column;
+.img-perfil input, .img-crear-producto{
+    display: block;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
 }
-input[type="file"]::-webkit-file-upload-button{
+
+.img-perfil, .label-img-crear{
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #89cd4d;
-    height: 30px;
+    height: 50px;
+    max-width: 250px;
     color: white;
     border: none;
     border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    text-align: center;
 }
 
+
+.img-perfil:hover{
+    background-color: #D84D09;
+}
+
+.img-perfil-container{
+    margin: 20px 0;
+}
 .botones-register, .submit-create-product-container, .submit-editar-product-container{
     
     margin-top: 10px;
@@ -1418,7 +1512,7 @@ input[type="file"]::-webkit-file-upload-button{
         background-color: rgba(196, 209, 161, 0.5);
         opacity: 1; }
 
-        .nav-offers, .nav01, .nav00 {
+        .nav01, .nav00 {
             display: block;
         }
 
@@ -1430,7 +1524,8 @@ input[type="file"]::-webkit-file-upload-button{
              display: flex;
              flex-direction: row;
              width: 100%;
-             justify-content: space-around;
+             justify-content: space-between;
+             padding: 0 10px;
               
          }
 
@@ -1464,12 +1559,14 @@ input[type="file"]::-webkit-file-upload-button{
 
          .nav-offers {
             width: 33%;
+            max-width: 330px;
             padding: 5px 5px;
             font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
+            justify-content: right;
          }
 
          .cart-container  {
@@ -1554,6 +1651,7 @@ input[type="file"]::-webkit-file-upload-button{
     .boton-producto p {
         font-size: 3rem;
     }
+
 }
  
 

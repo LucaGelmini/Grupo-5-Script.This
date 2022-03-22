@@ -7,44 +7,47 @@
         <header class="header-create">
             <%-include('./partials/header')  %>
         </header>
-        <main>
-            <div class="create-product-container">
+        <main class="main-de-create">
+        
+            
+            <form class="create-product-form" action="/products/" method="POST" enctype="multipart/form-data">
                 <h2 class="create-producto-title">Crea tus productos</h2>
-                <form class="create-product-form" action="/products/" method="POST" enctype="multipart/form-data">
-                    <h3 class="complete-data-title">Ingresa los siguientes datos para crear tu producto:</h3>
-                    <input class="input-texto" type="text" name="name" placeholder="Ingrese el nombre del producto">
-                    <input class="input-texto" type="text" name="unit_mensure" placeholder="Ingrese la unidad de medida del product">
-                    <input class="input-texto" type="text" name="mensure_value" placeholder="Ingrese el valor de la unidad de medida">
-                    <input class="input-texto" type="number" name="price" placeholder="Ingrese el precio de su producto">
-                    <input class="input-texto" type="number" name="discount" placeholder="Ingrese el descuento del producto">
-                    <label for="category" class="form-label">Categoría:</label>
-						<select name="category" id="category" class="form-input">
-							<option value="">Elegí</option>
-							<option value="verduras">verduras</option>
-							<option value="frutas">frutas</option>
-                            <option value="hierbas">hierbas</option>
-                            <option value="secos">secos</option>
-						</select>
-                        <label for="exposicion" class="form-label">exposición:</label>
-						<select name="exposicion" id="exposicion" class="form-input">
-							<option value="">Elegí</option>
-							<option value="oferta">oferta</option>
-							<option value="destacado">destacado</option>
-                            <option value="general">general</option>
-						</select>
-                    <input class="input-texto" type="text" name="description" placeholder="Describa el producto">
-                 
-                    
-                    <label class="label-header">Adjunte la foto de su producto:</label>
-                    <input class="img-crear-producto" type="file" name="img" accept=".jpg, .png" multiple>
-                    <div class="submit-create-product-container">
-                        <button class="create-product-button">
-                            <p>Crear producto</p>
-                        </button>
-                        <span>*Todos los campos son obligatorios</span>
-                    </div>  
-                </form>
-            </div>
+                <h3 class="complete-data-title">Ingresa los siguientes datos para crear tu producto:</h3>
+                <input class="input-texto" type="text" name="name" placeholder="Ingrese el nombre del producto">
+                <input class="input-texto" type="text" name="unit_mensure" placeholder="Ingrese la unidad de medida del product">
+                <input class="input-texto" type="text" name="mensure_value" placeholder="Ingrese el valor de la unidad de medida">
+                <input class="input-texto" type="number" name="price" placeholder="Ingrese el precio de su producto">
+                <input class="input-texto" type="number" name="discount" placeholder="Ingrese el descuento del producto">
+                <label for="category" class="form-label">Categoría:</label>
+                    <select class="input-texto" name="category" id="category" class="form-input">
+                        <option value="">Elegí</option>
+                        <option value="verduras">verduras</option>
+                        <option value="frutas">frutas</option>
+                        <option value="hierbas">hierbas</option>
+                        <option value="secos">secos</option>
+                    </select>
+                    <label for="exposicion" class="form-label">exposición:</label>
+                    <select class="input-texto" name="exposicion" id="exposicion" class="form-input">
+                        <option value="">Elegí</option>
+                        <option value="oferta">oferta</option>
+                        <option value="destacado">destacado</option>
+                        <option value="general">general</option>
+                    </select>
+                <input class="input-texto" type="text" name="description" placeholder="Describa el producto">
+                
+                
+                <label class="label-img-crear" for="img-crear">
+                    Adjunte aquí la foto de su producto
+                    <input class="img-crear-producto" id="img-crear" type="file" name="img" accept=".jpg, .png" multiple>
+                </label>
+                <div class="submit-create-product-container">
+                    <button class="create-product-button">
+                        <p>Crear producto</p>
+                    </button>
+                    <span>*Todos los campos son obligatorios</span>
+                </div>  
+            </form>
+        
         </main>
         <%-include('./partials/footer')  %> 
     </body>

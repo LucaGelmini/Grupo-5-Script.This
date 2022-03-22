@@ -8,7 +8,7 @@
             <%-include("./partials/header")%>
         </header>
         <main class="main-register">
-            <form class="formulario-register" method="GET" name= "formulario-registro">
+            <form class="formulario-register" method="POST" name= "formulario-registro">
                 <h2>Creá tu cuenta</h2>
                 <input class="input-texto" type="text" name="nombre" placeholder="Nombre/s y apellido/s">
                 <input class="input-texto" type="text" name="user-name" placeholder="Nombre de usuario">
@@ -22,11 +22,11 @@
                 <label class="label-header">Perfil del usuario</label>
                 <div class="perfil-usr">
                     <div>
-                        <input type="radio" id="comprador" value="perfil-comprador">
+                        <input type="radio" id="comprador" value="perfil-comprador" name="radio-perfil-usuario">
                         <label for="comprador">Comprador</label>
                     </div>
                     <div>    
-                        <input type="radio" id="vendedor" value="perfil-vendedor"> 
+                        <input type="radio" id="vendedor" value="perfil-vendedor" name="radio-perfil-usuario"> 
                         <label for="vendedor">Vendedor</label>
                     </div>
                 </div>
@@ -55,10 +55,16 @@
                         <input type="checkbox" id="vida-sana" value="vida-sana">
                     </div>
                 </div>
-                <label class="label-header">Imagen de perfil:</label>
-                <div class="img-perfil">
-                    <input type="file" name="avatar" accept=".jpg, .png">
+                
+                <div class="img-perfil-container">
+                    <label class="label-header">Imagen de perfil:</label>
+                    <label for="avatar" class="img-perfil">
+                        Seleccione un archivo
+                        <input type="file" name="avatar" id="avatar" accept=".jpg, .png">
+                    </label>
                 </div>
+                
+                
                 <input class="input-texto" type="password"  placeholder="Contraseña">
                 <input class="input-texto" type="password"  placeholder="Confirmar contraseña">
                 <div class="botones-register">
