@@ -1,3 +1,4 @@
+const { redirect } = require('express/lib/response');
 const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname,'../data/usersDataBase.json');
@@ -26,10 +27,10 @@ const indexController = {
         res.redirect('')
     },
     registerView: (req, res)=>{
-        res.render('register')
+        res.render('register', {usrImg: './img/logo-opcion-dos.png'});
     },
     register: (req, res)=>{
-        res.redirect('')
+        res.redirect('') 
     } 
 }
 

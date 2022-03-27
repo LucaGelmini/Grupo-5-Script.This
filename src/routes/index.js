@@ -25,7 +25,7 @@ router.post('/',indexController.login)
 
 router.get('/register',indexController.registerView)
 
-router.post('/',upload.single('img'),indexController.register)
+router.post('/register',upload.single('img-usr'),indexController.register)
 
 router.post('/',indexController.search)
 

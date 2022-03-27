@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    console.log('Carga script')
+    function PreviewImage() {
+        console.log('ENTROALAFUNCION');
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("img-crear").files[0]);
+
+        oFReader.onload = (oFREvent) =>{
+            document.getElementById("preview-user").src = oFREvent.target.result;
+        };
+    };
+
+</script>
+
+<div class="subir-imagen-container">           
+    <img alt="Foto de perfil" id="preview-user" class="preview-user" src=<%= usrImg %> >
+    <label class="label-img-crear preview-img" for="img-crear">
+        Adjunte aquí su foto de perfil
+        <input class="img-crear-producto" id="img-crear" type="file" name="img-usr" accept=".jpg, .png" onchange="PreviewImage()" multiple>
+    </label>
+</div>

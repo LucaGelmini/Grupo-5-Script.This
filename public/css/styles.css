@@ -1415,6 +1415,34 @@ form{
     color: white;
 }
 
+.subir-imagen-container{
+    width: 200px;
+    /*Para que quede bien, la altura de esta caja debe ser
+    el ancho de la misma más el alto de .preview-img*/
+    height: 250px;
+    margin: auto ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /*border: black 2px solid;*/
+}
+.preview-user{
+    border-radius: 50%;
+    border: black 2px solid;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.preview-img{
+    /*Esto es el boton de agregar foto, el nombre de la clase es confuso*/
+    position: relative;
+    width: 100%;
+    height: 50px;
+    bottom: 50px;
+    max-width: none;
+    
+}
+
 .boton-login{
     margin-top: 5px;
     width: 100%;
