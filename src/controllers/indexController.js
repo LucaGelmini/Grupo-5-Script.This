@@ -18,19 +18,8 @@ const indexController = {
         //let indexSearch = req.query.keywords;
         //let SearchResults = products.includes()
         res.render('search')
-    },
-    loginView: (req, res)=>{
-        res.render('login')
-    },
-    login: (req, res)=>{
-        res.redirect('')
-    },
-    registerView: (req, res)=>{
-        res.render('register')
-    },
-    register: (req, res)=>{
-        res.redirect('')
-    } 
+    }
+    
 }
 
 module.exports = indexController;

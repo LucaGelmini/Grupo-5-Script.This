@@ -30,11 +30,13 @@ app.use(methodOverride('_method')); // Poder usar metodo PUT y DELETE en los for
 const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
+const usersRouter = require('./src/routes/users');
 
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
-app.use('/data',dataRouter)
+app.use('/data',dataRouter);
+app.use('/users', usersRouter)
  
 const PORT = 3000
 app.listen(PORT, ()=>{
