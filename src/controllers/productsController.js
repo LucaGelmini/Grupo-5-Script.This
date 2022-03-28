@@ -1,8 +1,8 @@
  
-const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
+const Products = require('../models/Products');
 
 // FUNCION PARA LEER EL ARCHIVO PRODUCTS JSON 
 const products = JSON.parse(fs.readFileSync(productsFilePath,'utf8'));
@@ -13,40 +13,36 @@ const uploadDataJsonProducts = (newUpdate)=>{fs.writeFileSync(productsFilePath,J
 const productsController = {
     //Root - Show all products
     allProducts:(req,res) => {
+        let products = Products.findAll();
         res.render('products',{products});
     },
 
     // Detail - Detail from one product
     detail: (req,res) => {
-        console.log('DETAILLLL')
         let idProduct = req.params.id;
-        let productDetail = products.find(product=> product.id == idProduct);
+        let productDetail = Products.findByPk(idProduct);
         res.render('detail', {productDetail});
     }, 
 
 	// Create - Form to create
     create: (req, res)=>{
-        console.log('DALEEEEEEEEE')
         res.render('product-create-form');
     },
 
     // Create -  Method to store - //PARA "CREAR Y GUARDAR" => CONSULTAR (LEER) + PUSH (INCORPORAR CAMBIOS) + SOBRE ESCRIBIR CAMBIOS
     store: (req, res)=>{
-        const newProduct = req.body;
-        newProduct.price = Number(newProduct.price);
-        newProduct.discount = Number(newProduct.discount);
-        newProduct.image = req.file.filename;
-        newProduct.id = (Math.max.apply(null,products.map(product=>product.id)))+1
-
-        products.push(newProduct);
-        uploadDataJsonProducts(products);
+         let productToCreate = {
+            ...req.body,
+            image: req.file.filename
+        }
+        Products.create(productToCreate);
         res.redirect('/products');
     },
 
     // Update - Form to edit
     edit:(req, res)=>{
         let idProduct = req.params.id;
-        let productToEdit = products.find(product=>product.id == idProduct);
+        let productToEdit = products.find(product => product.id == idProduct);
         res.render('product-edit-form', {productToEdit});
     },
 
@@ -73,9 +69,8 @@ const productsController = {
     },
 
     destroy: (req, res)=>{
-        let idProduct = req.params.id
-		products.splice ((idProduct-1),1)
-        uploadDataJsonProducts(products)
+        let idProduct = req.params.id;
+        Products.delete(idProduct);
 		res.redirect('/products')
          
     } 

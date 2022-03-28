@@ -1,44 +1,13 @@
 [
-    {
-        "id": 1,
-        "name": "Gregorio",
-        "lastName":"Romero Garzon",
-        "adress": "Carlos Encina 1935",
-        "floor": "N/A",
-        "dpto": "N/A",
-        "city":"Córdoba",
-        "location": "Cerro de las Rosas",
-        "postalCode":5009,
-        "telephone":3515140462,
-        "birthDate": "26/12/1991",
-        "image":"avatar01-img.jpg" 
-    },
-    {
-        "id": 2,
-        "name": "Manuel",
-        "lastName":"Rodriguez",
-        "adress": "Peru 277",
-        "floor": "N/A",
-        "dpto": "N/A",
-        "city":"Córdoba",
-        "location": "Urca",
-        "postalCode":5012,
-        "telephone":3515191401,
-        "birthDate": "30/01/1994",
-        "image":"avatar02-img.jpg" 
-    },
-    {
-        "id": 3,
-        "name": "Lucas",
-        "lastName":"Gelmini",
-        "adress": "Paraguay 441",
-        "floor": "N/A",
-        "dpto": "N/A",
-        "city":"Córdoba",
-        "location": "Valle Escondido",
-        "postalCode":5001,
-        "telephone":3515182042,
-        "birthDate": "25/10/1997",
-        "image":"avatar03-img.jpg" 
-    }
+ {
+  "id": 1,
+  "nameLastname": "Gregorio Romero Garzon",
+  "username": "House",
+  "email": "gregorioromerogarzon@gmail.com",
+  "brithDate": "1991-12-26",
+  "adress": "Carlos encina 1935",
+  "postalCode": "5009",
+  "phone": "+5493515140462",
+  "password": "$2a$10$lWzWLX6rsEogrOwiGX8wZOjARv0dLfxLRBALCV5dj0DVQAh7vDkqy"
+ }
 ]

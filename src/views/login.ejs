@@ -8,11 +8,14 @@
             <%-include("./partials/header")%>
         </header>
         <main class="main-login">
-            <form class="formulario-login" method="GET" name= "formulario-registro">
+            <form class="formulario-login" action="/users/" method="POST" name= "formulario-registro">
                 
                 <input class="input-texto" type="text" name="user-name" placeholder="Nombre de usuario">
                 
-                <input class="input-texto" type="password"  placeholder="Contraseña">
+                <input class="input-texto" type="password" name="password"  placeholder="Contraseña">
+
+                <label for="">Recordame</label>
+                <input type="checkbox" name="recordame">
                 
                 <a href="/"><button class="boton-login" type="submit">Enviar</button></a>
 
