@@ -1,16 +1,4 @@
-<script type="text/javascript">
-    console.log('Carga script')
-    function PreviewImage() {
-        console.log('ENTROALAFUNCION');
-        var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("img-crear").files[0]);
-
-        oFReader.onload = (oFREvent) =>{
-            document.getElementById("preview-user").src = oFREvent.target.result;
-        };
-    };
-
-</script>
+<script type="text/javascript" src="/js/index.js"></script>
 
 <div class="subir-imagen-container">           
     <img alt="Foto de perfil" id="preview-user" class="preview-user" src=<%= usrImg %> >
