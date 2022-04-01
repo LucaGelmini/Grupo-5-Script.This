@@ -4,11 +4,26 @@ const path = require('path');
 const Users = require('../models/Users');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 const { resolveSoa } = require('dns');
+const { redirect } = require('express/lib/response');
 
 const usersController = {
+    users: (req, res) =>{
+        if(req.session.logedUser){
+           res.render('users', {
+               user: Users.findByField('username', req.session.logedUser),
+               logedUser: req.session.logedUser})
+        }else{
+            res.redirect('/users/login')
+        }
+    },
+    editUser: (req, res)=>{
+        res.redirect('/',{logedUser: req.session.logedUser})
+    },
+
     loginView: (req, res)=>{
         res.render('login')
     },
+
     login: (req, res)=>{
         let loginData = req.body;
         const validation = validationResult(req);
@@ -20,10 +35,20 @@ const usersController = {
         }
 
         if (validation.errors.length === 0){
+
             bcrypt.compare(password, userInDB.password, (err, pass)=>{
                 err ? console.log(err) : null;
-                pass ? res.send('Bienvenido' + userInDB.username) : res.render('login', {errors: noMatch, oldData: loginData})
+                if(pass){
+                    req.session.logedUser = userInDB.username;
+                    res.redirect('/');
+                } else {
+                    res.render('login', {
+                            errors: noMatch,
+                            oldData: loginData
+                        });
+                };
             });
+
         }else{
             res.render('login',{
                 errors: validation.mapped(),
@@ -32,9 +57,24 @@ const usersController = {
             console.log(validation.mapped())
         }
     },
-    registerView: (req, res)=>{
-        res.render('register')
+    logout: (req,res)=>{
+        if (req.session) {
+            req.session.destroy(err => {
+              if (err) {
+                res.status(400).send('Error: incapaz de desloguearse');
+              } else {
+                res.redirect('/')
+              }
+            });
+          } else {
+            res.redirect('/')
+          }
     },
+
+    registerView: (req, res)=>{
+        req.session.logedUser ? res.redirect('/') :res.render('register')
+    },
+
     register: (req, res)=>{
         const validation = validationResult(req);
         let password = req.body.password;

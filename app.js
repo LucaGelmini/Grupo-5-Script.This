@@ -4,7 +4,8 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require('method-override')// Pasar poder usar los métodos PUT y DELETE
+const methodOverride = require('method-override');// Pasar poder usar los métodos PUT y DELETE
+const session = require('express-session');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -20,6 +21,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride('_method')); // Poder usar metodo PUT y DELETE en los formularios vistas ejs.
+app.use(session({
+    secret: "Gregory House and Luko for the win",
+    resave: true,
+    saveUninitialized: true
+  }
+))
+
 
 
 
