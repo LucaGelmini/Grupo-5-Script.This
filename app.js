@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');// Pasar poder usar los métodos PUT y DELETE
 const session = require('express-session');
+const recuerdaLoginMiddleware = require('./src/middlewares/recuerdaLoginMiddleware');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -27,6 +28,8 @@ app.use(session({
     saveUninitialized: true
   }
 ))
+app.use(cookieParser());
+app.use(recuerdaLoginMiddleware);
 
 
 

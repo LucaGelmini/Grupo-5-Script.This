@@ -56,6 +56,9 @@ const usersController = {
             });
             console.log(validation.mapped())
         }
+        if(loginData.recordame){
+            res.cookie('recordarLogin', loginData.username, {maxAge: 60000})
+        }
     },
     logout: (req,res)=>{
         if (req.session) {
