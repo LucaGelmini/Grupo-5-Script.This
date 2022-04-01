@@ -9,5 +9,16 @@
   "postalCode": "5009",
   "phone": "+5493515140462",
   "password": "$2a$10$lWzWLX6rsEogrOwiGX8wZOjARv0dLfxLRBALCV5dj0DVQAh7vDkqy"
+ },
+ {
+  "id": 2,
+  "nameLastname": "Luca Gelmini",
+  "username": "Luko",
+  "email": "lucagelmini@hotmail.com",
+  "brithDate": "1995-11-03",
+  "adress": "Rivadavia 5805",
+  "postalCode": "1406",
+  "phone": "1145573827",
+  "password": "$2a$10$xPYs10GBCKzCij5d/60O0eqHEfbUk0V/4EfRfaspNxXGxeMi.Jdsq"
  }
 ]
