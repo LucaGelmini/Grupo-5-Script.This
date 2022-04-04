@@ -43,8 +43,13 @@
     <div class="nav01-container">
         <nav class="nav01">
             <ul>
-                <li><a href="/users/register">Creá tu cuenta</a></li>
-                <li><a href="/users/login">Log in</a></li>
+                <% if(locals.logedUser){ %> 
+                    <li><a href="/users"><%= logedUser %></a></li>
+                    <li><a href="/users/logout">Log Out</a></li>
+                <% }else{%> 
+                    <li><a href="/users/register">Creá tu cuenta</a></li>
+                    <li><a href="/users/login">Log in</a></li>
+                <% } %>
                 <li><a href="/">Mis Pedidos</a></li>
                 <li><a href="/products"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>

@@ -21,10 +21,10 @@ body('phone')
                 .notEmpty().withMessage('* Ingrese su numero de telefono celular').bail()
                 .isNumeric().withMessage('* Ingrese un telefono válido'),
 body('password')
-                .notEmpty().withMessage('* Defina una contraseña').bail()
-                .isStrongPassword().withMessage('* Defina una contraseña fuerte'),
+                .notEmpty().withMessage('* Defina una contraseña').bail(),
 body('confirmPassword')
-                .notEmpty().withMessage('* Repita la contraseña ingresada anteriormente'),
+                .notEmpty().withMessage('* Repita la contraseña ingresada anteriormente')
+                .isStrongPassword().withMessage('* Defina una contraseña fuerte'),
 body('avatar')
                 .custom((value, {req})=>{
                     let file = req.file;

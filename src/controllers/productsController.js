@@ -14,19 +14,25 @@ const productsController = {
     //Root - Show all products
     allProducts:(req,res) => {
         let products = Products.findAll();
-        res.render('products',{products});
+        res.render('products',{
+            products,
+            logedUser: req.session.logedUser});
     },
 
     // Detail - Detail from one product
     detail: (req,res) => {
         let idProduct = req.params.id;
         let productDetail = Products.findByPk(idProduct);
-        res.render('detail', {productDetail});
+        res.render('detail', {
+            productDetail,
+            logedUser: req.session.logedUser});
     }, 
 
 	// Create - Form to create
     create: (req, res)=>{
-        res.render('product-create-form');
+        res.render('product-create-form', {
+            logedUser: req.session.logedUser
+        });
     },
 
     // Create -  Method to store - //PARA "CREAR Y GUARDAR" => CONSULTAR (LEER) + PUSH (INCORPORAR CAMBIOS) + SOBRE ESCRIBIR CAMBIOS

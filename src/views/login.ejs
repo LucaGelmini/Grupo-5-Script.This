@@ -8,16 +8,24 @@
             <%-include("./partials/header")%>
         </header>
         <main class="main-login">
-            <form class="formulario-login" action="/users/" method="POST" name= "formulario-registro">
+            <form class="formulario-login" action="/users/login" method="POST" name= "formulario-registro">
                 
-                <input class="input-texto" type="text" name="user-name" placeholder="Nombre de usuario">
-                
-                <input class="input-texto" type="password" name="password"  placeholder="Contraseña">
+                <input class="input-texto" type="text" name="username" placeholder="Nombre de usuario" value="<%= locals.oldData && oldData.username ? oldData.username : null %>">
+                <% if (locals.errors && errors.username) { %>
+                    <p style="color: #D84D09;"><%= errors.username.msg %> </p> 
+                <% } %>
 
+                <input class="input-texto" type="password" name="password"  placeholder="Contraseña"  value="<%= locals.oldData && oldData.password ? oldData.password : null %>">
+                <% if (locals.errors && errors.password) { %>
+                    <p style="color: #D84D09;"><%= errors.password.msg %> </p> 
+                <% } else if (locals.errors && errors.noMatch){%>
+                    <p style="color: #D84D09;"><%= errors.noMatch.msg %> </p>
+                    <% } %> 
+                
                 <label for="">Recordame</label>
                 <input type="checkbox" name="recordame">
                 
-                <a href="/"><button class="boton-login" type="submit">Enviar</button></a>
+                <button class="boton-login" type="submit">Enviar</button>
 
                 <div class="login-troubleshooting">
                     <a  href="#">Olvidé mi contraseña</a>

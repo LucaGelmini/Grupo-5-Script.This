@@ -4,6 +4,7 @@ const path = require('path');
 const multer = require('multer');
 const usersController = require('../controllers/usersController')
 const usersMiddleware = require('../middlewares/usersMiddlewares')
+const usersLoginValidation = require('../middlewares/usersLoginValidation')
 
 
 // Configurar el multer: donde guardar las imagenes de perfil avatars
@@ -18,10 +19,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
+router.get('/', usersController.users)
+
+router.get('/logout', usersController.logout)
+
+router.post('/', usersController.editUser)
 
 router.get('/login',usersController.loginView);
 
-router.post('/',usersController.login);
+router.post('/login',usersLoginValidation,usersController.login);
 
 router.get('/register', usersController.registerView);
 

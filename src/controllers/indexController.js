@@ -12,7 +12,7 @@ const usersFilePath = path.join(__dirname,'../data/usersDataBase.json');
 
 const indexController = {
     index: (req,res) => {
-        res.render('index');
+        res.render('index', {logedUser: req.session.logedUser});
     },
     search: (req,res) => {
         //let indexSearch = req.query.keywords;
