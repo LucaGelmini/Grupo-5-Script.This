@@ -1,10 +1,8 @@
  
 const {validationResult} = require('express-validator');
-const path = require('path');
 const Users = require('../models/Users');
 const bcrypt = require('bcryptjs/dist/bcrypt');
-const { resolveSoa } = require('dns');
-const { redirect } = require('express/lib/response');
+ 
 
 const usersController = {
     users: (req, res) =>{
@@ -25,40 +23,80 @@ const usersController = {
     },
 
     login: (req, res)=>{
-        let loginData = req.body;
+        
         const validation = validationResult(req);
-        let userInDB = Users.findByField('username',loginData.username)
-        let password = loginData.password;
-        let noMatch = {
-            value: true,
-            msg: 'Usuario o ontraseña incorrecta'
-        }
+        let userInDB = Users.findByField('email',req.body.email)
+      
+        // let noMatch = {
+        //     value: true,
+        //     msg: 'Usuario o ontraseña incorrecta'
+        // }
 
-        if (validation.errors.length === 0){
+        
+        if(validation.errors.length > 0){
+			res.render('login', {
+				 errors:validation.mapped(),
+				 oldData: req.body});
 
-            bcrypt.compare(password, userInDB.password, (err, pass)=>{
-                err ? console.log(err) : null;
-                if(pass){
-                    req.session.logedUser = userInDB.username;
-                    res.redirect('/');
-                } else {
-                    res.render('login', {
-                            errors: noMatch,
-                            oldData: loginData
-                        });
-                };
-            });
+		} else if (!userInDB) {
+			res.render('login',{
+				errors: {
+					email:{
+						msg:'El correo electrónico o constraseña son inválidas'
+					}
+				}
+			})
+		};
 
-        }else{
-            res.render('login',{
-                errors: validation.mapped(),
-                oldData: loginData
-            });
-            console.log(validation.mapped())
+        if (userInDB){
+            let passwordOk = bcrypt.compareSync(req.body.password, userInDB.password);
+            console.log(passwordOk);
+            if(passwordOk){
+                console.log(passwordOk);
+                console.log(userInDB);
+                delete userInDB.password;
+                req.session.logedUser = userInDB;
+                if(req.body.recordame){
+                    res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*60})
+                }
+                res.redirect('/');
+            } else {
+                
+                res.render('login', {
+                                    errors: {
+                                        email: {
+                                            msg: 'El correo electrónico o constraseña son inválidas'
+                                        }
+                                    },
+                                    oldData: req.body
+                                });
+            }
+            
         }
-        if(loginData.recordame){
-            res.cookie('recordarLogin', loginData.username, {maxAge: 60000})
-        }
+                
+            //     ((err, pass)=>{
+            //     err ? console.log(err) : null;
+            //     if(pass){
+            //         req.session.logedUser = userInDB.username;
+            //         res.redirect('/');
+            //     } else {
+            //         res.render('login', {
+            //                 errors: noMatch,
+            //                 oldData: loginData
+            //             });
+            //     };
+            // });
+
+        // }else{
+        //     res.render('login',{
+        //         errors: validation.mapped(),
+        //         oldData: loginData
+        //     });
+            
+        
+        // if(loginData.recordame){
+        //     res.cookie('recordarLogin', loginData.username, {maxAge: 60000})
+        // }
     },
     logout: (req,res)=>{
         if (req.session) {
@@ -107,7 +145,12 @@ const usersController = {
             })
         } else {
             let userData = req.body;
-            let userCreated = Users.create(userData);
+            let userFile = req.file.filename;
+            let userToCreate = {
+                ...userData,
+                userFile
+            }
+            let userCreated = Users.create(userToCreate);
             res.redirect('/users/login')
         }
 

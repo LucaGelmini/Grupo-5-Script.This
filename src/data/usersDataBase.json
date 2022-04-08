@@ -20,5 +20,29 @@
   "postalCode": "1406",
   "phone": "1145573827",
   "password": "$2a$10$xPYs10GBCKzCij5d/60O0eqHEfbUk0V/4EfRfaspNxXGxeMi.Jdsq"
+ },
+ {
+  "id": 3,
+  "nameLastname": "Leonel Messi",
+  "username": "messi",
+  "email": "lmessi@gmail.com",
+  "brithDate": "1990-03-02",
+  "adress": "Paraguay 445",
+  "postalCode": "5012",
+  "phone": "3515167689",
+  "password": "$2a$10$2ERqZS7v1cI.8nTJnuRasO9wCOZxXVZvb.jxuTla0O9Tp91teTVWG",
+  "userFile": "avatar-1649094653479.jpg"
+ },
+ {
+  "id": 4,
+  "nameLastname": "House Gregory",
+  "username": "GHouse",
+  "email": "gromero@boxcustodia.com",
+  "brithDate": "1990-11-10",
+  "adress": "Chile 445",
+  "postalCode": "5006",
+  "phone": "3515156457",
+  "password": "$2a$10$cPvQnYTXfRz3P88CpdZAmux1TPJ3gjJCnzOtZECm/HXOGP.2AELte",
+  "userFile": "avatar-1649450830503.jpg"
  }
 ]

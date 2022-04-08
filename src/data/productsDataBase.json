@@ -214,5 +214,17 @@
   "exposicion": "destacado",
   "description": "Naranja de rio IV",
   "image": "img-naranja.jpg"
+ },
+ {
+  "id": 19,
+  "name": "manzana prueba",
+  "unit_mensure": "unidad ",
+  "mensure_value": 1,
+  "price": 4000,
+  "discount": 10,
+  "category": "frutas",
+  "exposicion": "oferta",
+  "description": "manzana prueba sprint 4",
+  "image": "img-1649093153291.png"
  }
 ]

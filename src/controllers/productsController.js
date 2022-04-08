@@ -48,7 +48,7 @@ const productsController = {
     // Update - Form to edit
     edit:(req, res)=>{
         let idProduct = req.params.id;
-        let productToEdit = products.find(product => product.id == idProduct);
+        let productToEdit = Products.findByPk(idProduct);
         res.render('product-edit-form', {productToEdit});
     },
 
