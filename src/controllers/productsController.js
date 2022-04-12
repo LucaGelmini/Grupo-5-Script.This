@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
 const Products = require('../models/Products');
+const {validationResult} = require('express-validator');
 
 // FUNCION PARA LEER EL ARCHIVO PRODUCTS JSON 
 const products = JSON.parse(fs.readFileSync(productsFilePath,'utf8'));
@@ -15,8 +16,7 @@ const productsController = {
     allProducts:(req,res) => {
         let products = Products.findAll();
         res.render('products',{
-            products,
-            logedUser: req.session.logedUser});
+            products});
     },
 
     // Detail - Detail from one product
@@ -24,25 +24,31 @@ const productsController = {
         let idProduct = req.params.id;
         let productDetail = Products.findByPk(idProduct);
         res.render('detail', {
-            productDetail,
-            logedUser: req.session.logedUser});
+            productDetail});
     }, 
 
 	// Create - Form to create
-    create: (req, res)=>{
-        res.render('product-create-form', {
-            logedUser: req.session.logedUser
-        });
+    create: (req, res)=>{  
+        res.render('product-create-form');
     },
 
     // Create -  Method to store - //PARA "CREAR Y GUARDAR" => CONSULTAR (LEER) + PUSH (INCORPORAR CAMBIOS) + SOBRE ESCRIBIR CAMBIOS
     store: (req, res)=>{
-         let productToCreate = {
-            ...req.body,
-            image: req.file.filename
+        const validation = validationResult(req);
+        if(validation.errors.length > 0){
+            res.render('product-create-form',{
+                errors: validation.mapped(),
+                oldData: req.body
+            })
         }
-        Products.create(productToCreate);
-        res.redirect('/products');
+        if(!validation.errors.length > 0){
+                     let productToCreate = {
+                        ...req.body,
+                        image: req.file.filename
+                    }
+                    Products.create(productToCreate);
+                    res.redirect('/products');
+        }
     },
 
     // Update - Form to edit

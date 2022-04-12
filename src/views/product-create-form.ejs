@@ -13,11 +13,26 @@
             <form class="create-product-form" action="/products/" method="POST" enctype="multipart/form-data">
                 <h2 class="create-producto-title">Crea tus productos</h2>
                 <h3 class="complete-data-title">Ingresa los siguientes datos para crear tu producto:</h3>
-                <input class="input-texto" type="text" name="name" placeholder="Ingrese el nombre del producto">
-                <input class="input-texto" type="text" name="unit_mensure" placeholder="Ingrese la unidad de medida del product">
-                <input class="input-texto" type="text" name="mensure_value" placeholder="Ingrese el valor de la unidad de medida">
-                <input class="input-texto" type="number" name="price" placeholder="Ingrese el precio de su producto">
-                <input class="input-texto" type="number" name="discount" placeholder="Ingrese el descuento del producto">
+                <input class="input-texto" type="text" name="name" placeholder="Ingrese el nombre del producto" value="<%= locals.oldData? oldData.name : null %>">
+                <% if (locals.errors && errors.name) { %>
+                 <p style="color: red;"><%= errors.name.msg %></p>  
+                <% } %>
+                <input class="input-texto" type="text" name="unit_mensure" placeholder="Ingrese la unidad de medida del product" value="<%= locals.oldData? oldData.unit_mensure : null %>">
+                <% if (locals.errors && errors.unit_mensure) { %>
+                    <p style="color: red;"><%= errors.unit_mensure.msg %></p>  
+                   <% } %>
+                <input class="input-texto" type="text" name="mensure_value" placeholder="Ingrese el valor de la unidad de medida" value="<%= locals.oldData? oldData.mensure_value : null %>">
+                <% if (locals.errors && errors.mensure_value) { %>
+                    <p style="color: red;"><%= errors.mensure_value.msg %></p>  
+                   <% } %>
+                <input class="input-texto" type="number" name="price" placeholder="Ingrese el precio de su producto" value="<%= locals.oldData? oldData.price : null %>">
+                <% if (locals.errors && errors.price) { %>
+                    <p style="color: red;"><%= errors.price.msg %></p>  
+                   <% } %>
+                <input class="input-texto" type="number" name="discount" placeholder="Ingrese el descuento del producto" value="<%= locals.oldData? oldData.discount : null %>">
+                <% if (locals.errors && errors.discount) { %>
+                    <p style="color: red;"><%= errors.discount.msg %></p>  
+                   <% } %>
                 <label for="category" class="form-label">Categoría:</label>
                     <select class="input-texto" name="category" id="category" class="form-input">
                         <option value="">Elegí</option>
@@ -26,6 +41,9 @@
                         <option value="hierbas">hierbas</option>
                         <option value="secos">secos</option>
                     </select>
+                    <% if (locals.errors && errors.category) { %>
+                        <p style="color: red;"><%= errors.category.msg %></p>  
+                       <% } %>
                     <label for="exposicion" class="form-label">exposición:</label>
                     <select class="input-texto" name="exposicion" id="exposicion" class="form-input">
                         <option value="">Elegí</option>
@@ -33,11 +51,19 @@
                         <option value="destacado">destacado</option>
                         <option value="general">general</option>
                     </select>
-                <input class="input-texto" type="text" name="description" placeholder="Describa el producto">
-                
+                    <% if (locals.errors && errors.exposicion) { %>
+                        <p style="color: red;"><%= errors.exposicion.msg %></p>  
+                       <% } %>
+                <input class="input-texto" type="text" name="description" placeholder="Describa el producto" value="<%= locals.oldData? oldData.description : null %>">
+                <% if (locals.errors && errors.description) { %>
+                    <p style="color: red;"><%= errors.description.msg %></p>  
+                   <% } %>
                 
              
                 <input type="file" name="img" accept=".jpg, .png" multiple>
+                <% if (locals.errors && errors.img) { %>
+                    <p style="color: red;"><%= errors.img.msg %></p>  
+                   <% } %>
                 <div class="submit-create-product-container">
                     <button class="create-product-button">
                         <p>Crear producto</p>

@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const productsController = require('../controllers/productsController');
+const validateProducts = require('../middlewares/productsMiddleware');
 
 // Configurar el multer: donde guardar las imagenes y su nombre
 
@@ -18,23 +18,23 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
- 
+// ************ Controller Require ************
+const productsController = require('../controllers/productsController'); 
+
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.allProducts);
 
-
-
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create);
-router.post('/',upload.single('img'),productsController.store);
+router.post('/',upload.single('img'),validateProducts ,productsController.store);
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/:id', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id',productsController.edit);
-router.put('/edit/:id',productsController.update);
+router.put('/edit/:id',validateProducts ,productsController.update);
 
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/:id',productsController.destroy);

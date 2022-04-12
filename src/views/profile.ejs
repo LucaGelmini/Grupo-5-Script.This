@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head',{title: 'Lista Productos'}) %> 
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+       
+    </header>
+    <p>Hi  <%= locals.logedUser.nameLastname %> </p>
+    <p>   <%= locals.logedUser.email %> </p>
+    <img src="/img/users/<%= locals.logedUser.userFile %> " alt="">
+
+    
+    
+</body>
+</html>
+

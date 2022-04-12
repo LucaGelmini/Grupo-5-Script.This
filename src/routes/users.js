@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
-const usersController = require('../controllers/usersController')
-const usersMiddleware = require('../middlewares/usersMiddlewares')
-const usersLoginValidation = require('../middlewares/usersLoginValidation')
+const usersController = require('../controllers/usersController');
+const registerMiddleware = require('../middlewares/registerMiddleware');
+const loginMiddleware = require('../middlewares/loginMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
 // Configurar el multer: donde guardar las imagenes de perfil avatars
@@ -19,18 +21,20 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-router.get('/', usersController.users)
+router.get('/login',guestMiddleware ,usersController.loginView);
+router.post('/login',loginMiddleware,usersController.login);
 
-router.get('/logout', usersController.logout)
 
-router.post('/', usersController.editUser)
+router.get('/register',guestMiddleware ,usersController.registerView);
+router.post('/register',upload.single('avatar'), registerMiddleware, usersController.register);
 
-router.get('/login',usersController.loginView);
 
-router.post('/login',usersLoginValidation,usersController.login);
+router.get('/profile',authMiddleware ,usersController.profile);
 
-router.get('/register', usersController.registerView);
+router.get('/logout', usersController.logout);
 
-router.post('/register',upload.single('avatar'), usersMiddleware, usersController.register);
+// router.get('/', usersController.users);
+
+// router.post('/', usersController.editUser)
 
 module.exports = router;

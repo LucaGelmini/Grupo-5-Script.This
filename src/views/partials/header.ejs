@@ -43,8 +43,8 @@
     <div class="nav01-container">
         <nav class="nav01">
             <ul>
-                <% if(locals.logedUser){ %> 
-                    <li><a href="/users"><%= logedUser %></a></li>
+                <% if(locals.isLogged){ %> 
+                    <li><a href="/users/profile">Hi, <%= locals.logedUser.nameLastname %></a></li>
                     <li><a href="/users/logout">Log Out</a></li>
                 <% }else{%> 
                     <li><a href="/users/register">Creá tu cuenta</a></li>
