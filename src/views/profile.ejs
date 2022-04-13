@@ -9,7 +9,7 @@
         </header>
         <main class="usersProfile-main">
             <div class="usersProfile-presentacion-user">
-                <img class="usersProfile-avatar-main" src="/img/users/<%= locals.logedUser.userFile %> " alt="imagen de perfil">
+                <img class="usersProfile-img-avatar" src="/img/users/<%= locals.logedUser.userFile %> " alt="imagen de perfil">
                 <div class="usersProfile-caja-texto-avatar">
                     <p>¡Hola <%= locals.logedUser.username %>!</p>
                     <p>   <%= locals.logedUser.email %> </p>
@@ -17,7 +17,15 @@
             </div>
             <section class="usersProfile-caja-lista-de-acciones">
                 <ul class="usersProfile-lista-de-acciones">
-                    <li><img src="../img/chevron.svg"> Último pedido</li>
+                    <li>
+                        <img src="../img/chevron.svg"> Último pedido
+                        <div class="usersProfile-colapsable colapsable-ultimo-pedido">
+                            Aquí debería estar una sección colapsable con la información del último pedido y un botón que permita volverlo a ahcer
+                            <p>algo</p>
+                            <p>otra cosa</p>
+                            <button>Botón</button>
+                        </div>
+                    </li>
                     <li><img src="../img/chevron.svg">Historial de pedidos</li>
                     <li><img src="../img/chevron.svg">Vendedores preferidos</li>
                     <li><img src="../img/chevron.svg">Dirección de entrega</li>

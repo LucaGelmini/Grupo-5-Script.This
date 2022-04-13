@@ -57,5 +57,12 @@
     </div>
 </div>
 <div class="ubicacion">
-    <p><i class="fas fa-map-marker-alt"></i>Enviar a tu domicilio</p> 
+    <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <% if(locals.logedUser.adress){ %>
+            <%= locals.logedUser.adress %>
+        <% }else{ %>
+        <% "Enviar a tu domicilio" %>
+        <% }; %>  
+    </p> 
 </div>
