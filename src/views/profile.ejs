@@ -3,17 +3,34 @@
 <head>
     <%- include('./partials/head',{title: 'Lista Productos'}) %> 
 </head>
-<body>
-    <header>
-        <%- include('./partials/header') %>
-       
-    </header>
-    <p>Hi  <%= locals.logedUser.nameLastname %> </p>
-    <p>   <%= locals.logedUser.email %> </p>
-    <img src="/img/users/<%= locals.logedUser.userFile %> " alt="">
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+        <main class="usersProfile-main">
+            <div class="usersProfile-presentacion-user">
+                <img class="usersProfile-avatar-main" src="/img/users/<%= locals.logedUser.userFile %> " alt="imagen de perfil">
+                <div class="usersProfile-caja-texto-avatar">
+                    <p>¡Hola <%= locals.logedUser.username %>!</p>
+                    <p>   <%= locals.logedUser.email %> </p>
+                </div>
+            </div>
+            <section class="usersProfile-caja-lista-de-acciones">
+                <ul class="usersProfile-lista-de-acciones">
+                    <li><img src="../img/chevron.svg"> Último pedido</li>
+                    <li><img src="../img/chevron.svg">Historial de pedidos</li>
+                    <li><img src="../img/chevron.svg">Vendedores preferidos</li>
+                    <li><img src="../img/chevron.svg">Dirección de entrega</li>
+                    <li><img src="../img/chevron.svg">Medios de pago</li>
+                    <li><img src="../img/chevron.svg">Editar perfil</li>
+                </ul>
+            </section>
+            
+        </main>
 
-    
-    
-</body>
+
+        
+        <%- include('./partials/footer') %>
+    </body>
 </html>
 

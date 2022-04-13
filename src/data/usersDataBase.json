@@ -19,8 +19,9 @@
   "adress": "Rivadavia 5805",
   "postalCode": "1406",
   "phone": "1145573827",
-  "password": "$2a$10$xPYs10GBCKzCij5d/60O0eqHEfbUk0V/4EfRfaspNxXGxeMi.Jdsq"
- },
+  "password": "$2a$10$xPYs10GBCKzCij5d/60O0eqHEfbUk0V/4EfRfaspNxXGxeMi.Jdsq",
+  "userFile": "avatar-1649771294642.jpg"
+},
  {
   "id": 3,
   "nameLastname": "Leonel Messi",
