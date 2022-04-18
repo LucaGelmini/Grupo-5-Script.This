@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head", {title:'Register'})%>
+    </head>
+    <body>
+        <header>
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-register">
+            <form class="formulario-register" action="/users/register" method="POST" name= "formulario-registro" enctype="multipart/form-data">
+                <h2>Creá tu cuenta</h2>
+            
+                <label class="label-header" for="">Nombre y Apellido</label>
+                <input class="input-texto" type="text" name="nameLastname" placeholder="Ingrese su Nombre/s y apellido/s" value="<%= locals.oldData && oldData.nameLastname? oldData.nameLastname :null%>">
+                <% if (locals.errors && errors.nameLastname) { %>
+                   <p style="color: #D84D09;"><%= errors.nameLastname.msg %> </p> 
+                <% } %>
+
+                <label class="label-header" for="">Usuario</label>
+                <input class="input-texto" type="text" name="username" placeholder="Ingrese su nombre de usuario" value="<%= locals.oldData && oldData.username? oldData.username :null%>">
+                <% if (locals.errors && errors.username) { %>
+                    <p style="color: #D84D09;"><%= errors.username.msg %> </p> 
+                 <% } %>
+
+                <label class="label-header" for="">Correo electrónico</label>
+                <input class="input-texto" type="email" name="email" placeholder="Ingrese su correo electrónico" value="<%= locals.oldData && oldData.email? oldData.email :null%>">
+                <% if (locals.errors && errors.email) { %>
+                    <p style="color: #D84D09;"><%= errors.email.msg %> </p> 
+                 <% } %>
+
+                <label class="label-header" for="">Fecha de nacimiento: </label>
+                <input class="input-texto" type="date" name="brithDate" value="<%= locals.oldData && oldData.brithDate? oldData.brithDate :null%>">
+                <% if (locals.errors && errors.brithDate) { %>
+                    <p style="color: #D84D09;"><%= errors.brithDate.msg %> </p> 
+                 <% } %>
+                
+                <label class="label-header" for="">Domicilio</label>
+                <input class="input-texto" type="text" name="adress" placeholder="Ingrese calle, N°, piso, dpto., provincia y localidad" value="<%= locals.oldData && oldData.adress? oldData.adress :null%>">
+                <% if (locals.errors && errors.adress) { %>
+                    <p style="color: #D84D09;"><%= errors.adress.msg %> </p> 
+                 <% } %>
+
+                <label class="label-header" for="">Código postal</label>
+                <input class="input-texto" type="number" name="postalCode" placeholder="Ingrese su código postal" value="<%= locals.oldData && oldData.postalCode? oldData.postalCode :null%>">
+                <% if (locals.errors && errors.postalCode) { %>
+                    <p style="color: #D84D09;"><%= errors.postalCode.msg %> </p> 
+                 <% } %>
+
+                <label class="label-header" for="">Telefono (celular)</label>
+                <input class="input-texto" type="tel" name="phone" placeholder="Ingrese su numero de telefono" value="<%= locals.oldData && oldData.phone? oldData.phone :null%>">
+                <% if (locals.errors && errors.phone) { %>
+                    <p style="color: #D84D09;"><%= errors.phone.msg %> </p> 
+                 <% } %>
+
+                <div class="img-perfil-container">
+                    <label class="label-header">Imagen de perfil:</label>
+                    <br> 
+                    <input type="file" name="avatar" id="avatar" accept=".jpg, .png">
+                    
+                </div> 
+                <% if (locals.errors && errors.avatar) { %>
+                    <p style="color: #D84D09;"><%= errors.avatar.msg %> </p> 
+                 <% } %>
+                <label class="label-header" for="">Constraseña</label>
+                <input class="input-texto" type="password"  name="password" placeholder="Su contraseña debe ser alfanumerica mínimo de 6 caractéres">
+                <% if (locals.errors && errors.password) { %>
+                    <p style="color: #D84D09;"><%= errors.password.msg %> </p> 
+                 <% } %>
+                 <% if (locals.password != locals.confirmPassword) { %>
+                    <p style="color: #D84D09;"><%= noSamePassmsg %> </p>
+                   <% } %>
+
+                <label class="label-header" for="">Repita su Contraseña</label>
+                <input class="input-texto" type="password" name="confirmPassword"  placeholder="Repita su contraseña anteriormente ingresada">
+                <% if (locals.errors && errors.confirmPassword) { %>
+                    <p style="color: #D84D09;"><%= errors.confirmPassword.msg %> </p> 
+                 <% } %>
+                 <% if (locals.password != locals.confirmPassword) { %>
+                    <p style="color: #D84D09;"><%= noSamePassmsg %> </p>
+                   <% } %>
+
+                <div class="botones-register">
+                    <button type="submit"><p>Enviar</p></button>
+                    <button type="reset">Borrar</button>
+                </div>
+            </form>
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

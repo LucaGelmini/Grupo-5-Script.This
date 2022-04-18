@@ -86,7 +86,7 @@ const usersController = {
                     if(req.body.recordame){
                         res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*60})
                     }
-                    res.redirect('/prueba');//res.redirect('/users/profile');
+                    res.redirect('/users/profile');
                 } else {
                     res.render('login', {
                                         errors: {
