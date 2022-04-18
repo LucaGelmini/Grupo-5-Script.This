@@ -49,7 +49,7 @@
                 <% }else{%> 
                     <li><a href="/users/register">Creá tu cuenta</a></li>
                     <li><a href="/users/login">Log in</a></li>
-                <% } %>
+                <% }; %>
                 <li><a href="/">Mis Pedidos</a></li>
                 <li><a href="/products"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
@@ -59,10 +59,10 @@
 <div class="ubicacion">
     <p>
         <i class="fas fa-map-marker-alt"></i>
-        <% if(locals.logedUser.adress){ %>
+        <% if(locals.isLogged){ %>
             <%= locals.logedUser.adress %>
         <% }else{ %>
-        <% "Enviar a tu domicilio" %>
+            Enviar a tu domicilio
         <% }; %>  
     </p> 
 </div>
