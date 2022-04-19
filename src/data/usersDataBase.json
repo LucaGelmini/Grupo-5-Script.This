@@ -21,7 +21,7 @@
   "phone": "1145573827",
   "password": "$2a$10$xPYs10GBCKzCij5d/60O0eqHEfbUk0V/4EfRfaspNxXGxeMi.Jdsq",
   "userFile": "avatar-1649771294642.jpg"
-},
+ },
  {
   "id": 3,
   "nameLastname": "Leonel Messi",
@@ -45,5 +45,17 @@
   "phone": "3515156457",
   "password": "$2a$10$cPvQnYTXfRz3P88CpdZAmux1TPJ3gjJCnzOtZECm/HXOGP.2AELte",
   "userFile": "avatar-1649450830503.jpg"
+ },
+ {
+  "id": 5,
+  "nameLastname": "Digital House",
+  "username": "DH",
+  "email": "dh@dh.com",
+  "brithDate": "2022-04-18",
+  "adress": "av de mayo 1",
+  "postalCode": "01110",
+  "phone": "11112145454",
+  "password": "$2a$10$tjfoGMX2gGErAYQD8BpFG.RrWsEc3rImpQWbUuEHi4wPtk0mBweHO",
+  "userFile": "avatar-1650323989351.jpg"
  }
 ]

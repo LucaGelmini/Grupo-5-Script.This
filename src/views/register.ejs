@@ -100,7 +100,7 @@
                 <input class="input-texto" type="password"  name="password" placeholder="Su contraseña debe ser alfanumerica mínimo de 6 caractéres">
                 <% if (locals.errors && errors.password) { %>
                     <p style="color: #D84D09;"><%= errors.password.msg %> </p> 
-                 <% } %>
+                <% } %>
                  <% if (locals.password != locals.confirmPassword) { %>
                     <p style="color: #D84D09;"><%= noSamePassmsg %> </p>
                    <% } %>
@@ -112,7 +112,7 @@
                  <% } %>
                  <% if (locals.password != locals.confirmPassword) { %>
                     <p style="color: #D84D09;"><%= noSamePassmsg %> </p>
-                   <% } %>
+                <% } %>
 
                 <div class="botones-register">
                     <button type="submit"><p>Enviar</p></button>
