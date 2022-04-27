@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname,'../data/usersDataBase.json');
+const db = require('../database/models')
 //const productsFilePath = path.join(__dirname, '../data/productsDataBase.json')
 
 // FUNCION PARA LEER EL ARCHIVO PRODUCTS JSON 
@@ -19,6 +20,10 @@ const indexController = {
         //let indexSearch = req.query.keywords;
         //let SearchResults = products.includes()
         res.render('search')
+    },
+    testDb: (req, res) => {
+        db.User.findByPk(1)
+            .then(selected => res.json(selected))
     }
     
 }
