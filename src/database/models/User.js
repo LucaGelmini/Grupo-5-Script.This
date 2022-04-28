@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'users';
+    let alias = 'User';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
         fullName: {type: dataTypes.STRING(50)},
         username: {type: dataTypes.STRING(50)},
         email: {type: dataTypes.STRING(50)},
-        birthdate: {type: dataTypes.DATE},
+        brithdate: {type: dataTypes.DATE},
         adress: {type: dataTypes.STRING(50)},
         postalcode: {type: dataTypes.STRING(50)},
         phone: {type: dataTypes.STRING(50)},
@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         updatedAt: {
             type: dataTypes.DATE,
-            field: 'updete_date',
+            field: 'update_date',
          },
          role_id: {type: dataTypes.INTEGER}
 
@@ -30,4 +30,8 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'users',
         timestamps: true
     };
+
+    const User = sequelize.define(alias, cols, config);
+
+    return User
 }

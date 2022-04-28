@@ -22,7 +22,9 @@ const indexController = {
         res.render('search')
     },
     testDb: (req, res) => {
-        db.User.findByPk(1)
+        //res.send(typeof db.User)
+
+        db.User.findAll()
             .then(selected => res.json(selected))
     }
     
