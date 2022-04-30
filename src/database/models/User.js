@@ -23,7 +23,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATE,
             field: 'update_date',
          },
-         role_id: {type: dataTypes.INTEGER}
+         roleId: {
+             type: dataTypes.INTEGER,
+             field: 'role_id'
+            }
 
     };
     let config = {
