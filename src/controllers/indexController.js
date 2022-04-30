@@ -24,7 +24,7 @@ const indexController = {
     testDb: (req, res) => {
         //res.send(typeof db.User)
 
-        db.Product.findAll()
+        db.MessureUnit.findAll()
             .then(selected => res.json(selected))
     }
     
