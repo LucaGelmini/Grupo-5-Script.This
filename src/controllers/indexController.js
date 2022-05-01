@@ -24,7 +24,12 @@ const indexController = {
     testDb: (req, res) => {
         //res.send(typeof db.User)
 
-        db.MessureUnit.findAll()
+        db.CartOrder.findAll({
+            include: [
+                {association: "product"},
+                {association: "CO_to_orders"}
+            ]
+        })
             .then(selected => res.json(selected))
     }
     

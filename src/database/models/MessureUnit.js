@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         tableName: 'units_mensures',
-        timestamps: false
+        timestamps: false 
     };
 
     const MessureUnit = sequelize.define(alias, cols, config);
