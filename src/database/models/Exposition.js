@@ -16,5 +16,13 @@ module.exports = (sequelize, dataTypes) => {
 
     const Exposition = sequelize.define(alias, cols, config);
 
+    Exposition.associate = models => {
+        Exposition.hasMany(models.Product, {
+            as: "CO_to_orders",
+            foreignKey: "exposition_id",
+            timestamps: true,
+        })
+    }
+
     return Exposition
 }

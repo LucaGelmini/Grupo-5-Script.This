@@ -57,6 +57,23 @@ module.exports = (sequelize, dataTypes) => {
             as: "P_to_orders",
             foreignKey: "product_id",
             timestamps: true
+        }),
+        Product.belongsTo(models.MessureUnit, {
+            as: "messureUnits",
+            foreignKey: "unit_mensure_id",
+            timestamps: false,
+            onDelete: 'CASCADE'
+        }),
+        Product.belongsTo(models.Exposition, {
+            as: "exposition",
+            foreignKey: "exposition_id",
+            timestamps: false,
+            onDelete: 'CASCADE'
+        }),
+        Product.belongsTo(models.Category, {
+            as: "category",
+            foreignKey: "category_id",
+            timestamps: false
         })
     }
 

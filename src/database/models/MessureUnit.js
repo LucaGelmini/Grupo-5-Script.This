@@ -16,5 +16,13 @@ module.exports = (sequelize, dataTypes) => {
 
     const MessureUnit = sequelize.define(alias, cols, config);
 
+    MessureUnit.associate = models =>{
+        MessureUnit.hasMany(models.Product, {
+            as: "products",
+            foreignKey: "unit_mensure_id",
+            timestamps: false
+        })
+    }
+
     return MessureUnit
 }

@@ -26,8 +26,8 @@ const indexController = {
 
         db.CartOrder.findAll({
             include: [
-                {association: "product"},
-                {association: "CO_to_orders"}
+                {association: "payments"},
+                {association: "status"}
             ]
         })
             .then(selected => res.json(selected))

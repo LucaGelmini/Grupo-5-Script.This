@@ -16,5 +16,12 @@ module.exports = (sequelize, dataTypes) => {
 
     const Status = sequelize.define(alias, cols, config);
 
+    Status.associate = models => {
+        Status.hasMany(models.CartOrder, {
+            as: "cartOrders",
+            foreignKey: "status_id"
+        })
+    }
+
     return Status
 }

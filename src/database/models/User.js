@@ -36,5 +36,19 @@ module.exports = (sequelize, dataTypes) => {
 
     const User = sequelize.define(alias, cols, config);
 
+    User.associate = models => {
+        User.hasMany(models.CartOrder, {
+            as: "cartOrders",
+            foreignKey: "user_id",
+            timestamps: true,
+            onDelete: "CASCADE"
+        }),
+        User.belongsTo(models.Role,{
+            as: "roles",
+            foreignKey: "role_id",
+            timestamps: false
+        })
+    }
+
     return User
 }

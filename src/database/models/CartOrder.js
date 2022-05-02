@@ -58,6 +58,21 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "cart_order_id",
             timestamps: true,
             onDelete: 'CASCADE'
+        }),
+        CartOrder.belongsTo(models.User, {
+            as: "users",
+            foreignKey: "user_id",
+            timestamps: true
+        }),
+        CartOrder.belongsTo(models.Payment, {
+            as: "payments",
+            foreignKey: "payment_id",
+            timestamps: false
+        }),
+        CartOrder.belongsTo(models.Status, {
+            as: "status",
+            foreignKey: "status_id",
+            timestamps: false
         })
     }
     return CartOrder
