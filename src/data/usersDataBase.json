@@ -69,5 +69,17 @@
   "phone": "3515405060",
   "password": "$2a$10$yxQdgAWfX.RfJBq9P6efoeTTsavxAMQN2lWhyQnArUgSTeUzRYoUK",
   "userFile": "avatar-1650466042878.jpg"
+ },
+ {
+  "id": 7,
+  "nameLastname": "Pedro Perez",
+  "username": "Perez",
+  "email": "pp@gmail.com",
+  "brithDate": "1980-10-12",
+  "adress": "Peru 277",
+  "postalCode": "5008",
+  "phone": "3515434567",
+  "password": "$2a$10$zVaVlXcekm7oPAv3g/BjeOKzmL4XRUSGcwhwDAoy5IXI4UlcvMVXy",
+  "userFile": "avatar-1651260899751.jpg"
  }
 ]
