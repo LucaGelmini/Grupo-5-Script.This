@@ -4,7 +4,7 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require('method-override');// Para poder usar los métodos PUT y DELETE
+const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
