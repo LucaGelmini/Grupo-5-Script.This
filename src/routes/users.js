@@ -26,7 +26,7 @@ router.post('/login',loginMiddleware,usersController.login);
 
 
 router.get('/register',guestMiddleware ,usersController.registerView);
-router.post('/register',upload.single('avatar'), registerMiddleware, usersController.register);
+router.post('/register',upload.single('userfile'), registerMiddleware, usersController.register);
 
 
 router.get('/profile',authMiddleware ,usersController.profile);
