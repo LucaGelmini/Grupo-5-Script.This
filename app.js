@@ -15,7 +15,7 @@ const app = express();
 app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine', 'ejs');
 
- // ************ Middlewares - (don't touch) ************
+ // ************ Middlewares - (don't touch) *************
 app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
 app.use(logger('dev')); 
