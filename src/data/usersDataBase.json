@@ -57,5 +57,29 @@
   "phone": "11112145454",
   "password": "$2a$10$tjfoGMX2gGErAYQD8BpFG.RrWsEc3rImpQWbUuEHi4wPtk0mBweHO",
   "userFile": "avatar-1650323989351.jpg"
+ },
+ {
+  "id": 6,
+  "nameLastname": "La Mona Gimenez",
+  "username": "La Mona",
+  "email": "mona@gmail.com",
+  "brithDate": "1990-01-10",
+  "adress": "Chile 1111",
+  "postalCode": "5012",
+  "phone": "3515405060",
+  "password": "$2a$10$yxQdgAWfX.RfJBq9P6efoeTTsavxAMQN2lWhyQnArUgSTeUzRYoUK",
+  "userFile": "avatar-1650466042878.jpg"
+ },
+ {
+  "id": 7,
+  "nameLastname": "Pedro Perez",
+  "username": "Perez",
+  "email": "pp@gmail.com",
+  "brithDate": "1980-10-12",
+  "adress": "Peru 277",
+  "postalCode": "5008",
+  "phone": "3515434567",
+  "password": "$2a$10$zVaVlXcekm7oPAv3g/BjeOKzmL4XRUSGcwhwDAoy5IXI4UlcvMVXy",
+  "userFile": "avatar-1651260899751.jpg"
  }
 ]

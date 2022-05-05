@@ -2,23 +2,26 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Status';
     let cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.BIGINT(10).UNSIGNED,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
-        name:{type: dataTypes.STRING(50)}
-
+        name: {
+            type: dataTypes.STRING(50),
+            allowNull: false
+        } 
     };
+
     let config = {
-        tableName: 'statuss',
-        timestamps: false
+        timestamps: false 
     };
 
     const Status = sequelize.define(alias, cols, config);
 
     Status.associate = models => {
         Status.hasMany(models.CartOrder, {
-            as: "cartOrders",
+            as: "cartsOrders",
             foreignKey: "status_id"
         })
     }

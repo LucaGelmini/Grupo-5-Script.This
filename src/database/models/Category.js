@@ -2,15 +2,17 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Category';
     let cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.BIGINT(10).UNSIGNED,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            allowNull: false
         },
-        name:{type: dataTypes.STRING(50)}
+        name:{
+            type: dataTypes.STRING(50),
+            allowNull: false}
 
     };
     let config = {
-        tableName: 'categories',
         timestamps: false
     };
 
@@ -19,8 +21,7 @@ module.exports = (sequelize, dataTypes) => {
     Category.associate = models =>{
         Category.hasMany(models.Product, {
             as: "products",
-            foreignKey: "category_id",
-            timestamps: false
+            foreignKey: "category_id" 
         })
     }
 

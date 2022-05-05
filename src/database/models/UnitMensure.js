@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Exposition';
+    let alias = 'UnitMensure';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -13,17 +13,18 @@ module.exports = (sequelize, dataTypes) => {
 
     };
     let config = {
-        timestamps: false
+        tableName: 'units_mensures',
+        timestamps: false 
     };
 
-    const Exposition = sequelize.define(alias, cols, config);
+    const UnitMensure = sequelize.define(alias, cols, config);
 
-    Exposition.associate = models => {
-        Exposition.hasMany(models.Product, {
+    UnitMensure.associate = models =>{
+        UnitMensure.hasMany(models.Product, {
             as: "products",
-            foreignKey: "exposition_id"
+            foreignKey: "unit_mensure_id" 
         })
     }
 
-    return Exposition
+    return UnitMensure
 }
