@@ -12,9 +12,9 @@
                 <h2>Creá tu cuenta</h2>
             
                 <label class="label-header" for="">Nombre y Apellido</label>
-                <input class="input-texto" type="text" name="nameLastname" placeholder="Ingrese su Nombre/s y apellido/s" value="<%= locals.oldData && oldData.nameLastname? oldData.nameLastname :null%>">
-                <% if (locals.errors && errors.nameLastname) { %>
-                   <p style="color: #D84D09;"><%= errors.nameLastname.msg %> </p> 
+                <input class="input-texto" type="text" name="fullname" placeholder="Ingrese su Nombre/s y apellido/s" value="<%= locals.oldData && oldData.fullname? oldData.fullname :null%>">
+                <% if (locals.errors && errors.fullname) { %>
+                   <p style="color: #D84D09;"><%= errors.fullname.msg %> </p> 
                 <% } %>
 
                 <label class="label-header" for="">Usuario</label>
@@ -30,9 +30,9 @@
                  <% } %>
 
                 <label class="label-header" for="">Fecha de nacimiento: </label>
-                <input class="input-texto" type="date" name="brithDate" value="<%= locals.oldData && oldData.brithDate? oldData.brithDate :null%>">
-                <% if (locals.errors && errors.brithDate) { %>
-                    <p style="color: #D84D09;"><%= errors.brithDate.msg %> </p> 
+                <input class="input-texto" type="date" name="brithdate" value="<%= locals.oldData && oldData.brithdate? oldData.brithdate :null%>">
+                <% if (locals.errors && errors.brithdate) { %>
+                    <p style="color: #D84D09;"><%= errors.brithdate.msg %> </p> 
                  <% } %>
                 
                 <label class="label-header" for="">Domicilio</label>
@@ -42,9 +42,9 @@
                  <% } %>
 
                 <label class="label-header" for="">Código postal</label>
-                <input class="input-texto" type="number" name="postalCode" placeholder="Ingrese su código postal" value="<%= locals.oldData && oldData.postalCode? oldData.postalCode :null%>">
-                <% if (locals.errors && errors.postalCode) { %>
-                    <p style="color: #D84D09;"><%= errors.postalCode.msg %> </p> 
+                <input class="input-texto" type="number" name="postalcode" placeholder="Ingrese su código postal" value="<%= locals.oldData && oldData.postalcode? oldData.postalcode :null%>">
+                <% if (locals.errors && errors.postalcode) { %>
+                    <p style="color: #D84D09;"><%= errors.postalcode.msg %> </p> 
                  <% } %>
 
                 <label class="label-header" for="">Telefono (celular)</label>
@@ -53,19 +53,17 @@
                     <p style="color: #D84D09;"><%= errors.phone.msg %> </p> 
                  <% } %>
 
-                <%#  
+               
                 <label class="label-header">Perfil del usuario</label>
                 <div class="perfil-usr">
                     <div>
-                        <input type="radio" id="comprador" value="perfil-comprador" name="userRole">
-                        <label for="comprador">Comprador</label>
+                        <label class="comprador"><input type="radio" name="role_id" value="1" <%= locals.oldData && (oldData.role_id == '1') ? 'selected' : null %>> comprador</label>
                     </div>
-                    <div>    
-                        <input type="radio" id="vendedor" value="perfil-vendedor" name="userRole"> 
-                        <label for="vendedor">Vendedor</label>
+                    <div>            
+                        <label class="vendedor"><input type="radio" name="role_id" value="2" <%= locals.oldData && (oldData.role_id == '2') ? 'selected' : null %>> vendedor</label>
                     </div>
                 </div>
-
+  <%# 
                 <label class="label-header">Intereses</label>
                 <div class="categorias-interes">
                     
@@ -90,11 +88,11 @@
                 <div class="img-perfil-container">
                     <label class="label-header">Imagen de perfil:</label>
                     <br> 
-                    <input type="file" name="avatar" id="avatar" accept=".jpg, .png">
+                    <input type="file" name="userfile" id="userfile" accept=".jpg, .png">
                     
                 </div> 
-                <% if (locals.errors && errors.avatar) { %>
-                    <p style="color: #D84D09;"><%= errors.avatar.msg %> </p> 
+                <% if (locals.errors && errors.userfile) { %>
+                    <p style="color: #D84D09;"><%= errors.userfile.msg %> </p> 
                  <% } %>
                 <label class="label-header" for="">Constraseña</label>
                 <input class="input-texto" type="password"  name="password" placeholder="Su contraseña debe ser alfanumerica mínimo de 6 caractéres">

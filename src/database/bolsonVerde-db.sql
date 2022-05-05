@@ -42,7 +42,7 @@ create table `users`(
 `adress` varchar(50) collate utf8_unicode_ci not null,
 `postalcode` int not null,
 `phone` char(15) not null,
-`password` varchar(50) not null,
+`password` varchar(255) not null,
 `userfile` varchar(50) not null,
 `create_date` timestamp null default null,
 `update_date` timestamp null default null,
