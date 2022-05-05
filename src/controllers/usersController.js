@@ -79,6 +79,7 @@ const usersController = {
 		} else { // No hay errores y ya verificamos que el usuario exista. Comparamos la password.
             bcrypt.compare(req.body.password, userInDB.password)
             .then((passwordOk)=>{
+                console.log(passwordOk);
                 if(passwordOk){
                     delete userInDB.password;
                     req.session.logedUser = userInDB;
