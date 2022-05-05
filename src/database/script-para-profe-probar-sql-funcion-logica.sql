@@ -5,9 +5,9 @@ inner join carts_orders on orders.cart_order_id  = carts_orders.id
 inner join users on carts_orders.user_id  = users.id 
 inner join products on orders.product_id = products.id 
 
--- MOSTRAR UN CASO DE CART_ORDER - CON LA INFO QUE SE MOSTRARÍA AL CLIENTE - EL ID CART_ORDER 11 Y 19 TIENE VARIAS ORDENES
+-- MOSTRAR UN CASO DE CART_ORDER - CON LA INFO QUE SE MOSTRARï¿½A AL CLIENTE - EL ID CART_ORDER 11 Y 19 TIENE VARIAS ORDENES
 -- Se puede ver ID cart_order 11 
--- --> es un solo cart_order N° 11
+-- --> es un solo cart_order NÂº 11
 -- --> tiene varias ordenes
 -- --> tiene varios productos asociados
 -- --> c/u con su precio descuento y cantidad seleccionada 

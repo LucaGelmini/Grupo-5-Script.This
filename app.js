@@ -28,6 +28,7 @@ app.use(session({
     saveUninitialized: true
   }
 ))
+app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
 
@@ -70,7 +71,7 @@ app.use((req, res, next) => next(createError(404)));
     res.status(err.status || 500);
     res.render('error');
   });
-  
+ 
 
 
  
