@@ -2,54 +2,48 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Order';
     let cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.BIGINT(10).UNSIGNED,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
-        total: {type: dataTypes.FLOAT},
-        quantityOfItems: {
-            type: dataTypes.INTEGER,
-            field: 'product_quantity'    
+        // create_date: dataTypes.TIMESTAMP,
+        // update_date: dataTypes.TIMESTAMP,
+        product_quantity: {
+            type: dataTypes.BIGINT(10),
+            allowNull: false
         },
-        cartOrderId: {
-            type: dataTypes.INTEGER,
-            field: 'cart_order_id'    
+        total: {
+            type: dataTypes.DECIMAL(10,2),
+            allowNull: false
         },
-        productId: {
-            type: dataTypes.INTEGER,
-            field: 'product_id'    
-        },
-        createdAt:{
+        cancel_date: {
             type: dataTypes.DATE,
-            field: 'create_date'
+            allowNull: false
         },
-        updatedAt: {
-            type: dataTypes.DATE,
-            field: 'update_date',
-         },
-         canceledAt:{
-            type: dataTypes.DATE,
-            field: 'cancel_date'
-        }
-
+        cart_order_id: dataTypes.BIGINT(10),
+        product_id: dataTypes.BIGINT(10)
     };
+
     let config = {
-        tableName: 'orders',
-        timestamps: true
+        timestamps: true,
+        createdAt: 'create_date',
+        updatedAt: 'update_date',
+        deletedAt: false
     };
 
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = models => {
         Order.belongsTo(models.Product,{
-            as: "products",
-            foreignKey: "product_id",
-            timestamps: true
+            as: "product",
+            foreignKey: "product_id"
+            // timestamps: true
         }),
         Order.belongsTo(models.CartOrder, {
-            as: "cart_orders",
-            foreignKey: "cart_order_id",
-            timestamps: true
+            as: "cartOrder",
+            foreignKey: "cart_order_id"
+            // timestamps: true
         })
     }
     return Order

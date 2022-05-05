@@ -2,77 +2,66 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'CartOrder';
     let cols = {
         id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.BIGINT(10).UNSIGNED,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
+        }, 
+        total: {
+            type: dataTypes.DECIMAL(10,2),
+            allowNull: false
         },
-        total: {type: dataTypes.FLOAT},
-        userId: {
-            type: dataTypes.INTEGER,
-            field: 'user_id'    
-        },
-        paymentId: {
-            type: dataTypes.INTEGER,
-            field: 'payment_id'    
-        },
-        statusId: {
-            type: dataTypes.INTEGER,
-            field: 'status_id'    
-        },
-        createdAt:{
+        cancel_date: {
             type: dataTypes.DATE,
-            field: 'create_date'
+            allowNull: false
         },
-        updatedAt: {
+        confirm_date: {
             type: dataTypes.DATE,
-            field: 'update_date',
-         },
-         canceledAt:{
-            type: dataTypes.DATE,
-            field: 'cancel_date'
+            allowNull: false
         },
-        confirmedAt: {
-            type: dataTypes.DATE,
-            field: 'confirm_date',
-         },
-
-
+        user_id: dataTypes.BIGINT(10),
+        payment_id: dataTypes.BIGINT(10),
+        status_id: dataTypes.BIGINT(10) 
     };
+
     let config = {
-        tableName: 'carts_orders',
-        timestamps: true
+        timestamps: true,
+        createdAt: 'create_date',
+        updatedAt: 'update_date',
+        deletedAt: false,
+        tableName: 'carts_orders'
     };
 
     const CartOrder = sequelize.define(alias, cols, config);
 
     CartOrder.associate = models => {
-        CartOrder.belongsToMany(models.Product, {
-            as: "product",
-            through: "orders",
-            foreignKey: "cart_order_id",
-            otherKey: "product_id",
-            timestamps: false
-        }),
+        // CartOrder.belongsToMany(models.Product, {
+        //     as: "product",
+        //     through: "orders",
+        //     foreignKey: "cart_order_id",
+        //     otherKey: "product_id",
+        //     timestamps: false
+        // }),
         CartOrder.hasMany(models.Order, {
-            as: "CO_to_orders",
-            foreignKey: "cart_order_id",
-            timestamps: true,
-            onDelete: 'CASCADE'
+            as: "orders",
+            foreignKey: "cart_order_id"
+            // timestamps: true,
+            // onDelete: 'CASCADE'
         }),
         CartOrder.belongsTo(models.User, {
-            as: "users",
-            foreignKey: "user_id",
-            timestamps: true
+            as: "user",
+            foreignKey: "user_id"
+            // timestamps: true
         }),
         CartOrder.belongsTo(models.Payment, {
-            as: "payments",
-            foreignKey: "payment_id",
-            timestamps: false
+            as: "payment",
+            foreignKey: "payment_id"
+            // timestamps: false
         }),
         CartOrder.belongsTo(models.Status, {
             as: "status",
-            foreignKey: "status_id",
-            timestamps: false
+            foreignKey: "status_id"
+            // timestamps: false
         })
     }
     return CartOrder
