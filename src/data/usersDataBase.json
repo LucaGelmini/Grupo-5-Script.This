@@ -57,5 +57,17 @@
   "phone": "11112145454",
   "password": "$2a$10$tjfoGMX2gGErAYQD8BpFG.RrWsEc3rImpQWbUuEHi4wPtk0mBweHO",
   "userFile": "avatar-1650323989351.jpg"
+ },
+ {
+  "id": 6,
+  "nameLastname": "La Mona Gimenez",
+  "username": "La Mona",
+  "email": "mona@gmail.com",
+  "brithDate": "1990-01-10",
+  "adress": "Chile 1111",
+  "postalCode": "5012",
+  "phone": "3515405060",
+  "password": "$2a$10$yxQdgAWfX.RfJBq9P6efoeTTsavxAMQN2lWhyQnArUgSTeUzRYoUK",
+  "userFile": "avatar-1650466042878.jpg"
  }
 ]
