@@ -60,6 +60,7 @@ const usersController = {
 
                 let userToCreate = req.body
 				const passwordHashed = bcrypt.hashSync(req.body.password,10)
+                console.log(passwordHashed);
 				userToCreate.password = passwordHashed
 				delete userToCreate.contrasenaConfirmacion
 
@@ -89,6 +90,7 @@ const usersController = {
         db.User
         .findOne({where: {email: req.body.email}})
         .then(userInDB =>{
+            console.log(bcrypt.compareSync(req.body.password, userInDB.password));
             if (!userInDB) { //en el caso de que user no exista
                 res.render('login',{
                     errors: {
