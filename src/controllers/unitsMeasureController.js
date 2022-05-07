@@ -5,7 +5,7 @@ const unidades = {
     getAll: function(req,res){
         db.UnitMensure.findAll()
             .then(unit =>{
-                console.log(unit)
+            
                 return res.render('listUnitsMeasures',{unidades:unit})
             })
     },
@@ -25,6 +25,23 @@ const unidades = {
         }
         db.UnitMensure.create({
             type:req.body.unidad
+        })
+        res.redirect('/units')
+    },
+    editar: function(req,res){
+        db.UnitMensure.findAll()
+            .then(unit =>{
+                return  res.render('updateUnits',{unidades:unit})
+            })
+       
+    },
+    edicion: function(req,res){
+        let unidadesEditadas={...req.body}
+        console.log(unidadesEditadas)
+        db.UnitMensure.update({...unidadesEditadas },{
+            where:{
+                ...unidadesEditadas
+            }
         })
         res.redirect('/units')
     },
