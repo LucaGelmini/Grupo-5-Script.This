@@ -4,7 +4,9 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require('method-override');// Pasar poder usar los métodos PUT y DELETE
+
+const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
+
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
@@ -15,7 +17,9 @@ const app = express();
 app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine', 'ejs');
 
- // ************ Middlewares - (don't touch) ************
+
+ // ************ Middlewares - (don't touch) *************
+
 app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
 app.use(logger('dev')); 
@@ -44,11 +48,17 @@ const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
 
+const unitsRouter = require('./src/routes/unitsMeasure')
+
+
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
 app.use('/users', usersRouter)
+
+app.use('/units',unitsRouter)
+
  
 const PORT = 3000
 app.listen(PORT, ()=>{
@@ -59,18 +69,20 @@ app.listen(PORT, ()=>{
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
-app.use((req, res, next) => next(createError(404)));
+
+// app.use((req, res, next) => next(createError(404)));
   
   // error handler
-  app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // app.use(function(err, req, res, next) {
+  //   // set locals, only providing error in development
+  //   res.locals.message = err.message;
+  //   res.locals.error = req.app.get('env') === 'development' ? err : {};
   
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-  });
+  //   // render the error page
+  //   res.status(err.status || 500);
+  //   res.render('error');
+  // });
+
  
 
 

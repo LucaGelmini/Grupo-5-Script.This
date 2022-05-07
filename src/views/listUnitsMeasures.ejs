@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-units-list">
+           
+            <ul class="main-container-units-list">
+                <% for(let i=0; i< unidades.length;i++){%>
+                    <li><%=unidades[i].dataValues.type%></li>
+                <%}%>
+            </ul>
+           
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>
