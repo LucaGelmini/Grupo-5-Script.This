@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head', {title:'Edita tu Producto'}) %> 
+</head>
+<body>
+    <header>
+        <%-include('./partials/header')  %>
+        <%-include('./partials/carrusel') %>
+    </header>
+<main>
+    <div class="editar-product-container">
+        <h2 class="editar-producto-title">Edita tu producto: <%= productToEdit.name %> </h2>
+        <form class="editar-product-form" action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="POST">
+            <h3 class="complete-data-title">Modifica los datos para editar tu producto:</h3>
+            <input class="input-texto" type="text" name="name" placeholder="<%= productToEdit.name %> ">
+            <input class="input-texto" type="text" name="unit_mensure" placeholder="<%= productToEdit.unit_mensure %>">
+            <input class="input-texto" type="text" name="mensure_value" placeholder="<%= productToEdit.mensure_value %>">
+            <input class="input-texto" type="number" name="price" placeholder="<%= productToEdit.price %>">
+            <input class="input-texto" type="number" name="discount" placeholder="<%= productToEdit.discount %>">
+            <label for="category" class="form-label">Categoría:</label>
+						<select name="category" id="category" class="form-input">
+							<option value="">Elegí</option>
+							<option value="verduras">verduras</option>
+							<option value="frutas">frutas</option>
+                            <option value="hierbas">hierbas</option>
+                            <option value="secos">secos</option>
+						</select>
+            <label for="exposicion" class="form-label">exposición:</label>
+						<select name="exposicion" id="exposicion" class="form-input">
+							<option value="">Elegí</option>
+							<option value="oferta">oferta</option>
+							<option value="destacado">destacado</option>
+                            <option value="general">general</option>
+						</select>
+            <input class="input-texto" type="text" name="description" placeholder="<%= productToEdit.description %>">
+            
+            
+            <label class="editar-product-photo-label">Actualice la foto de su producto:</label>
+            <input class="editar-product-photo"type="file" name="editar-product-photo" accept=".jpg, .png" multiple>
+            <div class="submit-editar-product-container">
+                <button class="editar-product-button">
+                    <p>Guardar cambios</p>
+                </button>
+                <span>*Todos los campos son obligatorios</span>
+            </div>  
+        </form>
+    </div>
+</main>
+<%-include('./partials/footer')  %> 
+</body>
+</html>

@@ -1,0 +1,68 @@
+<div class="envío-sin-cargo">
+    <p>Envío sin cargo si tu compra supera los $2.000. <a href="#" style="color:#D84D09">Empezá a comprar ahora mismo!</a> </p>
+</div>
+<div class="logo-mas-buscador">
+    <div class="logo-container">
+        <a href="/">
+            <p>Bolson Verde</p>
+        </a>
+    </div>
+        <div class="form" action="/" method="POST">
+            <div class="contenedor-de-input-search">
+                <input class="input-search" type="text"   placeholder="Buscar frutas, verduras y otros productos"> 
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        
+        <div class="burger-container">
+            <i class="fa fa-bars burger"></i>
+        </div>
+        <div class="cart-container">
+            <a href="/products"><i class="fas fa-shopping-cart"></i></a></i>
+        </div>
+        <div class="nav-offers">
+                <a class="link-offer" href="#ofertas-promos">
+                    <button class="offer-button">
+                    <p>% Ofertas y promos</p> 
+                    </button>
+                </a>
+        </div>
+</div>
+<div class="navs-container">
+    <div class="nav00-container">
+        <nav class="nav00">
+            <ul>
+                <li><a href="/products">Frutas</a></li>
+                <li><a href="/products">Verduras</a></li>
+                <li><a href="/products">Hiebras</a></li>
+                <li><a href="/products">Secos</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="nav01-container">
+        <nav class="nav01">
+            <ul>
+                <% if(locals.isLogged){ %> 
+                    <li><a href="/users/profile">Hi, <%= locals.logedUser.username %></a></li>
+                    <li><a href="/users/logout">Log Out</a></li>
+                <% }else{%> 
+                    <li><a href="/users/register">Creá tu cuenta</a></li>
+                    <li><a href="/users/login">Log in</a></li>
+                <% }; %>
+                <li><a href="/">Mis Pedidos</a></li>
+                <li><a href="/products"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="ubicacion">
+    <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <% if(locals.isLogged){ %>
+            <%= locals.logedUser.adress %>
+        <% }else{ %>
+            Enviar a tu domicilio
+        <% }; %>  
+    </p> 
+</div>

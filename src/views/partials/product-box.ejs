@@ -1,0 +1,19 @@
+<section class="product-box">
+                        
+    <figure class="product-box_image">
+        <img class="img-article-cart" src="/img/products/<%= product.image %>  " alt="imagen de producto">
+    </figure>
+    <div class="product-box_data">
+        <p class="price-product">$ <%= product.price %> </p>
+        <% if(product.discount != 0){%>
+            <p class="discount-price">OFF%  <%= product.discount %> </p>
+        <%} %> 
+           <p class="product-name"> <%= product.name %> </p>
+           <a href="/products/<%= product.id %> " class="product-detail-cart">Ver detalle</a>
+        <p class="presentation">PRESENTACIÓN: <%= product.mensure_value + ' ' + product.unit_mensure   %> </p>
+        <button class="cart-button" type="button">
+            <i class="fas fa-shopping-cart"></i>AGREGAR
+        </button>
+    </div>
+
+</section>

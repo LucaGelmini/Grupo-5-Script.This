@@ -1,0 +1,85 @@
+[
+ {
+  "id": 1,
+  "nameLastname": "Gregorio Romero Garzon",
+  "username": "House",
+  "email": "gregorioromerogarzon@gmail.com",
+  "brithDate": "1991-12-26",
+  "adress": "Carlos encina 1935",
+  "postalCode": "5009",
+  "phone": "+5493515140462",
+  "password": "$2a$10$lWzWLX6rsEogrOwiGX8wZOjARv0dLfxLRBALCV5dj0DVQAh7vDkqy"
+ },
+ {
+  "id": 2,
+  "nameLastname": "Luca Gelmini",
+  "username": "Luko",
+  "email": "lucagelmini@hotmail.com",
+  "brithDate": "1995-11-03",
+  "adress": "Rivadavia 5805",
+  "postalCode": "1406",
+  "phone": "1145573827",
+  "password": "$2a$10$xPYs10GBCKzCij5d/60O0eqHEfbUk0V/4EfRfaspNxXGxeMi.Jdsq",
+  "userFile": "avatar-1649771294642.jpg"
+ },
+ {
+  "id": 3,
+  "nameLastname": "Leonel Messi",
+  "username": "messi",
+  "email": "lmessi@gmail.com",
+  "brithDate": "1990-03-02",
+  "adress": "Paraguay 445",
+  "postalCode": "5012",
+  "phone": "3515167689",
+  "password": "$2a$10$2ERqZS7v1cI.8nTJnuRasO9wCOZxXVZvb.jxuTla0O9Tp91teTVWG",
+  "userFile": "avatar-1649094653479.jpg"
+ },
+ {
+  "id": 4,
+  "nameLastname": "House Gregory",
+  "username": "GHouse",
+  "email": "gromero@boxcustodia.com",
+  "brithDate": "1990-11-10",
+  "adress": "Chile 445",
+  "postalCode": "5006",
+  "phone": "3515156457",
+  "password": "$2a$10$cPvQnYTXfRz3P88CpdZAmux1TPJ3gjJCnzOtZECm/HXOGP.2AELte",
+  "userFile": "avatar-1649450830503.jpg"
+ },
+ {
+  "id": 5,
+  "nameLastname": "Digital House",
+  "username": "DH",
+  "email": "dh@dh.com",
+  "brithDate": "2022-04-18",
+  "adress": "av de mayo 1",
+  "postalCode": "01110",
+  "phone": "11112145454",
+  "password": "$2a$10$tjfoGMX2gGErAYQD8BpFG.RrWsEc3rImpQWbUuEHi4wPtk0mBweHO",
+  "userFile": "avatar-1650323989351.jpg"
+ },
+ {
+  "id": 6,
+  "nameLastname": "La Mona Gimenez",
+  "username": "La Mona",
+  "email": "mona@gmail.com",
+  "brithDate": "1990-01-10",
+  "adress": "Chile 1111",
+  "postalCode": "5012",
+  "phone": "3515405060",
+  "password": "$2a$10$yxQdgAWfX.RfJBq9P6efoeTTsavxAMQN2lWhyQnArUgSTeUzRYoUK",
+  "userFile": "avatar-1650466042878.jpg"
+ },
+ {
+  "id": 7,
+  "nameLastname": "Pedro Perez",
+  "username": "Perez",
+  "email": "pp@gmail.com",
+  "brithDate": "1980-10-12",
+  "adress": "Peru 277",
+  "postalCode": "5008",
+  "phone": "3515434567",
+  "password": "$2a$10$zVaVlXcekm7oPAv3g/BjeOKzmL4XRUSGcwhwDAoy5IXI4UlcvMVXy",
+  "userFile": "avatar-1651260899751.jpg"
+ }
+]

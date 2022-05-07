@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <%-include('./partials/head',{title:'Detalle Producto'})  %> 
+</head>
+<body>
+    <header>
+      <%- include('./partials/header') %> 
+    </header>
+    
+    <main>
+        <div>
+            <h2>Detalle del Producto</h2>
+        </div>
+        <section class="main-producto-container">
+            <section class="product-detail-box">  
+                <figure class="product-detail-box_image">
+                    <img class="img-article-detail" src="/img/products/<%= productDetail.image %>  " alt="imagen de producto">
+                </figure>
+                <div class="product-detail-box_data">
+                    <p class="price-product">$ <%= productDetail.price %> </p>
+                    <p class="discount-price">OFF% <%= productDetail.discount %> </p>
+                       <p class="product-name"> <%= productDetail.name %> </p>
+                    <p class="presentation">PRESENTACIÓN: <%=`${productDetail.mensure_value} ${productDetail.unit_mensure}`  %></p>
+                    <p class="description">DESCRIPCIÓN: <%= productDetail.description %></p> 
+                    <a href="/products/edit/<%= productDetail.id %> ">
+                        <button class="cart-button" type="button">
+                             <p>EDITAR</p> 
+                        </button>
+                    </a>
+                    <form action="/products/<%= productDetail.id %>?_method=DELETE" method="POST">     
+                        <button class="cart-button" type="submit">
+                            <p>ELIMINAR</p> 
+                        </button>
+                    </form>
+                </div>
+           
+            </section>
+        </section>
+        
+    </main>
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>
