@@ -993,6 +993,7 @@ header ul {
     height: 100vh;
     background-color: white;
 }
+
 .main-container-units-list{
     display: flex;
     flex-direction: column;
@@ -1002,7 +1003,7 @@ header ul {
     padding: 10px;
     top: 35%;
     width: 35%; 
-    height: 200px;
+    height: fit-content;
     min-width: 250px;
     max-width: 400px;
     border-radius: 5px;

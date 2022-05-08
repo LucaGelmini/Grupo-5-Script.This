@@ -10,12 +10,21 @@ const unitsMeasureController = require('../controllers/unitsMeasureController')
 
 
 //******GET de todos los productos en dicha unidad************ */
+
 router.get('/', unitsMeasureController.getAll)
-///****************+ */ crear*************************
+
+///**************** */ crear*************************
+
 router.get('/crear', unitsMeasureController.crear)
 router.post('/crear',validateUnits, unitsMeasureController.creacion)
+
 //*********Eliminar*********** */
 
 router.get('/eliminar', unitsMeasureController.eliminar)
 router.post('/eliminar',validateUnits, unitsMeasureController.eliminacion)
+
+//**********editar********* */
+
+router.get('/editar', unitsMeasureController.editar)
+router.post('/editar', unitsMeasureController.edicion)
 module.exports = router;
