@@ -1312,8 +1312,8 @@ form{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 100%;
-    margin-bottom: 20px;
+    width: 30%;
+   
 }
 .usersProfile-img-avatar{
     display: none;
@@ -1361,12 +1361,282 @@ form{
     width: 90%;
 }
 
+.cartOrder-title{
+    font-size: 20px;
+    margin: 30px 0px 0px 10px;
+    font-weight: 600;
+}
 
+.cart-tables-container, .title-cart-container {
+    display: flex;
+    width: 100%;
+    margin: 5px;
+}
+
+
+.table-container  {
+     width: 70%;
+     margin: 10px;
+     margin-top: 10px;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+ }
+
+ table, th, td{
+      border-spacing: 0px;
+      border-collapse: collapse;
+ }
+
+.messege-payment-container{
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.payment-method-info {
+    text-align: left;
+    margin-left: 90px;
+    margin-top: 10px;
+    
+}
+
+.payment-method-info ul {
+    list-style-type: none;
+}
+
+.cart-table {
+    display: table; 
+    padding: 10px;
+    background-color: white;
+}
+
+.cart-table-labels{
+    display: table; 
+    padding: 10px;
+    background-color: white;
+}
+
+ 
+table>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+thead tr th {
+    font-size: 1.2rem; 
+    height: 50px;   
+}
+
+tbody tr td {
+    height: 40px;
+    border-bottom: solid rgb(0,0,0,0.2 ) 1px;
+}
+
+tfoot tr {
+    height: 40px;
+}
+
+
+ .text-left {
+     text-align: left;
+     width: 48%;
+ }
+
+ .text-center {
+     text-align: center;
+     width: 13%;
+ }
+
+ .text-right {
+     text-align: right;
+     
+ }
+
+ .continue-cart {
+    background-color: #ec2f2f;
+    border-color: #ec2f2f;
+    padding: 10px;
+    color: white;
+ }
+
+ .confirm-cart {
+     background-color: #189752;
+     padding: 10px;
+     color: white;
+ }
+
+ .text-total {
+     text-align: center;
+     width: 30%;
+     
+ }
+
+ .text-total p {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px;
+ }
+ 
+
+ .foto-and-data-container{
+     display: flex;
+     width: 100%;
+     
+ }
+
+
+ .title-myData, .profile-title-container{
+    margin: 20px auto;
+    max-width: 500px;       
+    font-weight: 600;
+  }
+
+  .title-myData p{
+    font-size: 25px;
+  }
+  
+  .profile-title-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .title-data-account {
+    width: 50%;
+    text-align: right;
+  }
+
+  .title-edit-data {
+    width: 50%;
+    text-align: right;
+  }
+  
+  .title-edit-data a{
+    color: #3483fa;
+    font-size: 12px;
+    align-self: center;   
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+       
+  }
+  
+  .profile-data-container{
+    background-color: rgba(241, 237, 237, 0.849);
+    padding: 10px;
+    max-width: 500px;
+    width: auto;
+    border: none;
+    border-radius: 7px;
+    margin: 20px;
+     
+  }
+
+ .repair-container{
+     width: 70%;
+ }
+
+  .row-container {
+  display: flex;
+  width: 100%;
+  border-bottom: solid 1px white;
+  margin: 10px;
+   
+  }
+  
+  .label-container{
+    width: 50%;
+    margin: 0px 20px 0px 10px;
+  }
+  
+  .label-container p {
+    font-size: 1.2rem;
+  }
+  
+  .data-container {
+    width: 50%;
+    margin: 0px 0px 0px 0px;
+  }
+  
+  .data-container p {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  .profile-input {
+    border: solid 1px #eee;
+    margin: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+  }
+  
+  .buttons-profile-container {
+    display: flex;
+    width: 100%;
+    margin: 20px;
+   
+  }
+  
+  .profile-button-edit {
+    width: 50%;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  .profile-button-cancel{
+    width: 50%;
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  .button-save-profile, .button-cancel-profile {
+    background-color: #3483fa;
+    border-color: transparent;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    text-align: center;
+    cursor: pointer;   
+  }
+  
+  .button-save-profile:hover, .button-cancel-profile:hover {
+    background-color: #1259c3;
+  }
+ 
+  .edit-user-form{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    background-color: white;
+  }
+
+  .profile-edit-data-container{
+    max-width: 800px;
+    width: 80%;
+    align-self: center;
+    background-color: rgba(241, 237, 237, 0.849);
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    margin: 20px;
+  }
+
+ 
+ 
 
 @media (min-width:277px) {
     .google-map-container {
         display: block;
-    }
+    }   
 }
 
 
@@ -1429,8 +1699,8 @@ form{
         width: 46%; 
     }
     .usersProfile-presentacion-user{
-        width: 300px;
-        margin: none;
+        width: auto;
+         
     
     }
     .usersProfile-img-avatar{

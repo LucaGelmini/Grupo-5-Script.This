@@ -29,7 +29,9 @@ router.get('/register',guestMiddleware ,usersController.registerView);
 router.post('/register',upload.single('userfile'), registerMiddleware, usersController.register);
 
 
-router.get('/profile',authMiddleware ,usersController.profile);
+router.get('/profile/:id',authMiddleware ,usersController.profile);
+router.get('/profile/edit/:id',authMiddleware ,usersController.edit);
+router.put('/profile/edit/:id',authMiddleware ,usersController.update);
 
 router.get('/logout', usersController.logout);
 

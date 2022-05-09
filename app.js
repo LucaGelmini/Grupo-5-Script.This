@@ -43,16 +43,24 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
+
+const cartOrderRouter = require('./src/routes/cartOrder')
+
 const unitsRouter = require('./src/routes/unitsMeasure')
+
 
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
-app.use('/users', usersRouter)
+ 
+app.use('/users', usersRouter);
+app.use('/cartOrder', cartOrderRouter);
+ 
 app.use('/units',unitsRouter)
  
-const PORT = 3000
+ 
+const PORT = 3001
 app.listen(PORT, ()=>{
   console.log(`##########################\n\nServidor encendido en el puerto ${PORT}!!!!\n\n###########################`);
 })
