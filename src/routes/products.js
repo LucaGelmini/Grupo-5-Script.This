@@ -40,7 +40,7 @@ router.put('/edit/:id',upload.single('img'),validateProducts ,productsController
 router.delete('/:id',productsController.destroy);
 
 
-
-
+/*** FIND ONE PRODUCT ***/
+router.post('/find', productsController.find);
 
 module.exports = router

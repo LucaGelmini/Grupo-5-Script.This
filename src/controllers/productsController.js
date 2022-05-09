@@ -3,8 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
 const Products = require('../models/Products');
-const db = require('../database/models')
-const Product = db.Product
+const db = require('../database/models');
+const Product = db.Product;
+const Op = db.Sequelize.Op;
 const {validationResult} = require('express-validator');
 const internal = require('stream');
 
@@ -125,7 +126,19 @@ const productsController = {
 
         res.redirect('/products')
          
-    } 
+    },
+    find: (req, res)=> {
+        let search = req.body.search;
+
+        Product.findOne({
+            where: {
+                name: {[Op.like]: `%${search}%`}
+            }
+        }).then(product => {
+            res.redirect(`/products/${product.id}`)
+
+        })
+    }
 
 }
 

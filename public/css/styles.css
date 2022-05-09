@@ -17,6 +17,7 @@ header {
     width: 100%;
     max-width: 500px;
     display: none;
+    background-color: #89cd4d;
 }
 .header-login{
     position: fixed;
