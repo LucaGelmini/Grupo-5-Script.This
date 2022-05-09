@@ -29,20 +29,27 @@ const unidades = {
         res.redirect('/units')
     },
     editar: function(req,res){
-        db.UnitMensure.findAll()
+        
+        db.UnitMensure.findByPk(req.params.id)
             .then(unit =>{
+      
+
                 return  res.render('updateUnits',{unidades:unit})
             })
        
     },
     edicion: function(req,res){
-        let unidadesEditadas={...req.body}
-        console.log(unidadesEditadas)
-        db.UnitMensure.update({...unidadesEditadas },{
+        let unidadEditada=req.body.datoEditar
+        let id = req.params.id
+   
+        console.log(unidadEditada)
+        db.UnitMensure.update({type:unidadEditada }
+            ,{
             where:{
-                ...unidadesEditadas
+                id
             }
-        })
+        }
+        )
         res.redirect('/units')
     },
     eliminar:function(req,res){
