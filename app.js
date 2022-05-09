@@ -47,7 +47,10 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
+
 const paymentsRouter = require('./src/routes/payments')
+
+const cartOrderRouter = require('./src/routes/cartOrder')
 const unitsRouter = require('./src/routes/unitsMeasure')
 
 
@@ -57,10 +60,13 @@ app.use('/products', productsRouter);
 app.use('/data',dataRouter);
 app.use('/users', usersRouter)
 app.use('/payments',paymentsRouter)
+app.use('/users', usersRouter);
+app.use('/cartOrder', cartOrderRouter);
 app.use('/units',unitsRouter)
 
  
-const PORT = 3000
+ 
+const PORT = 3001
 app.listen(PORT, ()=>{
   console.log(`##########################\n\nServidor encendido en el puerto ${PORT}!!!!\n\n###########################`);
 })
@@ -79,7 +85,8 @@ app.use((req, res, next) => next(createError(404)));
   
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    //res.render('error');
+    res.send(res.locals.message)
   });
  
 

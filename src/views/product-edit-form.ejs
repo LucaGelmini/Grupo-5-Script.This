@@ -11,7 +11,7 @@
 <main>
     <div class="editar-product-container">
         <h2 class="editar-producto-title">Edita tu producto: <%= productToEdit.name %> </h2>
-        <form class="editar-product-form" action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="POST">
+        <form class="editar-product-form" action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <h3 class="complete-data-title">Modifica los datos para editar tu producto:</h3>
             <input class="input-texto" type="text" name="name" placeholder="<%= productToEdit.name %> ">
             <input class="input-texto" type="text" name="unit_mensure" placeholder="<%= productToEdit.unit_mensure %>">
@@ -37,7 +37,7 @@
             
             
             <label class="editar-product-photo-label">Actualice la foto de su producto:</label>
-            <input class="editar-product-photo"type="file" name="editar-product-photo" accept=".jpg, .png" multiple>
+            <input class="editar-product-photo" type="file" name="img" accept=".jpg, .png" multiple>
             <div class="submit-editar-product-container">
                 <button class="editar-product-button">
                     <p>Guardar cambios</p>

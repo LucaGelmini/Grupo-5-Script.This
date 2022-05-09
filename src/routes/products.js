@@ -34,13 +34,13 @@ router.get('/:id', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id',productsController.edit);
-router.put('/edit/:id',validateProducts ,productsController.update);
+router.put('/edit/:id',upload.single('img'),validateProducts ,productsController.update);
 
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/:id',productsController.destroy);
 
 
-
-
+/*** FIND ONE PRODUCT ***/
+router.post('/find', productsController.find);
 
 module.exports = router

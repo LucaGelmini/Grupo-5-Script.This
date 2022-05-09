@@ -1,43 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include('./partials/head',{title: 'Lista Productos'}) %> 
+    <%- include('./partials/head',{title: 'Perfil'}) %> 
 </head>
     <body>
         <header>
             <%- include('./partials/header') %>
         </header>
         <main class="usersProfile-main">
-            <div class="usersProfile-presentacion-user">
-                <img class="usersProfile-img-avatar" src="/img/users/<%= locals.logedUser.userfile %> " alt="imagen de perfil">
-                <div class="usersProfile-caja-texto-avatar">
-                    <p>¡Hola <%= locals.logedUser.username %>!</p>
-                    <p>   <%= locals.logedUser.email %> </p>
+            <div class="title-myData"><p>Mis Datos</p></div>
+            <div class="profile-title-container">
+                <div class="title-data-account"><p>Datos de la cuenta</p></div>
+                <div class="title-edit-data"><a href="/users/profile/edit/<%= user.id %> ">Modificar datos de la cuenta</a></div>
+            </div>
+            <div class="foto-and-data-container">
+                            <div class="usersProfile-presentacion-user">
+                                <img class="usersProfile-img-avatar" src="/img/users/<%= user.userfile %> " alt="imagen de perfil">
+                                <div class="usersProfile-caja-texto-avatar">
+                                    <p>¡Hola <%= user.username %>!</p>
+                                    <p>   <%= user.email %> </p>
+                                </div>
+                            </div>
+                    
+                <div class="repair-container">
+
+                    <div class="profile-data-container">
+                        <div class="row-container">
+                            <div class="label-container">
+                                <p>Nombre Completo</p>
+                            </div>
+                            <div class="data-container">
+                                <p><%= user.fullname %> </p>
+                            </div>
+                        </div>
+                        <div class="row-container">
+                            <div class="label-container">
+                                <p>Nombre de Usuario</p>
+                            </div>
+                            <div class="data-container">
+                                <p><%= user.username %> </p>
+                            </div>
+                        </div>
+                        <div class="row-container">
+                            <div class="label-container">
+                                <p>Correo electrónico</p>
+                            </div>
+                            <div class="data-container">
+                                <p><%= user.email %> </p>
+                            </div>
+                        </div>
+                        <div class="row-container">
+                            <div class="label-container">
+                                <p>Fecha Nacimiento</p>
+                            </div>
+                            <div class="data-container">
+                                <p><%= new Date().getDate(user.brithdate)%>/<%=new Date().getMonth(user.brithdate)%>/<%= new Date().getFullYear(user.brithdate) %> </p>
+                            </div>
+                        </div>
+                            <div class="row-container">
+                                <div class="label-container">
+                                    <p>Domicilio</p>
+                                </div>
+                                <div class="data-container">
+                                    <p><%= user.adress %> </p>
+                                </div>
+                            </div>
+                            <div class="row-container">
+                                <div class="label-container">
+                                    <p>Codigo Postal</p>
+                                </div>
+                                <div class="data-container">
+                                    <p><%= user.postalcode %> </p>
+                                </div>
+                            </div>
+                            <div class="row-container">
+                                <div class="label-container">
+                                    <p>Numero de telefono</p>
+                                </div>
+                                <div class="data-container">
+                                    <p><%= user.phone %> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stuffed-container">
+
+                        </div>
                 </div>
             </div>
-            <section class="usersProfile-caja-lista-de-acciones">
-                <ul class="usersProfile-lista-de-acciones">
-                    <li>
-                        <img src="../img/chevron.svg"> Último pedido
-                        <div class="usersProfile-colapsable colapsable-ultimo-pedido">
-                            Aquí debería estar una sección colapsable con la información del último pedido y un botón que permita volverlo a ahcer
-                            <p>algo</p>
-                            <p>otra cosa</p>
-                            <button>Botón</button>
-                        </div>
-                    </li>
-                    <li><img src="../img/chevron.svg">Historial de pedidos</li>
-                    <li><img src="../img/chevron.svg">Vendedores preferidos</li>
-                    <li><img src="../img/chevron.svg">Dirección de entrega</li>
-                    <li><img src="../img/chevron.svg">Medios de pago</li>
-                    <li><img src="../img/chevron.svg">Editar perfil</li>
-                </ul>
-            </section>
-            
+           
+     
         </main>
-
-
-        
         <%- include('./partials/footer') %>
     </body>
 </html>

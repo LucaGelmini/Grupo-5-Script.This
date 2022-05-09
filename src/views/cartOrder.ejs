@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head',{title: 'Carrito de Compra'}) %> 
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+        <%- include('./partials/carrusel') %> 
+    </header>
+    <main> 
+            <div title-cart-container>
+                <p class="cartOrder-title">Detalle de tu carrito de compra</p>
+            </div>
+        <div class="cart-tables-container">
+            <div class="table-container">
+                <form action=""> 
+                    <table class="cart-table-labels">
+                        <thead>
+                            <tr>
+                                <th class="text-left">Producto</th>
+                                <th class="text-center">Cantidad</th>
+                                <th class="text-center">$ Unidad</th>
+                                <th class="text-center">Subtotal</th>
+                                <th class="text-center">Eliminar</th>
+                            </tr>
+                        </thead>
+                    </table> 
+                    <table class="cart-table">
+                        <tbody>
+                            <tr>
+                                <td class="text-left">Acelga (atado)</td>
+                                <td class="text-center"><select name="quantity" id="quantity">
+                                    <option value="0">-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select></td>
+                                <td class="text-center">$ 70</td>
+                                <td class="text-center">$ 140</td>
+                                <td class="text-center">Eliminar</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Ajo (cabeza)</td>
+                                <td class="text-center"><select name="quantity" id="quantity">
+                                    <option value="0">-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select></td>
+                                <td class="text-center">$ 40</td>
+                                <td class="text-center">$ 40</td>
+                                <td class="text-center">Eliminar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                        <table class="cart-table">
+                            <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-total">
+                                            <p>Total: $180 </p> 
+                                        </td>
+                                   </tr>
+                                    <tr>
+                                        <td class="text-right"><a href=""><button class="continue-cart">Seguir Comprando</button></a></td>
+                                        <td class="text-right"><a href=""><button class="confirm-cart">Confirmar pedido</button></a></td>
+                                    </tr>
+                            </tfoot>
+                        </table>
+                </form>
+            </div>
+            <div class="messege-payment-container">
+                <div>
+                    <p> Importante</p>
+                </div>
+                <div class="min-buy-info">
+                    <p>La compra mínima es de $2.000</p>
+                </div>
+                <div class="payment-method-info">
+                    <h5>Opciones de pago:</h5>
+                    <ul>
+                        <li>Transferencia</li>
+                        <li>Efectivo</li>
+                        <li>Tarjeta Crédito/ Debito</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>

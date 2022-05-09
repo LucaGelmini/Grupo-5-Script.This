@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head',{title: 'Editando Perfil'}) %> 
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <main>
+
+        <div class="title-myData"><h2>Editá los datos de tu cuenta</h2></div>
+        <div class="profile-title-container">
+          
+            
+        </div>
+    
+       
+            <form class="edit-user-form" action="/users/profile/edit/<%= user.id%>?_method=PUT" method="POST">
+                <div class="profile-edit-data-container">
+                    <div class="row-container">
+                    <div class="label-container">
+                        <p>Nombre Completo</p>
+                    </div>
+                    <div class="data-container">
+                        <input class="profile-input" type="text" name="fullname" value="<%= user.fullname %>">
+                    </div>
+                </div>
+                <div class="row-container">
+                    <div class="label-container">
+                        <p>Nombre de Usuario</p>
+                    </div>
+                    <div class="data-container">
+                        <input class="profile-input" type="text" name="username" value="<%= user.username %>" disabled>
+                    </div>
+                </div>
+                <div class="row-container">
+                    <div class="label-container">
+                        <p>Correo electrónico</p>
+                    </div>
+                    <div class="data-container">
+                        <input class="profile-input" type="email" name="email" value="<%= user.email %>" disabled>
+                    </div>
+                </div>
+                <div class="row-container">
+                    <div class="label-container">
+                        <p>Fecha Nacimiento</p>
+                    </div>
+                    <div class="data-container">
+                        <input class="profile-input" type="text" name="brithdate" value="<%= new Date().getDate(user.brithdate)%>/<%=new Date().getMonth(user.brithdate)%>/<%= new Date().getFullYear(user.brithdate)%>" disabled>
+                    </div>
+                </div>
+                    <div class="row-container">
+                        <div class="label-container">
+                            <p>Domicilio</p>
+                        </div>
+                        <div class="data-container">
+                            <input class="profile-input" type="text" name="adress" value="<%= user.adress %>">
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="label-container">
+                            <p>Codigo Postal</p>
+                        </div>
+                        <div class="data-container">
+                            <input class="profile-input" type="number" name="postalcode" value="<%= user.postalcode %>">
+                        </div>
+                    </div>
+                    <div class="row-container">
+                        <div class="label-container">
+                            <p>Numero de telefono</p>
+                        </div>
+                        <div class="data-container">
+                            <input class="profile-input" type="tel" name="phone" value="<%= user.phone %>">
+                        </div>
+                    </div>
+                
+        </div>
+        <div class="buttons-profile-container">
+            <div class="profile-button-edit"> 
+                     <button class="button-save-profile" type="submit">GUARDAR</button>
+            </div>
+            <div class="profile-button-cancel"> 
+                <a href="/users/profile/<%= user.id %> "><button class="button-cancel-profile" type='button'>CANCELAR</button></a>
+           </div>
+        </div>
+    </form>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>
