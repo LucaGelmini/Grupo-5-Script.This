@@ -7,22 +7,26 @@
         <header class="header-login">
             <%-include("./partials/header")%>
         </header>
-        <form action="/units/editar" method="POST" >
+        
 
         <main class="main-units-list">
             <ul class="main-container-units-list">
-                <% for(let i=0; i< unidades.length;i++){%>
+                
                     <div style="display:flex;">
                         <label for="" style="margin: 2px;">Unidad: </label>
-                        <input value="<%=unidades[i].dataValues.type%>" name="<%=unidades[i].dataValues.type%>" ></input >
+                        <form action="/units/editar/<%=unidades.dataValues.id%>" method="POST" >
+                        <input value="<%=unidades.dataValues.type%>" name="datoEditar" ></input >
+
+                            <button type="submit">Editar</button>
+
+                        </form>
                     </div>
                 
-                <%}%>
-                <button type="submit">Editar</button>
+       
+               
 
             </ul>
         </main>
-    </form>
 
         <%-include('./partials/footer')  %> 
     </body>

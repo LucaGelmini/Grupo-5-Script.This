@@ -25,6 +25,6 @@ router.post('/eliminar',validateUnits, unitsMeasureController.eliminacion)
 
 //**********editar********* */
 
-router.get('/editar', unitsMeasureController.editar)
-router.post('/editar', unitsMeasureController.edicion)
+router.get('/editar/:id', unitsMeasureController.editar)
+router.post('/editar/:id', unitsMeasureController.edicion)
 module.exports = router;

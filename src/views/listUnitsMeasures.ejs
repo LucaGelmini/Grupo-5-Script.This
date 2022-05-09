@@ -12,6 +12,10 @@
             <ul class="main-container-units-list">
                 <% for(let i=0; i< unidades.length;i++){%>
                     <li><%=unidades[i].dataValues.type%></li>
+                    <form action="/units/editar/<%=unidades[i].dataValues.id%>" method="GET" >
+                        <button type="submit">Editar</button>
+
+                    </form>
                 <%}%>
             </ul>
            
