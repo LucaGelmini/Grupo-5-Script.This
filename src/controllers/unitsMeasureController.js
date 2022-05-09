@@ -37,7 +37,6 @@ const unidades = {
     },
     edicion: function(req,res){
         let unidadesEditadas={...req.body}
-        console.log(unidadesEditadas)
         db.UnitMensure.update({...unidadesEditadas },{
             where:{
                 ...unidadesEditadas

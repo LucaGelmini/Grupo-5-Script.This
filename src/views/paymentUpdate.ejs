@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-login">
+            <form class="formulario-login" action="/payments/editar/<%=payment.id%> " method="POST" name= "formulario-registro">
+                
+                <input class="input-texto" type="text" name="payment" placeholder="Ingrese un método de pago" value="<%=payment.method%>">
+                <button class="boton-login" type="submit">Enviar</button>         
+
+            </form>
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

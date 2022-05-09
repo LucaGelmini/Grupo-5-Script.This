@@ -47,7 +47,7 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
-
+const paymentsRouter = require('./src/routes/payments')
 const unitsRouter = require('./src/routes/unitsMeasure')
 
 
@@ -56,7 +56,7 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
 app.use('/users', usersRouter)
-
+app.use('/payments',paymentsRouter)
 app.use('/units',unitsRouter)
 
  

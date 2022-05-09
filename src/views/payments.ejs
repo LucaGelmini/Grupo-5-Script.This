@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments</title>
+</head>
+<body>
+    <%-include("./partials/head",{title:'Login'})%>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-units-list">
+           
+            <ul class="main-container-units-list">
+                <% for(let i=0; i< payment.length;i++){%>
+                    <li><%=payment[i].dataValues.method%></li>
+                <%}%>
+            </ul>
+           
+        </main>
+        <%-include('./partials/footer')  %> 
+</body>
+</html>
