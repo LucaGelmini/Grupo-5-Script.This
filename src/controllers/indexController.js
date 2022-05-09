@@ -22,12 +22,14 @@ const indexController = {
         res.render('search')
     },
     testDb: (req, res) => {
-        //res.send(typeof db.User)
+        /*res.send(typeof db.Product)*/
 
-        db.CartOrder.findAll({
+        db.Product.findAll({
             include: [
-                {association: "payments"},
-                {association: "status"}
+                {association: "cartOrders"},
+                {association: "unitMensure"},
+                {association: "exposition"},
+                {association: "category"}
             ]
         })
             .then(selected => res.json(selected))
