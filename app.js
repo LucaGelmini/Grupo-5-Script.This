@@ -4,7 +4,7 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require('method-override');// Pasar poder usar los métodos PUT y DELETE
+const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
@@ -15,7 +15,7 @@ const app = express();
 app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine', 'ejs');
 
- // ************ Middlewares - (don't touch) ************
+ // ************ Middlewares - (don't touch) *************
 app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
 app.use(logger('dev')); 
@@ -43,14 +43,22 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
+
 const cartOrderRouter = require('./src/routes/cartOrder')
+
+const unitsRouter = require('./src/routes/unitsMeasure')
+
 
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
+ 
 app.use('/users', usersRouter);
 app.use('/cartOrder', cartOrderRouter);
+ 
+app.use('/units',unitsRouter)
+ 
  
 const PORT = 3001
 app.listen(PORT, ()=>{
@@ -71,7 +79,8 @@ app.use((req, res, next) => next(createError(404)));
   
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    //res.render('error');
+    res.send(res.locals.message)
   });
  
 

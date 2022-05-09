@@ -42,12 +42,14 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: "product_id",
             timestamps: false
         }),
+        /*
         CartOrder.hasMany(models.Order, {
             as: "orders",
             foreignKey: "cart_order_id"
             // timestamps: true,
             // onDelete: 'CASCADE'
         }),
+        */
         CartOrder.belongsTo(models.User, {
             as: "user",
             foreignKey: "user_id"

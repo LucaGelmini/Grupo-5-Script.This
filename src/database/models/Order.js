@@ -21,8 +21,18 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATE,
             allowNull: false
         },
-        cart_order_id: dataTypes.BIGINT(10),
-        product_id: dataTypes.BIGINT(10)
+        cart_order_id: {
+            type: dataTypes.BIGINT(10),
+            references: {
+                model: 'CartOrder'
+            }
+        },
+        product_id: {
+            type: dataTypes.BIGINT(10),
+            references: {
+                model: 'Product'
+            }
+        }
     };
 
     let config = {
