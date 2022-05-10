@@ -21,7 +21,8 @@ router.post('/crear',validateUnits, unitsMeasureController.creacion)
 //*********Eliminar*********** */
 
 router.get('/eliminar', unitsMeasureController.eliminar)
-router.post('/eliminar',validateUnits, unitsMeasureController.eliminacion)
+
+router.post('/eliminar/:id', unitsMeasureController.eliminacion)
 
 //**********editar********* */
 
