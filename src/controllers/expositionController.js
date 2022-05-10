@@ -5,19 +5,19 @@ const exposition = {
     getAll: function(req,res){
         db.Status.findAll()
             .then(status =>{
-        console.log("statussssss: "+ status)
+     
             
                 return res.render('listExposition',{expositions:status})
             })
     },
     crear: function(req,res){
-        res.render('estatusCreate')
+        res.render('expositionCreate')
     },
     creacion: function(req,res){
         const validaciones = validationResult(req)
    
         if(validaciones.errors.length > 0){
-            res.render('estatusCreate'
+            res.render('expositionCreate'
             ,{
                 errors: validaciones.mapped(),
                 oldData:req.body
@@ -25,16 +25,16 @@ const exposition = {
             )
         }
         db.Status.create({
-            type:req.body.unidad
+            name:req.body.unidad
         })
-        res.redirect('/estatus')
+        res.redirect('/expositions')
     },
     editar: function(req,res){
         
         db.Status.findByPk(req.params.id)
             .then(unit =>{   
 
-                return  res.render('upDateEstatus',{estatus:unit})
+                return  res.render('updateExpositions',{expositions:unit})
             })
        
     },
@@ -43,14 +43,14 @@ const exposition = {
         let id = req.params.id
    
         
-        db.Status.update({type:unidadEditada }
+        db.Status.update({name:unidadEditada }
             ,{
             where:{
                 id
             }
         }
         )
-        res.redirect('/estatus')
+        res.redirect('/expositions')
     },
     eliminar:function(req,res){
         res.render('unitsDelete')
@@ -60,10 +60,10 @@ const exposition = {
    
         db.Status.destroy({
             where:{
-                type: idEliminar
+                name: idEliminar
             }
         })
-        res.redirect('/estatus')
+        res.redirect('/expositions')
     }
 
 }

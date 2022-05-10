@@ -15,17 +15,17 @@ router.get('/', exposition.getAll)
 
 ///**************** */ crear*************************
 
-// router.get('/crear', exposition.crear)
-// router.post('/crear',validateUnits, exposition.creacion)
+router.get('/crear', exposition.crear)
+router.post('/crear',validateUnits, exposition.creacion)
 
 // // //*********Eliminar*********** */
 
 
 
-// router.post('/eliminar/:id', exposition.eliminacion)
+router.post('/eliminar/:id', exposition.eliminacion)
 
 // // //**********editar********* */
 
-// router.get('/editar/:id', exposition.editar)
-// router.post('/editar/:id', exposition.edicion)
+router.get('/editar/:id', exposition.editar)
+router.post('/editar/:id', exposition.edicion)
 module.exports = router;
