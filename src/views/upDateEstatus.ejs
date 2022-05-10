@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        
+
+        <main class="main-units-list">
+            <ul class="main-container-units-list">
+                
+                    <div style="display:flex;">
+                        <label for="" style="margin: 2px;">Unidad: </label>
+                        <form action="/estatus/editar/<%=estatus.dataValues.id%>" method="POST" >
+                        <input value="<%=estatus.dataValues.type%>" name="datoEditar" ></input >
+
+                            <button type="submit">Editar</button>
+
+                        </form>
+                    </div>
+                
+       
+               
+
+            </ul>
+        </main>
+
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

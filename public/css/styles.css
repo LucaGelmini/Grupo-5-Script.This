@@ -1003,7 +1003,7 @@ header ul {
     padding: 10px;
     top: 35%;
     width: 35%; 
-    height: fit-content;
+    min-height: 40%;
     min-width: 250px;
     max-width: 400px;
     border-radius: 5px;
@@ -1011,7 +1011,26 @@ header ul {
     justify-content: space-between;
     list-style: none;
 }
-
+.text-button-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.text-button-container li, form{
+    width: 100%;
+}
+.text-button-container li{
+    text-align: center;
+}
+.forms-buttons{
+    border-radius: 10px;
+    border: 1px solid orange;
+}
+.buttons-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 .product-detail-box{
     width: 100%;
     padding: 5px;

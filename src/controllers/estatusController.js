@@ -1,40 +1,40 @@
 const {validationResult} = require('express-validator')
 const db = require('../database/models')
-const unitsModel = require('../database/models/UnitMensure')
-const unidades = {
+const unitsModel = require('../database/models/Status')
+const estatus = {
     getAll: function(req,res){
-        db.UnitMensure.findAll()
-            .then(unit =>{
+        db.Exposition.findAll()
+            .then(status =>{
+        console.log("statussssss: "+ status)
             
-                return res.render('listUnitsMeasures',{unidades:unit})
+                return res.render('listEstatus',{estatus:status})
             })
     },
     crear: function(req,res){
-        res.render('unitsCreate')
+        res.render('estatusCreate')
     },
     creacion: function(req,res){
         const validaciones = validationResult(req)
    
         if(validaciones.errors.length > 0){
-            res.render('unitsCreate'
+            res.render('estatusCreate'
             ,{
                 errors: validaciones.mapped(),
                 oldData:req.body
             }
             )
         }
-        db.UnitMensure.create({
+        db.Exposition.create({
             type:req.body.unidad
         })
-        res.redirect('/units')
+        res.redirect('/estatus')
     },
     editar: function(req,res){
         
-        db.UnitMensure.findByPk(req.params.id)
-            .then(unit =>{
-      
+        db.Exposition.findByPk(req.params.id)
+            .then(unit =>{   
 
-                return  res.render('updateUnits',{unidades:unit})
+                return  res.render('upDateEstatus',{estatus:unit})
             })
        
     },
@@ -42,15 +42,15 @@ const unidades = {
         let unidadEditada=req.body.datoEditar
         let id = req.params.id
    
-        console.log(unidadEditada)
-        db.UnitMensure.update({type:unidadEditada }
+        
+        db.Exposition.update({type:unidadEditada }
             ,{
             where:{
                 id
             }
         }
         )
-        res.redirect('/units')
+        res.redirect('/estatus')
     },
     eliminar:function(req,res){
         res.render('unitsDelete')
@@ -58,13 +58,13 @@ const unidades = {
     eliminacion: function(req,res){
        const idEliminar = req.params.id
    
-        db.UnitMensure.destroy({
+        db.Exposition.destroy({
             where:{
                 type: idEliminar
             }
         })
-        res.redirect('/units')
+        res.redirect('/estatus')
     }
 
 }
-module.exports = unidades
+module.exports = estatus
