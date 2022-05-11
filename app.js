@@ -68,8 +68,7 @@ app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
-app.use('/estatus',estatusRouter)
-app.use('/expositions', expositionsRouter)
+
  
 const PORT = 3001
 app.listen(PORT, ()=>{
