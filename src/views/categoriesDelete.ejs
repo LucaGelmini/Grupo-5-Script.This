@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-login">
+            <form class="formulario-login" action="/categories/eliminar" method="POST" name= "formulario-registro">
+                
+                <input class="input-texto" type="text" name="categories" placeholder="Ingrese una categoria" value="<%= locals.oldData && oldData.categories ? oldData.categories : null %>">
+                <% if(locals.errors && errors.categories) { %>
+                 
+                    <ul>
+                        <li style="color:red; font-size: 24px; "><%= errors.categories.msg%>!</li>
+                    </ul>
+                    
+                <%}%>
+
+                <button class="boton-login" type="submit">Enviar</button>         
+                
+
+            </form>
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

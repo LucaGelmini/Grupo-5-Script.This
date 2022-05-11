@@ -196,7 +196,23 @@ article{
 }
 
  
-
+.main-container-payment-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    padding: 29px;
+    top: 30vh;
+    width: 35%;
+    min-height: 23%;
+    /* min-width: 21px; */
+    max-width: 19vw;
+    border-radius: 5px;
+    box-shadow: 10px 5px 20px black;
+    justify-content: space-between;
+    list-style: none;
+}
 
 
 .contenedor-título-producto {
@@ -987,10 +1003,12 @@ header ul {
 .main-producto-container{
   width: 100%;
 }
+
 .main-units-list{
     background-size: cover;
     width: 100vw;
     height: 100vh;
+    margin-bottom: -30vh;
     background-color: white;
 }
 
@@ -1097,7 +1115,7 @@ form{
     padding: 10px;
     top: 35%;
     width: 35%; 
-    height: 200px;
+    height: 12vh;
     min-width: 250px;
     max-width: 400px;
     border-radius: 5px;

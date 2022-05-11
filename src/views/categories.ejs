@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+</head>
+<body>
+    <%-include("./partials/head",{title:'Login'})%>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-units-list">
+           
+            <ul class="main-container-payment-list">
+                <% for(let i=0; i< categories.length;i++){%>
+                    <li><%=categories[i].dataValues.name%></li>
+                <%}%>
+            </ul>
+           
+        </main>
+        <%-include('./partials/footer')  %> 
+</body>
+</html>
