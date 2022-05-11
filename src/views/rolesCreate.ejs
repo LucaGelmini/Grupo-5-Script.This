@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-login">
+            <form class="formulario-login" action="/roles/crear" method="POST" name= "formulario-registro">
+                
+                <input class="input-texto" type="text" name="roles" placeholder="Ingrese un nuevo rol" value="<%= locals.oldData && oldData.unidad ? oldData.unidad : null %>">
+                <% if(locals.errors && errors.unidad) { %>
+                 
+                    <ul>
+                        <li style="color:red; font-size: 24px; "><%= errors.unidad.msg%>!</li>
+                    </ul>
+                    
+                <%}%>
+
+                <button class="boton-login" type="submit">Enviar</button>         
+                
+
+            </form>
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

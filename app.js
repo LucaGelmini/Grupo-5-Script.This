@@ -47,14 +47,12 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
-
-const cartOrderRouter = require('./src/routes/cartOrder')
-
-const unitsRouter = require('./src/routes/unitsMeasure')
-const estatusRouter = require('./src/routes/estatus')
-const expositionsRouter = require('./src/routes/exposition')
-
-
+const cartOrderRouter = require('./src/routes/cartOrder');
+const unitsRouter = require('./src/routes/unitsMeasure');
+const estatusRouter = require('./src/routes/estatus');
+const expositionsRouter = require('./src/routes/exposition');
+const paymentsRouter = require('./src/routes/payments');
+const rolesRouter = require('./src/routes/roles');
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
@@ -64,6 +62,8 @@ app.use('/cartOrder', cartOrderRouter);
 app.use('/units',unitsRouter);
 app.use('/estatus',estatusRouter)
 app.use('/expositions', expositionsRouter)
+app.use('/payments', paymentsRouter)
+app.use('/roles',rolesRouter)
  
 const PORT = 3001
 app.listen(PORT, ()=>{
