@@ -135,8 +135,16 @@ const productsController = {
                 name: {[Op.like]: `%${search}%`}
             }
         }).then(product => {
-            res.redirect(`/products/${product.id}`)
-
+            if (product){
+                res.redirect(`/products/${product.id}`)
+            }else{
+                res.send(
+                    `<h1>Producto no encontrado</h1>
+                    <hr>
+                    <a href="/">Ir a home</a>`
+                    )
+            
+            }
         })
     }
 
