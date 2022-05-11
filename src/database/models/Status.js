@@ -14,7 +14,8 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        timestamps: false 
+        timestamps: false ,
+        tableName: "statuss"
     };
 
     const Status = sequelize.define(alias, cols, config);

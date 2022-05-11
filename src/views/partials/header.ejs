@@ -1,3 +1,6 @@
+<!-- Cargo el script para usar la barra de búsqueda. Quizas haya que cambiar esto de lugar. -->
+<script src="/js/mainHeader.js"></script>
+
 <div class="envío-sin-cargo">
     <p>Envío sin cargo si tu compra supera los $2.000. <a href="#" style="color:#D84D09">Empezá a comprar ahora mismo!</a> </p>
 </div>
@@ -7,12 +10,12 @@
             <p>Bolson Verde</p>
         </a>
     </div>
-        <div class="form" action="/" method="POST">
+        <form  action="/products/find" method="POST" id="headerSearchForm" class="form">
             <div class="contenedor-de-input-search">
-                <input class="input-search" type="text"   placeholder="Buscar frutas, verduras y otros productos"> 
-                <i class="fas fa-search"></i>
+                <input class="input-search" type="text"  name="search" placeholder="Buscar frutas, verduras y otros productos"> 
+                <i class="fas fa-search" id = "headerSearchButton"></i>
             </div>
-        </div>
+        </form>
 
         
         <div class="burger-container">
@@ -51,7 +54,7 @@
                     <li><a href="/users/login">Log in</a></li>
                 <% }; %>
                 <li><a href="/">Mis Pedidos</a></li>
-                <li><a href="/products"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="/cartOrder"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
     </div>

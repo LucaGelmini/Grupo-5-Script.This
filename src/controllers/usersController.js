@@ -14,7 +14,12 @@ const usersController = {
          res.render('register')
     },
     profile: (req, res)=>{
-         res.render('profile', {})
+        db.User
+		.findByPk(req.params.id)
+		.then(user => {
+			res.render('profile',{user});
+		})
+		.catch(err => {res.send(err)});
     },
     logout: (req,res)=>{
         res.clearCookie('userEmail');
@@ -90,7 +95,7 @@ const usersController = {
         db.User
         .findOne({where: {email: req.body.email}})
         .then(userInDB =>{
-            console.log(bcrypt.compareSync(req.body.password, userInDB.password));
+             
             if (!userInDB) { //en el caso de que user no exista
                 res.render('login',{
                     errors: {
@@ -113,7 +118,7 @@ const usersController = {
                         if(req.body.recordame){
                             res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*60})
                         }
-                        res.redirect('/users/profile');
+                        res.redirect('/users/profile/'+userInDB.id);
                     } else {
                         res.render('login', {
                                             errors: {
@@ -128,7 +133,7 @@ const usersController = {
                 
             }    
         })
-    }
+    },
     // ,
     // users: (req, res) =>{
     //     if(req.session.logedUser){
@@ -141,7 +146,37 @@ const usersController = {
     // },
     // editUser: (req, res)=>{
     //     res.redirect('/',{logedUser: req.session.logedUser})
-    // }    
+    // }   
+    
+    edit: (req,res)=>{
+        db.User
+		.findByPk(req.params.id)
+		.then(user => {
+			res.render('profile-edit',{user});
+		})
+		.catch(err => {res.send(err)});
+    },
+
+    update: (req, res)=>{
+        // console.log(locals.logedUser.id);
+        // console.log('Hola llegue al controller');
+        // console.log(req.body);
+        
+        db.User
+		.update({
+			 fullname: req.body.fullname,
+			 adress: req.body.adress,
+			 postalcode: req.body.postalcode,
+			 phone: req.body.phone
+		},
+		{
+			where: {id: req.params.id}
+		})
+		.then(()=>{
+			res.redirect('/users/profile/'+req.params.id)
+		})
+		.catch(err => {res.send(err)});
+    }
 }
  
 module.exports = usersController;

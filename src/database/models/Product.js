@@ -56,11 +56,13 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: "cart_order_id",
             timestamps: false
         }),
+        /*
         Product.hasMany(models.Order, {
             as: "orders",
             foreignKey: "product_id"
             // timestamps: true
         }),
+        */
         Product.belongsTo(models.UnitMensure, {
             as: "unitMensure",
             foreignKey: "unit_mensure_id"
