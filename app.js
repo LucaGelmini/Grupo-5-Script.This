@@ -54,8 +54,7 @@ const unitsRouter = require('./src/routes/unitsMeasure')
 const categoriesRouter = require('./src/routes/categories')
 const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
-const estatusRouter = require('./src/routes/estatus')
-const expositionsRouter = require('./src/routes/exposition')
+
 
 
 app.use('/', indexRouter);
