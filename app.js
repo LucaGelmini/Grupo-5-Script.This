@@ -47,11 +47,13 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
-
 const paymentsRouter = require('./src/routes/payments')
-
 const cartOrderRouter = require('./src/routes/cartOrder')
+const estatusRouter = require('./src/routes/estatus')
 const unitsRouter = require('./src/routes/unitsMeasure')
+const categoriesRouter = require('./src/routes/categories')
+const expositionsRouter = require('./src/routes/exposition')
+const rolesRouter = require('./src/routes/roles')
 
 
 
@@ -61,10 +63,11 @@ app.use('/data',dataRouter);
 app.use('/users', usersRouter);
 app.use('/cartOrder', cartOrderRouter); 
 app.use('/units',unitsRouter);
-app.use('/estatus',estatusRouter)
-app.use('/expositions', expositionsRouter)
-app.use('/payments', paymentsRouter)
-app.use('/roles',rolesRouter)
+app.use('/estatus',estatusRouter);
+app.use('/expositions', expositionsRouter);
+app.use('/payments', paymentsRouter);
+app.use('/roles',rolesRouter);
+app.use('/categories',categoriesRouter);
  
 const PORT = 3001
 app.listen(PORT, ()=>{

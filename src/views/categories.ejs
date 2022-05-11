@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roles</title>
+    <title>Categories</title>
 </head>
 <body>
     <%-include("./partials/head",{title:'Login'})%>
@@ -14,8 +14,8 @@
         <main class="main-units-list">
            
             <ul class="main-container-payment-list">
-                <% for(let i=0; i< roles.length;i++){%>
-                    <li><%=roles[i].dataValues.name%></li>
+                <% for(let i=0; i< categories.length;i++){%>
+                    <li><%=categories[i].dataValues.name%></li>
                 <%}%>
             </ul>
            

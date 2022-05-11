@@ -10,11 +10,11 @@
         <main class="main-login">
             <form class="formulario-login" action="/payments/crear" method="POST" name= "formulario-registro">
                 
-                <input class="input-texto" type="text" name="payment" placeholder="Ingrese un nuevo método de pago" value="<%= locals.oldData && oldData.unidad ? oldData.unidad : null %>">
-                <% if(locals.errors && errors.unidad) { %>
+                <input class="input-texto" type="text" name="payment" placeholder="Ingrese un nuevo método de pago" value="<%= locals.oldData && oldData.payment ? oldData.payment : null %>">
+                <% if(locals.errors && errors.payment) { %>
                  
                     <ul>
-                        <li style="color:red; font-size: 24px; "><%= errors.unidad.msg%>!</li>
+                        <li style="color:red; font-size: 24px; "><%= errors.payment.msg%>!</li>
                     </ul>
                     
                 <%}%>

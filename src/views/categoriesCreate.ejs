@@ -8,13 +8,13 @@
             <%-include("./partials/header")%>
         </header>
         <main class="main-login">
-            <form class="formulario-login" action="/roles/eliminar" method="POST" name= "formulario-registro">
+            <form class="formulario-login" action="/categories/crear" method="POST" name= "formulario-registro">
                 
-                <input class="input-texto" type="text" name="roles" placeholder="Ingrese un rol para eliminar" value="<%= locals.oldData && oldData.roles ? oldData.roles : null %>">
-                <% if(locals.errors && errors.roles) { %>
+                <input class="input-texto" type="text" name="categories" placeholder="Ingrese una nueva categoria" value="<%= locals.oldData && oldData.categories ? oldData.categories : null %>">
+                <% if(locals.errors && errors.categories) { %>
                  
                     <ul>
-                        <li style="color:red; font-size: 24px; "><%= errors.roles.msg%>!</li>
+                        <li style="color:red; font-size: 24px; "><%= errors.categories.msg%>!</li>
                     </ul>
                     
                 <%}%>
