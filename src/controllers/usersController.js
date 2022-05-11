@@ -14,8 +14,9 @@ const usersController = {
          res.render('register')
     },
     profile: (req, res)=>{
+        console.log(req.session)
         db.User
-		.findByPk(req.params.id)
+		.findByPk(req.session.logedUser.id)
 		.then(user => {
 			res.render('profile',{user});
 		})
@@ -118,7 +119,7 @@ const usersController = {
                         if(req.body.recordame){
                             res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*60})
                         }
-                        res.redirect('/users/profile/'+userInDB.id);
+                        res.redirect('/users/profile');
                     } else {
                         res.render('login', {
                                             errors: {

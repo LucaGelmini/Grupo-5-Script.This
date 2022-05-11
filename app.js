@@ -54,8 +54,7 @@ const unitsRouter = require('./src/routes/unitsMeasure')
 const categoriesRouter = require('./src/routes/categories')
 const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
-const estatusRouter = require('./src/routes/estatus')
-const expositionsRouter = require('./src/routes/exposition')
+
 
 
 app.use('/', indexRouter);
@@ -69,8 +68,7 @@ app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
-app.use('/estatus',estatusRouter)
-app.use('/expositions', expositionsRouter)
+
  
 const PORT = 3001
 app.listen(PORT, ()=>{
