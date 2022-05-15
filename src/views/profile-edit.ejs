@@ -16,7 +16,7 @@
         </div>
     
        
-            <form class="edit-user-form" action="/users/profile/edit/<%= user.id%>?_method=PUT" method="POST">
+            <form class="edit-user-form" action="/users/profile/edit?_method=PUT" method="POST">
                 <div class="profile-edit-data-container">
                     <div class="row-container">
                     <div class="label-container">
@@ -81,7 +81,7 @@
                      <button class="button-save-profile" type="submit">GUARDAR</button>
             </div>
             <div class="profile-button-cancel"> 
-                <a href="/users/profile/<%= user.id %> "><button class="button-cancel-profile" type='button'>CANCELAR</button></a>
+                <a href="/users/profile "><button class="button-cancel-profile" type='button'>CANCELAR</button></a>
            </div>
         </div>
     </form>

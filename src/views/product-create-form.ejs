@@ -16,61 +16,67 @@
                 <!-- Name -->
                 <input class="input-texto" type="text" name="name" placeholder="Ingrese el nombre del producto" value="<%= locals.oldData? oldData.name : null %>">
                 <% if (locals.errors && errors.name) { %>
-                 <p style="color: red;"><%= errors.name.msg %></p>  
+                 <p style="color: #D84D09;"><%= errors.name.msg %></p>  
                 <% } %>
                 <!-- Messure units -->
-                <input class="input-texto" type="text" name="unit_mensure" placeholder="Ingrese la unidad de medida del product" value="<%= locals.oldData? oldData.unit_mensure : null %>">
+                <select name="unit_mensure" id="unit_mensure" class="input-texto">
+                    <option value="">Elegí</option>
+                    <% let unitMensure = secondaryTables.unitMensure %> 
+                    <% for (let key in unitMensure){%>
+                        <option value="<%= unitMensure[key].id %> "><%= unitMensure[key].type  %> </option>
+                    <% } %>   
+                </select>
                 <% if (locals.errors && errors.unit_mensure) { %>
-                    <p style="color: red;"><%= errors.unit_mensure.msg %></p>  
-                   <% } %>
+                    <p style="color: #D84D09;"><%= errors.unit_mensure.msg %></p>  
+                <% } %>
                 <!-- Quantity -->
                 <input class="input-texto" type="text" name="mensure_value" placeholder="Ingrese el valor de la unidad de medida" value="<%= locals.oldData? oldData.mensure_value : null %>">
                 <% if (locals.errors && errors.mensure_value) { %>
-                    <p style="color: red;"><%= errors.mensure_value.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.mensure_value.msg %></p>  
                    <% } %>
                 <!-- Price -->
                 <input class="input-texto" type="number" name="price" placeholder="Ingrese el precio de su producto" value="<%= locals.oldData? oldData.price : null %>">
                 <% if (locals.errors && errors.price) { %>
-                    <p style="color: red;"><%= errors.price.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.price.msg %></p>  
                    <% } %>
                 <!-- Discount -->
                 <input class="input-texto" type="number" name="discount" placeholder="Ingrese el descuento del producto" value="<%= locals.oldData? oldData.discount : null %>">
                 <% if (locals.errors && errors.discount) { %>
-                    <p style="color: red;"><%= errors.discount.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.discount.msg %></p>  
                    <% } %>
                 <!-- Category -->
                 <label for="category" class="form-label">Categoría:</label>
-                <select class="input-texto" name="category" id="category" class="form-input">
+                <select name="category" id="category" class="input-texto">
                     <option value="">Elegí</option>
-                    <option value="verduras">verduras</option>
-                    <option value="frutas">frutas</option>
-                    <option value="hierbas">hierbas</option>
-                    <option value="secos">secos</option>
+                    <% let category = secondaryTables.category %> 
+                    <% for (let key in category){%>
+                        <option value="<%= category[key].id %> "><%= category[key].name  %> </option>
+                    <% } %>   
                 </select>
 
                 <% if (locals.errors && errors.category) { %>
-                    <p style="color: red;"><%= errors.category.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.category.msg %></p>  
                 <% } %>
                 <!-- Exposition -->
-                <label for="exposicion" class="form-label">exposición:</label>
-                <select class="input-texto" name="exposicion" id="exposicion" class="form-input">
+                <label for="exposicion" class="form-label">Exposición:</label>
+                <select name="exposicion" id="exposicion" class="input-texto">
                     <option value="">Elegí</option>
-                    <option value="oferta">oferta</option>
-                    <option value="destacado">destacado</option>
-                    <option value="general">general</option>
-                </select>
+                    <% let exposition = locals.secondaryTables.exposition %> 
+                    <% for (let key in exposition){%>
+                        <option value="<%= exposition[key].id %> "><%= exposition[key].type  %> </option>
+                    <% } %>  
                 <% if (locals.errors && errors.exposicion) { %>
-                    <p style="color: red;"><%= errors.exposicion.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.exposicion.msg %></p>  
                 <% } %>
                 <!-- Description -->
                 <input class="input-texto" type="text" name="description" placeholder="Describa el producto" value="<%= locals.oldData? oldData.description : null %>">
                 <% if (locals.errors && errors.description) { %>
-                    <p style="color: red;"><%= errors.description.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.description.msg %></p>  
                 <% } %>
                 <!-- Image -->
                 <input type="file" name="img" accept=".jpg, .png" multiple>
                 <% if (locals.errors && errors.img) { %>
-                    <p style="color: red;"><%= errors.img.msg %></p>  
+                    <p style="color: #D84D09;"><%= errors.img.msg %></p>  
                    <% } %>
                 <!-- Submit -->
                 <div class="submit-create-product-container">

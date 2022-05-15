@@ -8,6 +8,7 @@ const Product = db.Product;
 const Op = db.Sequelize.Op;
 const {validationResult} = require('express-validator');
 const internal = require('stream');
+const { promiseImpl } = require('ejs');
 
 
 
@@ -42,7 +43,24 @@ const productsController = {
 
 	// Create - Form to create
     create: (req, res)=>{  
-        res.render('product-create-form');
+        let idProduct = req.params.id;
+        let secondaryTables = {
+            exposition: null,
+            unitMensure: null,
+            category: null
+        }
+        Promise.all([
+            db.Exposition.findAll(),
+            db.UnitMensure.findAll(),
+            db.Category.findAll()
+        ])
+        .then(([exposition,unitMensure,category]) => {
+            secondaryTables.exposition = exposition;
+            secondaryTables.unitMensure = unitMensure;
+            secondaryTables.category = category;
+
+            res.render('product-create-form', {secondaryTables});
+        })
     },
 
     // Create -  Method to store - //PARA "CREAR Y GUARDAR" => CONSULTAR (LEER) + PUSH (INCORPORAR CAMBIOS) + SOBRE ESCRIBIR CAMBIOS
@@ -82,8 +100,32 @@ const productsController = {
     // Update - Form to edit
     edit:(req, res)=>{
         let idProduct = req.params.id;
-        let productToEdit = Products.findByPk(idProduct);
-        res.render('product-edit-form', {productToEdit});
+        let secondaryTables = {
+            exposition: null,
+            unitMensure: null,
+            category: null
+        }
+        Promise.all([
+            Product.findByPk(idProduct, {
+                include: [
+                    {association: "unitMensure"},
+                    {association: "exposition"},
+                    {association: "category"}
+                ]
+            }),
+            db.Exposition.findAll(),
+            db.UnitMensure.findAll(),
+            db.Category.findAll()
+        ])
+        .then(([productToEdit, exposition,unitMensure,category]) => {
+            secondaryTables.exposition = exposition;
+            secondaryTables.unitMensure = unitMensure;
+            secondaryTables.category = category;
+
+            console.log(productToEdit.category.dataValues)
+            res.render('product-edit-form', {productToEdit, secondaryTables});
+        })
+
     },
 
     // Update - Method to update - //PARA "EDITAR Y GUARDAR" => CONSULTAR (LEER) + ASIGNAR CAMBIOS CON DOT.NOTATION + SOBRE ESCRIBIR CAMBIOS

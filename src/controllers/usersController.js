@@ -14,7 +14,6 @@ const usersController = {
          res.render('register')
     },
     profile: (req, res)=>{
-        console.log(req.session)
         db.User
 		.findByPk(req.session.logedUser.id)
 		.then(user => {
@@ -151,7 +150,7 @@ const usersController = {
     
     edit: (req,res)=>{
         db.User
-		.findByPk(req.params.id)
+		.findByPk(req.session.logedUser.id)
 		.then(user => {
 			res.render('profile-edit',{user});
 		})
@@ -171,10 +170,10 @@ const usersController = {
 			 phone: req.body.phone
 		},
 		{
-			where: {id: req.params.id}
+			where: {id: req.session.logedUser.id}
 		})
 		.then(()=>{
-			res.redirect('/users/profile/'+req.params.id)
+			res.redirect('/users/profile')
 		})
 		.catch(err => {res.send(err)});
     }
