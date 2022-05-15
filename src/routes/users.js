@@ -30,8 +30,8 @@ router.post('/register',upload.single('userfile'), registerMiddleware, usersCont
 
 
 router.get('/profile',authMiddleware ,usersController.profile);
-router.get('/profile/edit/:id',authMiddleware ,usersController.edit);
-router.put('/profile/edit/:id',authMiddleware ,usersController.update);
+router.get('/profile/edit',authMiddleware ,usersController.edit);
+router.put('/profile/edit',authMiddleware ,usersController.update);
 
 router.get('/logout', usersController.logout);
 
