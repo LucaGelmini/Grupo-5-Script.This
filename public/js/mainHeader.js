@@ -14,5 +14,5 @@ console.log('js cargadooooo')
     searchForm.onkeydown = e => {
         e.keyCode == 13 ? searchForm.submit : null;
     }
-
+    //Este comentario es para ver si se mergea bien esto
 });
