@@ -21,5 +21,5 @@ document.addEventListener("DOMContentLoaded", function(){
         navsContainer.classList.toggle('navs-container-open');
         
     }
-
+    //Este comentario es para ver si se mergea bien esto
 });
