@@ -15,7 +15,7 @@ const usersController = {
     },
     profile: (req, res)=>{
         db.User
-		.findByPk(req.params.id)
+		.findByPk(req.session.logedUser.id)
 		.then(user => {
 			res.render('profile',{user});
 		})
@@ -118,7 +118,7 @@ const usersController = {
                         if(req.body.recordame){
                             res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*60})
                         }
-                        res.redirect('/users/profile/'+userInDB.id);
+                        res.redirect('/users/profile');
                     } else {
                         res.render('login', {
                                             errors: {
@@ -150,7 +150,7 @@ const usersController = {
     
     edit: (req,res)=>{
         db.User
-		.findByPk(req.params.id)
+		.findByPk(req.session.logedUser.id)
 		.then(user => {
 			res.render('profile-edit',{user});
 		})
@@ -170,10 +170,10 @@ const usersController = {
 			 phone: req.body.phone
 		},
 		{
-			where: {id: req.params.id}
+			where: {id: req.session.logedUser.id}
 		})
 		.then(()=>{
-			res.redirect('/users/profile/'+req.params.id)
+			res.redirect('/users/profile')
 		})
 		.catch(err => {res.send(err)});
     }

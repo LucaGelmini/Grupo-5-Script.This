@@ -1932,14 +1932,9 @@ tfoot tr {
     background-color: rgba(196, 209, 161, 0.5);
     opacity: 1; }
 
-    .nav01, .nav00 {
-        display: block;
-    }
-
     .burger {
         display: none;
     }
-
     .navs-container {
         display: flex;
         flex-direction: row;
@@ -1948,17 +1943,27 @@ tfoot tr {
         padding: 0 10px;
         
     }
-
+    .navs-container-closed{
+        visibility: visible;
+        height: fit-content;
+    }
+    .navs-container-open{
+        visibility: visible;
+        height: fit-content;
+        background-color:  #89cd4d;
+    }
+    .nav01, .nav00 {
+        display: block;
+    }
     .nav01 ul, .nav00 ul {
         display: flex;
         align-items: center;
     }
-
     .nav01-container, .nav00-container {
         display: flex;
         align-items: center;
+        width: auto;
     }
-
     .nav01 ul li{
         padding: 5px 10px;
         font-size: 1.2rem;
@@ -1966,16 +1971,21 @@ tfoot tr {
         cursor: pointer;
         
     }
-
     .nav00 ul li {
         padding: 5px 10px;
         font-size: 1.2rem;
         cursor: pointer;
     }
-
-    .nav00 ul li a {
-        color: rgb(0,0,0,0.5);
+    .nav00 ul li a, .nav01 ul li a{
+        color: #282828;
     }
+
+
+
+
+
+
+
 
     .nav-offers {
         width: 33%;
