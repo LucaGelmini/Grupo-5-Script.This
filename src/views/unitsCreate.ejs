@@ -13,11 +13,12 @@
                 <input class="input-texto" type="text" name="unidad" placeholder="Ingrese unidad nueva" value="<%= locals.oldData && oldData.unidad ? oldData.unidad : null %>">
                 <% if(locals.errors && errors.unidad) { %>
                  
-                    <ul>
+                    <ul >
                         <li style="color:red; font-size: 24px; "><%= errors.unidad.msg%>!</li>
                     </ul>
                     
                 <%}%>
+                <ul class="listaErrores"></ul>
 
                 <button class="boton-login" type="submit">Enviar</button>         
                 
@@ -25,5 +26,7 @@
             </form>
         </main>
         <%-include('./partials/footer')  %> 
+        <script src="/js/secondaryTablesValidation.js"></script>
+
     </body>
 </html>

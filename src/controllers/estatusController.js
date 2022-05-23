@@ -23,11 +23,13 @@ const estatus = {
                 oldData:req.body
             }
             )
+        }else{
+            db.Exposition.create({
+                type:req.body.unidad
+            })
+            res.redirect('/estatus')
         }
-        db.Exposition.create({
-            type:req.body.unidad
-        })
-        res.redirect('/estatus')
+
     },
     editar: function(req,res){
         

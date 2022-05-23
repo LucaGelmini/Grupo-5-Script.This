@@ -22,11 +22,13 @@ const unidades = {
                 oldData:req.body
             }
             )
+        }else{
+            db.UnitMensure.create({
+                type:req.body.unidad
+            })
+            res.redirect('/units')
         }
-        db.UnitMensure.create({
-            type:req.body.unidad
-        })
-        res.redirect('/units')
+ 
     },
     editar: function(req,res){
         

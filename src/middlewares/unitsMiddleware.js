@@ -3,6 +3,8 @@ const path = require('path')
 
 
 const unitsMiddleware = [
-    body('unidad').notEmpty().withMessage('Ingrese algo al formuluario antes de enviar')
+    body('unidad').notEmpty().withMessage('Ingrese algo al formuluario antes de enviar').bail()
+                  .matches('/[^a-z]/gi')
+                
 ]
 module.exports = unitsMiddleware;
