@@ -17,6 +17,15 @@ window.addEventListener('load',()=>{
         }else{      
           listaErrores.innerHTML=''
           inputCreation.style.border = 'none'
+          fetch('http://localhost:3001/units/unidad')
+          .then(respuesta => respuesta.json())
+          .then(resultado => {
+            console.log(resultado);
+           let findUnit = resultado.data.find(unit => e.target.value == unit.type)
+           if(findUnit != undefined){
+             alert('Ya existe esta unidad!')
+           }
+          })
         }
 
       }
