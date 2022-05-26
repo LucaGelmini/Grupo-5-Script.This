@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%-include('./partials/head', {title:'Formulario de creación'}) %> 
+        <%-include('./partials/head', {title:'Formulario de creación'}) %>
+        <script src="/js/productsCreate.js"></script> 
     </head>
     <body>
         <header class="header-create">
@@ -80,7 +81,7 @@
                    <% } %>
                 <!-- Submit -->
                 <div class="submit-create-product-container">
-                    <button class="create-product-button">
+                    <button class="create-product-button" type="submit">
                         <p>Crear producto</p>
                     </button>
                     <span>*Todos los campos son obligatorios</span>
