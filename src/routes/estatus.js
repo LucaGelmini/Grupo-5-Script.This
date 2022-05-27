@@ -13,6 +13,9 @@ const estatus = require('../controllers/estatusController')
 
 router.get('/', estatus.getAll)
 
+//***** getting all for validation */
+router.get('/estatus',estatus.gettingAll)
+
 ///**************** */ crear*************************
 
 router.get('/crear', estatus.crear)
