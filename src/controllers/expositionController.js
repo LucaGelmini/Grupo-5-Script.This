@@ -10,6 +10,18 @@ const exposition = {
                 return res.render('listExposition',{expositions:status})
             })
     },
+    gettingAll: function(req,res){
+        console.log('entre a server');
+        db.Status.findAll()
+            .then(respuesta =>{
+                
+                return res.status(200).json({
+                    data:respuesta,
+                    status:200
+                })
+            })
+            .catch(console.log)
+    },
     crear: function(req,res){
         res.render('expositionCreate')
     },
@@ -23,11 +35,13 @@ const exposition = {
                 oldData:req.body
             }
             )
+        }else{
+            db.Status.create({
+                name:req.body.unidad
+            })
+            res.redirect('/expositions')
         }
-        db.Status.create({
-            name:req.body.unidad
-        })
-        res.redirect('/expositions')
+  
     },
     editar: function(req,res){
         

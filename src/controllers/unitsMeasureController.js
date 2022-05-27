@@ -9,6 +9,17 @@ const unidades = {
                 return res.render('listUnitsMeasures',{unidades:unit})
             })
     },
+    gettingAll: function(req,res){
+        db.UnitMensure.findAll()
+        .then(respuesta=>{            
+            return res.status(200).json({
+                data:respuesta,
+                status:200
+            })
+        })
+        
+        .catch(error => console.log(error))      
+    },
     crear: function(req,res){
         res.render('unitsCreate')
     },
@@ -22,11 +33,13 @@ const unidades = {
                 oldData:req.body
             }
             )
+        }else{
+            db.UnitMensure.create({
+                type:req.body.unidad
+            })
+            res.redirect('/units')
         }
-        db.UnitMensure.create({
-            type:req.body.unidad
-        })
-        res.redirect('/units')
+ 
     },
     editar: function(req,res){
         

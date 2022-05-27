@@ -10,6 +10,17 @@ const estatus = {
                 return res.render('listEstatus',{estatus:status})
             })
     },
+    gettingAll: function(req,res){
+        db.Exposition.findAll()
+            .then(respuesta =>{                
+                return res.status(200).json({
+                    data: respuesta,
+                    status:200
+                })
+            }
+            )
+            .catch(console.log)
+    },
     crear: function(req,res){
         res.render('estatusCreate')
     },
@@ -23,11 +34,13 @@ const estatus = {
                 oldData:req.body
             }
             )
+        }else{
+            db.Exposition.create({
+                type:req.body.unidad
+            })
+            res.redirect('/estatus')
         }
-        db.Exposition.create({
-            type:req.body.unidad
-        })
-        res.redirect('/estatus')
+
     },
     editar: function(req,res){
         

@@ -11,13 +11,12 @@
             <form class="formulario-login" action="/units/crear" method="POST" name= "formulario-registro">
                 
                 <input class="input-texto" type="text" name="unidad" placeholder="Ingrese unidad nueva" value="<%= locals.oldData && oldData.unidad ? oldData.unidad : null %>">
-                <% if(locals.errors && errors.unidad) { %>
-                 
-                    <ul>
+                <% if(locals.errors && errors.unidad) { %>                 
+                    <ul >
                         <li style="color:red; font-size: 24px; "><%= errors.unidad.msg%>!</li>
-                    </ul>
-                    
+                    </ul>                    
                 <%}%>
+                <ul class="listaErrores"></ul>
 
                 <button class="boton-login" type="submit">Enviar</button>         
                 
@@ -25,5 +24,8 @@
             </form>
         </main>
         <%-include('./partials/footer')  %> 
+        <script type="module" src="/js/unitsValidationExistence.js"></script>
+       
+
     </body>
 </html>

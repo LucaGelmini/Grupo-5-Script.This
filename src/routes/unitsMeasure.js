@@ -9,9 +9,12 @@ const validateUnits = require('../middlewares/unitsMiddleware')
 const unitsMeasureController = require('../controllers/unitsMeasureController')
 
 
-//******GET de todos los productos en dicha unidad************ */
+//******GET de todas las unidades************ */
 
 router.get('/', unitsMeasureController.getAll)
+
+// ************ GET unidades********/
+router.get('/unidad',unitsMeasureController.gettingAll)
 
 ///**************** */ crear*************************
 
