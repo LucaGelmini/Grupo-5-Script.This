@@ -9,16 +9,6 @@ const unidades = {
                 return res.render('listUnitsMeasures',{unidades:unit})
             })
     },
-    gettingAll: function(req,res){
-        db.UnitMensure.findAll()
-        .then(respuesta=>{            
-            return res.status(200).json({
-                data:respuesta,
-                status:200
-            })
-        })        
-        .catch(error => console.log(error))      
-    },
     crear: function(req,res){
         res.render('unitsCreate')
     },

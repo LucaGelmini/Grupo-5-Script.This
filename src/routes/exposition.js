@@ -12,8 +12,7 @@ const exposition = require('../controllers/expositionController')
 //******GET de todos los productos en dicha unidad************ */
 
 router.get('/', exposition.getAll)
-//** Getting all expositions for validations */
-router.get('/expositions',exposition.gettingAll)
+
 
 
 

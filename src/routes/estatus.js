@@ -12,10 +12,6 @@ const estatus = require('../controllers/estatusController')
 //******GET de todos los productos en dicha unidad************ */
 
 router.get('/', estatus.getAll)
-
-//***** getting all for validation */
-router.get('/estatus',estatus.gettingAll)
-
 ///**************** */ crear*************************
 
 router.get('/crear', estatus.crear)
