@@ -13,8 +13,6 @@ const unitsMeasureController = require('../controllers/unitsMeasureController')
 
 router.get('/', unitsMeasureController.getAll)
 
-// ************ GET unidades********/
-router.get('/unidad',unitsMeasureController.gettingAll)
 
 ///**************** */ crear*************************
 

@@ -54,6 +54,7 @@ const unitsRouter = require('./src/routes/unitsMeasure')
 const categoriesRouter = require('./src/routes/categories')
 const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
+const APIRouter = require('./src/routes/APIRouter')
 
 
 
@@ -68,6 +69,7 @@ app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
+app.use('/API',APIRouter)
 
  
 const PORT = 3001
