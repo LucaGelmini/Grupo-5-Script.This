@@ -1,11 +1,11 @@
 const {validationResult} = require('express-validator')
 const db = require('../database/models')
 const unitsModel = require('../database/models/UnitMensure')
+
 const unidades = {
     getAll: function(req,res){
         db.UnitMensure.findAll()
-            .then(unit =>{
-            
+            .then(unit =>{            
                 return res.render('listUnitsMeasures',{unidades:unit})
             })
     },
@@ -16,46 +16,50 @@ const unidades = {
                 data:respuesta,
                 status:200
             })
-        })
-        
+        })        
         .catch(error => console.log(error))      
     },
     crear: function(req,res){
         res.render('unitsCreate')
     },
-    creacion: function(req,res){
-        const validaciones = validationResult(req)
-   
-        if(validaciones.errors.length > 0){
-            res.render('unitsCreate'
-            ,{
-                errors: validaciones.mapped(),
-                oldData:req.body
-            }
-            )
-        }else{
-            db.UnitMensure.create({
-                type:req.body.unidad
+    creacion: function(req,res){ 
+        db.UnitMensure.findAll()
+            .then(respuesta=>{
+                const validaciones = validationResult(req)   
+                if(validaciones.errors.length > 0){
+                    res.render('unitsCreate'
+                    ,{
+                        errors: validaciones.mapped(),
+                        oldData:req.body
+                    }
+                    )
+                }else{                 
+                    let existe=respuesta.find(unidad => unidad.dataValues.type== req.body.unidad)
+                    if(existe == undefined){
+                        db.UnitMensure.create({
+                            type:req.body.unidad
+                        })
+                        res.redirect('/units')
+                    }else{
+                        res.render('unitsCreate',{
+                            mensajes: 'Ya existe esta unidad en la base de datos',
+                            oldData:req.body
+                        })
+                    }
+                } 
             })
-            res.redirect('/units')
-        }
- 
+       
     },
-    editar: function(req,res){
-        
+    editar: function(req,res){        
         db.UnitMensure.findByPk(req.params.id)
             .then(unit =>{
-      
-
                 return  res.render('updateUnits',{unidades:unit})
             })
        
     },
     edicion: function(req,res){
         let unidadEditada=req.body.datoEditar
-        let id = req.params.id
-   
-        console.log(unidadEditada)
+        let id = req.params.id       
         db.UnitMensure.update({type:unidadEditada }
             ,{
             where:{
@@ -69,8 +73,7 @@ const unidades = {
         res.render('unitsDelete')
     },
     eliminacion: function(req,res){
-       const idEliminar = req.params.id
-   
+       const idEliminar = req.params.id   
         db.UnitMensure.destroy({
             where:{
                 type: idEliminar
@@ -78,6 +81,5 @@ const unidades = {
         })
         res.redirect('/units')
     }
-
 }
 module.exports = unidades
