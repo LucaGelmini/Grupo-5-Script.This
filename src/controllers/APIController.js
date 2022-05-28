@@ -22,7 +22,7 @@ const APIController = {
             .catch(console.log)
     },
     gettingAllExpositions: function(req,res){
-        console.log('entre a server');
+      
         db.Status.findAll()
             .then(respuesta =>{
                 
