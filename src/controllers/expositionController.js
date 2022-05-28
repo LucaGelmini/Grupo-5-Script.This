@@ -26,21 +26,35 @@ const exposition = {
         res.render('expositionCreate')
     },
     creacion: function(req,res){
-        const validaciones = validationResult(req)
-   
-        if(validaciones.errors.length > 0){
-            res.render('expositionCreate'
-            ,{
-                errors: validaciones.mapped(),
-                oldData:req.body
-            }
-            )
-        }else{
-            db.Status.create({
-                name:req.body.unidad
+        db.Status.findAll()
+            .then(respuesta=>{
+              
+                const validaciones = validationResult(req)
+           
+                if(validaciones.errors.length > 0){
+                    res.render('expositionCreate'
+                    ,{
+                        errors: validaciones.mapped(),
+                        oldData:req.body
+                    }
+                    )
+                }else{
+                    let existe = respuesta.find(exposition=> exposition.dataValues.name == req.body.unidad)
+                    
+                    if(existe== undefined){
+                        db.Status.create({
+                            name:req.body.unidad
+                        })
+                        res.redirect('/expositions')
+                    }else{
+                        res.render('expositionCreate',{
+                            mensajes:'Ya existe esta exposition en la base de datos',
+                            oldData:req.body
+                        })
+                    }
+
+                }
             })
-            res.redirect('/expositions')
-        }
   
     },
     editar: function(req,res){

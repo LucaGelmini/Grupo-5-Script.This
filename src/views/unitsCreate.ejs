@@ -13,8 +13,15 @@
                 <input class="input-texto" type="text" name="unidad" placeholder="Ingrese unidad nueva" value="<%= locals.oldData && oldData.unidad ? oldData.unidad : null %>">
                 <% if(locals.errors && errors.unidad) { %>                 
                     <ul >
-                        <li style="color:red; font-size: 24px; "><%= errors.unidad.msg%>!</li>
+                        <li style="color:red; font-size: 24px; " class="listaErrores"><%= errors.unidad.msg%>!</li>
                     </ul>                    
+                <%}%> 
+                               
+                <% if(locals.mensajes ) { %>                 
+                    <ul class="listaErrores" >
+                        <li style="color:red; font-size: 24px; "><%= locals.mensajes%>!</li>
+                    </ul>                 
+                    
                 <%}%>
                 <ul class="listaErrores"></ul>
 

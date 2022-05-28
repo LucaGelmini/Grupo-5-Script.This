@@ -25,22 +25,33 @@ const estatus = {
         res.render('estatusCreate')
     },
     creacion: function(req,res){
-        const validaciones = validationResult(req)
-   
-        if(validaciones.errors.length > 0){
-            res.render('estatusCreate'
-            ,{
-                errors: validaciones.mapped(),
-                oldData:req.body
-            }
-            )
-        }else{
-            db.Exposition.create({
-                type:req.body.unidad
+        db.Exposition.findAll()
+            .then(respuesta=>{
+                const validaciones = validationResult(req)   
+                if(validaciones.errors.length > 0){
+                    res.render('estatusCreate'
+                    ,{
+                        errors: validaciones.mapped(),
+                        oldData:req.body
+                    }
+                    )
+                }else{
+                    let existe = respuesta.find(estatus => estatus.dataValues.type == req.body.unidad)
+                    if(existe == undefined){
+                        db.Exposition.create({
+                            type:req.body.unidad
+                        })
+                        res.redirect('/estatus')
+                    }else{
+                        res.render('estatusCreate',{
+                            mensajes:'Ya existe este estatus en la base de datos',
+                            oldData:req.body
+                        })
+                    }
+                }
+        
             })
-            res.redirect('/estatus')
-        }
-
+        
     },
     editar: function(req,res){
         
