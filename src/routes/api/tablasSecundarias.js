@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 //**Controller require */
-const APIController = require('../controllers/APIController')
+const APIController = require('../../controllers/api/tablasSecundariasController')
 
 //**GET de todas las unidades */
 router.get('/unidad',APIController.gettingAllUnits)
