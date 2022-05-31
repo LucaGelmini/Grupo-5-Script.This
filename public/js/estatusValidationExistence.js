@@ -1,7 +1,7 @@
 import { printingErrors } from "./printingErrors.js";
 
 window.addEventListener('load',()=>{
-    fetch('http://localhost:3001/api/secundariasestatus')
+    fetch('http://localhost:3001/api/secundarias/estatus')
     .then(res => {         
             return res.json()
         })
