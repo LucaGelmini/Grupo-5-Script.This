@@ -55,6 +55,7 @@ const categoriesRouter = require('./src/routes/categories')
 const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
 const APIRouter = require('./src/routes/api/tablasSecundarias')
+const tablasRouter = require('./src/routes/tablasRouter')
 
 
 
@@ -63,6 +64,7 @@ app.use('/products', productsRouter);
 app.use('/data',dataRouter);
 app.use('/users', usersRouter);
 app.use('/cartOrder', cartOrderRouter); 
+app.use('/tablas',tablasRouter)
 app.use('/units',unitsRouter);
 app.use('/estatus',estatusRouter);
 app.use('/expositions', expositionsRouter);

@@ -21,11 +21,9 @@ const APIController = {
             )
             .catch(console.log)
     },
-    gettingAllExpositions: function(req,res){
-      
+    gettingAllExpositions: function(req,res){      
         db.Status.findAll()
-            .then(respuesta =>{
-                
+            .then(respuesta =>{                 
                 return res.status(200).json({
                     data:respuesta,
                     status:200
