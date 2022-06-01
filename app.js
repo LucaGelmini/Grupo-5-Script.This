@@ -7,6 +7,7 @@ const logger = require('morgan');
 const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+ 
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -31,6 +32,7 @@ app.use(session({
 app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
+ 
 
 
 
@@ -44,9 +46,11 @@ const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
 
-const cartOrderRouter = require('./src/routes/cartOrder')
+const cartOrderRouter = require('./src/routes/cartOrder');
 
-const unitsRouter = require('./src/routes/unitsMeasure')
+const unitsRouter = require('./src/routes/unitsMeasure');
+
+const apiUsers = require('./src/routes/apis/users');
 
 
 
@@ -58,6 +62,8 @@ app.use('/users', usersRouter);
 app.use('/cartOrder', cartOrderRouter);
  
 app.use('/units',unitsRouter)
+
+app.use('/api', apiUsers);
  
  
 const PORT = 3001
