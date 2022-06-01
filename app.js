@@ -9,6 +9,7 @@ const methodOverride = require('method-override');// Para poder usar los método
 
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+ 
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -35,6 +36,7 @@ app.use(session({
 app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
+ 
 
 
 
@@ -47,6 +49,10 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
+
+
+const apiUsers = require('./src/routes/apis/users');
+
 const paymentsRouter = require('./src/routes/payments')
 const cartOrderRouter = require('./src/routes/cartOrder')
 const estatusRouter = require('./src/routes/estatus')
@@ -59,10 +65,19 @@ const tablasRouter = require('./src/routes/tablasRouter')
 
 
 
+
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
 app.use('/users', usersRouter);
+
+
+ 
+
+
+app.use('/api', apiUsers);
+ 
+
 app.use('/cartOrder', cartOrderRouter); 
 app.use('/tablas',tablasRouter)
 app.use('/units',unitsRouter);
@@ -72,6 +87,7 @@ app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
 app.use('/api/secundarias',APIRouter)
+
 
  
 const PORT = 3001

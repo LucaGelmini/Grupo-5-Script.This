@@ -50,17 +50,18 @@ const usersController = {
                     noSamePassmsg: 'Las contraseñas ingresadas no coinciden!',
                     oldData: req.body
                 })
-                .catch(err =>{res.send(err)});
-            } else if (userInDB) {
-                res.render('register',{
-                    errors: {
-                        email:{
-                            msg: 'Este email ya esta registrado'
-                        }
-                    },
-                    oldData: req.body
-                })
-                .catch(err =>{res.send(err)});
+            } 
+
+            if(userInDB){
+                console.log(userInDB);
+                    res.render('register',{
+                        errors: {
+                            email:{
+                                msg: 'Este email ya esta registrado'
+                            }
+                        },
+                        oldData: req.body
+                    })
             } else {
 
                 let userToCreate = req.body

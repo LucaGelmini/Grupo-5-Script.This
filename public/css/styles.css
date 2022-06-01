@@ -815,6 +815,13 @@ HASTA ACA REFACTORIZÓ LUCA
      margin: 3px;
  }
 
+ .purchase-button, .remove-cart-button{
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 10px;
+    cursor: pointer;
+ }
+
  .img-article-cart, .product-box_image {
     display: block;
     max-width: 100%;
@@ -1012,13 +1019,25 @@ HASTA ACA REFACTORIZÓ LUCA
 /*Estilos para formularios*/
 
 
+form{
+    display: flex;
+    flex-direction: column;
+    /*margin: 0 0 25px 0;
+    width: 100%;*/
+    background-color: #fff;
+
+
 .formulario-login{
     position: relative;
     margin: auto;
     padding: 10px;
     top: 35%;
     width: 35%; 
+
+    height: 300px;
+
     height: 17vh;
+
     min-width: 250px;
     max-width: 400px;
     border-radius: 5px;
@@ -1034,7 +1053,10 @@ HASTA ACA REFACTORIZÓ LUCA
     background-color: #ddd;
 }
 .formulario-register, .create-product-form{
-    max-width: 600px;
+    max-width: 400px;
+    width: 100%;
+    overflow: hidden;
+    
 }
 
 .formulario-register, .create-product-form, .editar-product-form{
@@ -1042,7 +1064,7 @@ HASTA ACA REFACTORIZÓ LUCA
     margin: auto;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 10px 5px 25px black ;
+    box-shadow: 0 2px 5px rgba(0, 0,  0, 0.3) ;
 }
 .create-product-form, .editar-product-form{
     margin-top: 25px;
@@ -1121,15 +1143,91 @@ HASTA ACA REFACTORIZÓ LUCA
 }
 
 .input-texto{
-    height: 30px;
-    margin: 10px 0px 10px 0px;
-    border-radius: 5px;
-    border: none;
-    outline: black 1px solid;
-    padding: 0 10px;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    margin: 3px;
+    width: 100%;
 }
+
+.input-control{
+    position: relative;
+}
+
+.input-control.success input{
+    border-color: #2ecc71;
+}
+
+.input-control.error input{
+    border-color: #e74c3c;
+}
+
+.input-control.success .fas.fa-check-circle, .input-control.success .fas.fa-check-circle.login{
+    visibility: visible ;
+    color: #2ecc71; 
+}
+
+.input-control.error .fas.fa-exclamation-circle{
+    visibility: visible ;
+    color: #e74c3c;
+}
+
+.input-control.error small {
+    visibility: visible;
+    color: #e74c3c;
+}
+
+
+.input-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.input-control i {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.input-control i.fas.fa-check-circle.login, i.fas.fa-exclamation-circle.login {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    visibility: hidden;
+}
+
+   .fas.fa-check-circle.brithdate, .fas.fa-exclamation-circle.brithdate {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    visibility: hidden;
+}
+
+.input-control small {
+  
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
 .input-texto:focus{
     outline: #D84D09 2px solid;
+}
+
+.input-control.success input:focus {
+    outline: #0fea0b  2px solid;
+}
+
+.input-control.error input:focus {
+    outline: #ec1e07  2px solid;
+}
+
+.user-profile-select {
+    visibility: hidden;
 }
 
 .list-product-container{
@@ -1220,7 +1318,7 @@ HASTA ACA REFACTORIZÓ LUCA
     border: none;
     border-radius: 5px;
     background-color: #0a9fb2;
-    height: 30px;
+    height: 40px;
     cursor: pointer;
 }
 .boton-login a{
@@ -1410,12 +1508,14 @@ tfoot tr {
     border-color: #ec2f2f;
     padding: 10px;
     color: white;
+    cursor: pointer;
  }
 
  .confirm-cart {
      background-color: #189752;
      padding: 10px;
      color: white;
+     cursor: pointer;
  }
 
  .text-total {
@@ -1580,6 +1680,45 @@ tfoot tr {
     margin: 20px;
   }
 
+  .table-order-products {
+      width: 100%;
+  }
+
+  .table-order-products td {
+      width: 25%;
+  }
+
+  .table-order-products td i{
+      width: 10%;
+  }
+
+  .fas.fa-solid.fa-ban:hover {
+      cursor: pointer;
+      
+  }
+
+  .cart-row td input {
+      width: 70%;
+  }
+
+  .cart-table .cart-items {
+      width: 100%;
+  }
+
+  .cart-table .cart-items .product-name-order {
+    width: 48%;
+    text-align: left;
+}
+.cart-table .cart-items td, .cart-table .cart-items .order-price, .cart-table .cart-items .subtotal-product, .cart-table .cart-items .fas {
+    width: 13%;
+    text-align: center;
+    
+}
+
+.cart-table .cart-items .order-quantity{
+    width: 35%;
+}
+ 
  
  
 

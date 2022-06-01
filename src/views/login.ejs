@@ -10,18 +10,29 @@
         <main class="main-login">
             <form class="formulario-login" action="/users/login" method="POST" name= "formulario-registro">
                 
-                <input class="input-texto" type="email" name="email" placeholder="Correo electrónico" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+            <div class="input-control" id="input-control">
+                <input class="input-texto" type="email" name="email" id="email" placeholder="Correo electrónico" value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
                 <% if (locals.errors && errors.email) { %>
                     <p style="color: #D84D09;"><%= errors.email.msg %> </p> 
                 <% } %>
+                <i class="fas fa-check-circle login"></i>
+                <i class="fas fa-exclamation-circle login"></i>
+                <small></small>
+            </div>
 
-                <input class="input-texto" type="password" name="password"  placeholder="Contraseña"  value="<%= locals.oldData && oldData.password ? oldData.password : null %>">
+            <div class="input-control" id="input-control">
+                <input class="input-texto" type="password" name="password" id="password" placeholder="Contraseña"  value="<%= locals.oldData && oldData.password ? oldData.password : null %>">
                 <% if (locals.errors && errors.password) { %>
                     <p style="color: #D84D09;"><%= errors.password.msg %> </p> 
                 <% } %> 
-                
-                <label for="">Recordame</label>
-                <input type="checkbox" name="recordame">
+                <i class="fas fa-check-circle login"></i>
+                <i class="fas fa-exclamation-circle login"></i>
+                <small></small>
+            </div>
+                <div>
+                    <input type="checkbox" name="recordame">
+                    <label for="">Recordame</label>
+                </div>
                 
                 <button class="boton-login" type="submit">Enviar</button>
 
@@ -34,5 +45,6 @@
             </form>
         </main>
         <%-include('./partials/footer')  %> 
+        <script src="/js/login.js"></script>
     </body>
 </html>

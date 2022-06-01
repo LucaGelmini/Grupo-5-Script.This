@@ -6,10 +6,10 @@
     <div class="product-box_data">
         <p class="price-product">$ <%= product.price %> </p>
         <% if(product.discount != 0){%>
-            <p class="discount-price">OFF%  <%= product.discount %> </p>
+        <p class="discount-price">OFF%  <%= product.discount %> </p>
         <%} %> 
-           <p class="product-name"> <%= product.name %> </p>
-           <a href="/products/<%= product.id %> " class="product-detail-cart">Ver detalle</a>
+        <p class="product-name"> <%= product.name %> </p>
+        <a href="/products/<%= product.id %> " class="product-detail-cart">Ver detalle</a>
         <p class="presentation">PRESENTACIÓN: <%= product.mensure_value + ' ' + product.unit_mensure   %> </p>
         <button class="cart-button" type="submit" data-name="<%= product.name %>" data-price="<%= product.price %>" data-unit="<%= product.unit_mensure%>"  data-value="<%= product.mensure_value%>" >
             <i class="fas fa-shopping-cart"></i>AGREGAR

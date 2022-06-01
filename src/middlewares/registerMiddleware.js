@@ -3,7 +3,8 @@ const path = require('path');
 
 const usersMiddleware = [
 body('fullname')
-                .notEmpty().withMessage('* Ingrese su nombre y apellido completo'),
+                .notEmpty().withMessage('* Ingrese su nombre y apellido completo').bail()
+                .isLength({min: 2}).withMessage('* Ingreso al menos 2 caracteres'),
 body('username')
                 .notEmpty().withMessage('* Ingrese su nombre de usuario'),
 body('email')
@@ -24,13 +25,14 @@ body('role_id')
                     .notEmpty().withMessage('* Ingrese su rol como usuario'),
 body('password')
                 .notEmpty().withMessage('* Defina una contraseña').bail()
+                .isLength({min: 8}).withMessage('* Su contraseña debe tener al menos 8 caracteres').bail()
                 .isStrongPassword().withMessage('* Defina una contraseña fuerte'),
 body('confirmPassword')
-                .notEmpty().withMessage('* Repita la contraseña ingresada anteriormente').bail(),
+                .notEmpty().withMessage('* Repita la contraseña ingresada anteriormente'),
 body('userfile')
                 .custom((value, {req})=>{
                     let file = req.file;
-                    let extensionAccepted = ['.jpg', '.png', '.gif'];
+                    let extensionAccepted = ['.jpg', '.jpeg' , '.png', '.gif'];
                     if(!file){
                         throw new Error('* Debes subir una imagen') //si no te envian un file --> mostrar mensaje
                     } else {
