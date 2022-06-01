@@ -13,10 +13,24 @@
         </header>
         <main class="main-units-list">
            
-            <ul class="main-container-payment-list">
+            <ul class="main-container-units-list">
                 <% for(let i=0; i< categories.length;i++){%>
+                    <%if(categories[i].dataValues.name){%>
+                    <div class="text-button-container">
                     <li><%=categories[i].dataValues.name%></li>
+                    <div class="buttons-container">
+                    <form action="/categories/editar/<%=categories[i].dataValues.id%>" method="GET" >
+                        <button type="submit" class="forms-buttons">Editar</button>
+
+                    </form>
+                    <form action="/categories/eliminar/<%=categories[i].dataValues.name%>" method="POST" >
+                        <button type="submit" class="forms-buttons">Eliminar</button>
+                    </form>
+                </div>
+                </div>
+                    <%}%>
                 <%}%>
+                <form action="/categories/crear" method="GET"><button type="submit" class="forms-buttons">Crear</button></form>
             </ul>
            
         </main>

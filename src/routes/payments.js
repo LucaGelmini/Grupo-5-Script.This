@@ -21,7 +21,7 @@ router.post('/crear',paymentsMiddleware, paymentsController.creacion)
 //*********Eliminar*********** */
 
 router.get('/eliminar', paymentsController.eliminar)
-router.post('/eliminar',paymentsMiddleware, paymentsController.eliminacion)
+router.post('/eliminar/:id',paymentsMiddleware, paymentsController.eliminacion)
 
 //**********editar********* */
 
