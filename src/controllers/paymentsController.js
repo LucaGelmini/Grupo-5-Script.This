@@ -30,7 +30,7 @@ const unidades = {
                     })
                     res.redirect('/payments')
                 }else{
-                    res.render('paymentsCreate',{
+                    res.render('paymentCreate',{
                         mensajes: 'Ya existe este método de pago en la base de datos',
                         oldData:req.body
                     })

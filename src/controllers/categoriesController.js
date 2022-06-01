@@ -11,21 +11,37 @@ const unidades = {
     crear: function(req,res){
         res.render('categoriesCreate')
     },
-    creacion: function(req,res){
-        const validaciones = validationResult(req)
-         if(validaciones.errors.length > 0){
-             res.render('categoriesCreate'
-             ,{
-                 errors: validaciones.mapped(),
-                 oldData:req.body
-             }
-             )
-         }
-        db.Category.create({
-            name:req.body.categories
-        })
-        res.redirect('/categories')
-    },
+    creacion: function(req,res) {
+    db.Category.findAll()
+    .then(respuesta=>{
+const validaciones = validationResult(req)
+ if(validaciones.errors.length > 0){
+     res.render('categoriesCreate'
+     ,{
+         errors: validaciones.mapped(),
+         oldData:req.body
+     }
+     )
+ }else{                 
+        let existe = respuesta.find(categories => categories.dataValues.name== req.body.categories)
+        if(existe == undefined){
+            db.Category.create({
+                name:req.body.categories
+            })
+            res.redirect('/categories')
+        }else{
+            res.render('categoriesCreate',{
+                mensajes: 'Ya existe esta categoria en la base de datos',
+                oldData:req.body
+            })
+        }
+ }
+db.Category.create({
+    name:req.body.categories
+})
+    res.render('/categories')
+    })
+},
     editar:function(req,res){
         db.Category.findByPk(req.params.id)
         .then(function(categories){
@@ -42,21 +58,13 @@ res.redirect('/categories')
         res.render('categoriesDelete')
     },
     eliminacion: function(req,res){
-        const validaciones = validationResult(req)
-        if(validaciones.errors.length>0){
-            res.render('categoriesCreate'
-            ,{
-                errors: validaciones.mapped(),
-                oldData:req.body
-            }
-            )
-        }
-        db.Category.destroy({
-            where:{
-                name: req.body.categories
-            }
-        })
-        res.redirect('categories')
-    }
+        const idEliminar = req.params.id   
+         db.Category.destroy({
+             where:{
+                 name: idEliminar
+             }
+         })
+         res.redirect('/categories')
+     }
 }
 module.exports = unidades
