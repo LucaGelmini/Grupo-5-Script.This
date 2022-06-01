@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-login">
+            <form class="formulario-login" action="/payments/eliminar" method="POST" name= "formulario-registro">
+                
+                <input class="input-texto" type="text" name="payment" placeholder="Ingrese un método de pago" value="<%= locals.oldData && oldData.payment ? oldData.payment : null %>">
+                <% if(locals.errors && errors.payment) { %>
+                 
+                    <ul>
+                        <li style="color:red; font-size: 24px; "><%= errors.payment.msg%>!</li>
+                    </ul>
+                    
+                <%}%>
+
+                <button class="boton-login" type="submit">Enviar</button>         
+                
+
+            </form>
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

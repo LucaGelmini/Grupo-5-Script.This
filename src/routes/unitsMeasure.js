@@ -9,9 +9,10 @@ const validateUnits = require('../middlewares/unitsMiddleware')
 const unitsMeasureController = require('../controllers/unitsMeasureController')
 
 
-//******GET de todos los productos en dicha unidad************ */
+//******GET de todas las unidades************ */
 
 router.get('/', unitsMeasureController.getAll)
+
 
 ///**************** */ crear*************************
 
@@ -21,10 +22,11 @@ router.post('/crear',validateUnits, unitsMeasureController.creacion)
 //*********Eliminar*********** */
 
 router.get('/eliminar', unitsMeasureController.eliminar)
-router.post('/eliminar',validateUnits, unitsMeasureController.eliminacion)
+
+router.post('/eliminar/:id', unitsMeasureController.eliminacion)
 
 //**********editar********* */
 
-router.get('/editar', unitsMeasureController.editar)
-router.post('/editar', unitsMeasureController.edicion)
+router.get('/editar/:id', unitsMeasureController.editar)
+router.post('/editar/:id', unitsMeasureController.edicion)
 module.exports = router;

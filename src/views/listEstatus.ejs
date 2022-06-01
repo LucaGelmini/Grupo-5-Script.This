@@ -10,16 +10,16 @@
         <main class="main-units-list">
            
             <ul class="main-container-units-list">
-                <% for(let i=0; i< unidades.length;i++){%>
-                    <%if(unidades[i].dataValues.type){%>
+                <% for(let i=0; i< estatus.length;i++){%>
+                    <%if(estatus[i].dataValues.type){%>
                     <div class="text-button-container">
-                    <li><%=unidades[i].dataValues.type%></li>
+                    <li><%=estatus[i].dataValues.type%></li>
                     <div class="buttons-container">
-                    <form action="/units/editar/<%=unidades[i].dataValues.id%>" method="GET" >
+                    <form action="/estatus/editar/<%=estatus[i].dataValues.id%>" method="GET" >
                         <button type="submit" class="forms-buttons">Editar</button>
 
                     </form>
-                    <form action="/units/eliminar/<%=unidades[i].dataValues.type%>" method="POST" >
+                    <form action="/estatus/eliminar/<%=estatus[i].dataValues.type%>" method="POST" >
                         <button type="submit" class="forms-buttons">Eliminar</button>
 
                     </form>
@@ -27,7 +27,7 @@
                 </div>
                     <%}%>
                 <%}%>
-                <form action="/units/crear" method="GET"><button type="submit" class="forms-buttons">Crear</button></form>
+                <form action="/estatus/crear" method="GET"><button type="submit" class="forms-buttons">Crear</button></form>
             </ul>
            
         </main>

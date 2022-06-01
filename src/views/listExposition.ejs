@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include("./partials/head",{title:'Login'})%>
+    </head>
+    <body>
+        <header class="header-login">
+            <%-include("./partials/header")%>
+        </header>
+        <main class="main-units-list">
+           
+            <ul class="main-container-units-list">
+                <% for(let i=0; i< expositions.length;i++){%>
+                  
+                    <%if(expositions[i].dataValues.name){%>
+                    <div class="text-button-container">
+                    <li><%=expositions[i].dataValues.name%></li>
+                    <div class="buttons-container">
+                    <form action="/expositions/editar/<%=expositions[i].dataValues.id%>" method="GET" >
+                        <button name="submit" class="forms-buttons">Editar</button>
+
+                    </form>
+                    <form action="/expositions/eliminar/<%=expositions[i].dataValues.name%>" method="POST" >
+                        <button name="submit" class="forms-buttons">Eliminar</button>
+
+                    </form>
+                </div>
+                </div>
+                    <%}%>
+                <%}%>
+                <form action="/expositions/crear" method="GET"><button name="submit" class="forms-buttons">Crear</button></form>
+            </ul>
+           
+        </main>
+        <%-include('./partials/footer')  %> 
+    </body>
+</html>

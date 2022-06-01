@@ -4,7 +4,9 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
 const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
+
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
  
@@ -16,7 +18,9 @@ const app = express();
 app.set('views',path.join(__dirname,'src/views'));
 app.set('view engine', 'ejs');
 
+
  // ************ Middlewares - (don't touch) *************
+
 app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
 app.use(logger('dev')); 
@@ -46,25 +50,45 @@ const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
 
-const cartOrderRouter = require('./src/routes/cartOrder');
-
-const unitsRouter = require('./src/routes/unitsMeasure');
 
 const apiUsers = require('./src/routes/apis/users');
+
+const paymentsRouter = require('./src/routes/payments')
+const cartOrderRouter = require('./src/routes/cartOrder')
+const estatusRouter = require('./src/routes/estatus')
+const unitsRouter = require('./src/routes/unitsMeasure')
+const categoriesRouter = require('./src/routes/categories')
+const expositionsRouter = require('./src/routes/exposition')
+const rolesRouter = require('./src/routes/roles')
+const APIRouter = require('./src/routes/api/tablasSecundarias')
+const tablasRouter = require('./src/routes/tablasRouter')
+
 
 
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
- 
 app.use('/users', usersRouter);
-app.use('/cartOrder', cartOrderRouter);
+
+
  
-app.use('/units',unitsRouter)
+
 
 app.use('/api', apiUsers);
  
+
+app.use('/cartOrder', cartOrderRouter); 
+app.use('/tablas',tablasRouter)
+app.use('/units',unitsRouter);
+app.use('/estatus',estatusRouter);
+app.use('/expositions', expositionsRouter);
+app.use('/payments', paymentsRouter);
+app.use('/roles',rolesRouter);
+app.use('/categories',categoriesRouter);
+app.use('/api/secundarias',APIRouter)
+
+
  
 const PORT = 3001
 app.listen(PORT, ()=>{

@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%-include("./partials/head",{title:'Login'})%>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles</title>
+</head>
+<body>
+    <%-include("./partials/head",{title:'Login'})%>
         <header class="header-login">
             <%-include("./partials/header")%>
         </header>
         <main class="main-units-list">
            
             <ul class="main-container-units-list">
-                <% for(let i=0; i< unidades.length;i++){%>
-                    <%if(unidades[i].dataValues.type){%>
+                <% for(let i=0; i< roles.length;i++){%>
+                    <%if(roles[i].dataValues.name){%>
                     <div class="text-button-container">
-                    <li><%=unidades[i].dataValues.type%></li>
+                    <li><%=roles[i].dataValues.name%></li>
                     <div class="buttons-container">
-                    <form action="/units/editar/<%=unidades[i].dataValues.id%>" method="GET" >
+                    <form action="/roles/editar/<%=roles[i].dataValues.id%>" method="GET" >
                         <button type="submit" class="forms-buttons">Editar</button>
 
                     </form>
-                    <form action="/units/eliminar/<%=unidades[i].dataValues.type%>" method="POST" >
+                    <form action="/roles/eliminar/<%=roles[i].dataValues.name%>" method="POST" >
                         <button type="submit" class="forms-buttons">Eliminar</button>
-
                     </form>
                 </div>
                 </div>
                     <%}%>
                 <%}%>
-                <form action="/units/crear" method="GET"><button type="submit" class="forms-buttons">Crear</button></form>
+                <form action="/roles/crear" method="GET"><button type="submit" class="forms-buttons">Crear</button></form>
             </ul>
            
         </main>
         <%-include('./partials/footer')  %> 
-    </body>
+</body>
 </html>
