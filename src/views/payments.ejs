@@ -12,13 +12,26 @@
             <%-include("./partials/header")%>
         </header>
         <main class="main-units-list">
-           
-            <ul class="main-container-payment-list">
+
+            <ul class="main-container-units-list">
                 <% for(let i=0; i< payment.length;i++){%>
+                    <%if(payment[i].dataValues.method){%>
+                    <div class="text-button-container">
                     <li><%=payment[i].dataValues.method%></li>
+                    <div class="buttons-container">
+                    <form action="/payments/editar/<%=payment[i].dataValues.id%>" method="GET" >
+                        <button type="submit" class="forms-buttons">Editar</button>
+
+                    </form>
+                    <form action="/payments/eliminar/<%=payment[i].dataValues.method%>" method="POST" >
+                        <button type="submit" class="forms-buttons">Eliminar</button>
+                    </form>
+                </div>
+                </div>
+                    <%}%>
                 <%}%>
+                <form action="/payments/crear" method="GET"><button type="submit" class="forms-buttons">Crear</button></form>
             </ul>
-           
         </main>
         <%-include('./partials/footer')  %> 
 </body>

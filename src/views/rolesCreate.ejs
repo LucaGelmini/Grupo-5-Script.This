@@ -19,6 +19,14 @@
                     
                 <%}%>
 
+                <% if(locals.mensajes ) { %>                 
+                    <ul class="listaErrores" >
+                        <li style="color:red; font-size: 24px; "><%= locals.mensajes%>!</li>
+                    </ul>                 
+                    
+                <%}%>
+                <ul class="listaErrores"></ul>
+
                 <button class="boton-login" type="submit">Enviar</button>         
                 
 

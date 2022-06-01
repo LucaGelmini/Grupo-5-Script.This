@@ -14,10 +14,18 @@
                 <% if(locals.errors && errors.payment) { %>
                  
                     <ul>
-                        <li style="color:red; font-size: 24px; "><%= errors.payment.msg%>!</li>
+                        <li class="liGeneralCreation" style="color:red; font-size: 1.2vw; "><%= errors.payment.msg%>!</li>
                     </ul>
                     
                 <%}%>
+
+                <% if(locals.mensajes ) { %>                 
+                    <ul class="listaErrores" >
+                        <li style="color:red; font-size: 24px; "><%= locals.mensajes%>!</li>
+                    </ul>                 
+                    
+                <%}%>
+                <ul class="listaErrores"></ul>
 
                 <button class="boton-login" type="submit">Enviar</button>         
                 
