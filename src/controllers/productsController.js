@@ -2,13 +2,12 @@
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const Products = require('../models/Products');
+// const Products = require('../models/Products');
 const db = require('../database/models');
 const Product = db.Product;
 const Op = db.Sequelize.Op;
 const {validationResult} = require('express-validator');
-const internal = require('stream');
-const { promiseImpl } = require('ejs');
+
 
 
 
@@ -22,9 +21,17 @@ const uploadDataJsonProducts = (newUpdate)=>{fs.writeFileSync(productsFilePath,J
 const productsController = {
     //Root - Show all products
     allProducts:(req,res) => {
-        let products = Products.findAll();
-        res.render('products',{
-            products});
+        // let products = Products.findAll();
+        db.Product
+        .findAll({
+            include: [{association: 'unitMensure'}]
+        })
+        
+        .then(products => res.render('products', {products}))
+         
+
+        // res.render('products',{
+        //     products});
     },
 
     // Detail - Detail from one product

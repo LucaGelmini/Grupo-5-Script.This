@@ -196,26 +196,27 @@ constraint `products_category_id_foreign` FOREIGN key (`category_id`) references
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` VALUES  
-(1, 'Rum - Coconut, Malibu', '2021-06-23', '2021-04-29', 7, 382.64, 16, 'enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus', 'OdioOdioElementum.tiff', 253, 2, 2, 4),
-(2, 'Danishes - Mini Cheese', '2021-11-24', '2021-07-22', 21, 937.76, 9, 'proin eu mi nulla ac enim in tempor turpis nec', 'MorbiAIpsum.mp3', 646, 1, 5, 4),
-(3, 'Seedlings - Clamshell', '2022-02-23', '2021-08-21', 7, 198.14, 15, 'quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at', 'ScelerisqueMaurisSit.pdf', 625, 3, 1, 3),
-(4, 'Clam Nectar', '2022-01-12', '2021-11-20', 24, 275.16, 49, 'ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at', 'AnteIpsumPrimis.avi', 730, 3, 1, 3),
-(5, 'Breadfruit', '2022-04-05', '2022-01-17', 8, 236.93, 45, 'quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a', 'AcConsequat.tiff', 386, 3, 5, 4),
-(6, 'Pork - Back, Short Cut, Boneless', '2022-01-09', '2021-08-04', 12, 270.24, 32, 'ut mauris eget massa tempor convallis nulla neque libero convallis', 'SedTristique.avi', 394, 3, 5, 3),
-(7, 'Bar - Granola Trail Mix Fruit Nut', '2022-03-23', '2022-03-21', 25, 643.75, 25, 'lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui', 'Ut.mp3', 232, 3, 2, 4),
-(8, 'Iced Tea Concentrate', '2021-10-21', '2021-05-15', 27, 981.03, 24, 'vel nulla eget eros elementum pellentesque quisque porta volutpat erat', 'Interdum.ppt', 215, 3, 5, 3),
-(9, 'Yogurt - Banana, 175 Gr', '2021-06-13', '2021-12-06', 2, 393.1, 29, 'elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi', 'Ultrices.tiff', 422, 3, 2, 2),
-(10, 'Bread Foccacia Whole', '2022-02-27', '2022-03-23', 9, 220.07, 43, 'sit amet eleifend pede libero quis orci nullam molestie nibh in lectus', 'Magna.gif', 201, 2, 4, 3),
-(11, 'Glass Clear 8 Oz', '2021-06-26', '2021-11-11', 22, 282.2, 28, 'ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 'NuncDonecQuis.mpeg', 743, 2, 2, 2),
-(12, 'Oil - Olive, Extra Virgin', '2022-01-17', '2021-09-06', 31, 1.07, 23, 'orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec', 'PellentesqueEget.avi', 626, 1, 2, 3),
-(13, 'Beef - Ox Tail, Frozen', '2021-10-30', '2022-02-08', 34, 862.13, 35, 'in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut', 'DolorMorbiVel.ppt', 842, 3, 5, 1),
-(14, 'Lamb - Sausage Casings', '2021-11-13', '2021-11-30', 43, 45.51, 3, 'dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est', 'VelAccumsanTellus.xls', 55, 3, 1, 2),
-(15, 'Garlic - Primerba, Paste', '2021-06-07', '2021-05-04', 31, 970.5, 48, 'in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices', 'TempusSit.png', 404, 2, 1, 4),
-(16, 'Garlic Powder', '2021-06-03', '2021-06-09', 33, 841.8, 35, 'hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec', 'EratId.mov', 742, 2, 1, 1),
-(17, 'Bread Base - Toscano', '2022-01-14', '2021-12-05', 37, 194.26, 8, 'eleifend donec ut dolor morbi vel lectus in quam fringilla', 'AnteIpsum.jpeg', 377, 2, 3, 3),
-(18, 'Mayonnaise - Individual Pkg', '2022-02-03', '2021-10-17', 38, 33.42, 16, 'id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien', 'OrciLuctus.jpeg', 753, 1, 3, 1),
-(19, 'Cranberries - Frozen', '2021-10-10', '2022-03-11', 40, 973.7, 41, 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et', 'AuctorSedTristique.jpeg', 559, 1, 3, 2),
-(20, 'Pears - Anjou', '2022-02-08', '2021-11-29', 10, 240.1, 41, 'mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu', 'SemperRutrumNulla.xls', 846, 1, 3, 3);
+(1, 'Manzana roja','2021-06-23', '2021-04-29', 1, 100, 5,'Manzana roja de rio IV', 'img-manzana-roja.jpg', 500, 1, 1, 1),
+(2, 'Manzana verde','2021-06-23', '2021-04-29', 1, 150, 5,'Manzana verde de rio IV', 'img-manzana-verde.jpg', 500, 1, 1, 1),
+(3, 'Kiwi','2021-06-23', '2021-04-29', 1, 100, 10,'Kiwi del norte', 'img-kiwi.jpg', 500, 2, 1, 1),
+(4, 'Sandía','2021-06-23', '2021-04-29', 1, 180, 0,'Sandía de rio IV', 'img-sandia.jpg', 1000, 3, 3, 1),
+(5, 'Papa Blanca','2021-06-23', '2021-04-29', 1, 80, 0,'Papa blanca de rio IV', 'img-papa-blanca.jpg', 2000, 3, 1, 2),
+(6, 'Cebolla blanca','2021-06-23', '2021-04-29', 1, 90, 0,'Cebolla de rio IV', 'img-cebolla-blanca.jpg', 2000, 3, 1, 2),
+(7, 'Zanahoria','2021-06-23', '2021-04-29', 1, 130, 0,'Zanahoria de rio IV', 'img-zanahoria.jpg', 800, 3, 1, 2),
+(8, 'Repollo','2021-06-23', '2021-04-29', 1, 165, 0,'Repollo de rio IV', 'img-repollo.jpg', 1200, 3, 3, 2),
+(9, 'Jengibre','2021-06-23', '2021-04-29', 1, 75, 0,'Jengibre de rio IV', 'img-jengibre.jpg', 450, 3, 3, 3),
+(10, 'Calabaza Butternut','2021-06-23', '2021-04-29', 1, 190, 0,'Calabaza butternut de rio IV', 'img-calabaza-butternut.jpg', 900, 3, 3, 2),
+(11, 'Pepino','2021-06-23', '2021-04-29', 1, 110, 5,'Pepino de rio IV', 'img-pepino.jpg', 850, 1, 1, 2),
+(12, 'Puerro','2021-06-23', '2021-04-29', 1, 80, 0,'Puerro de rio IV', 'img-puerro.jpg', 350, 3, 4, 2), 
+(13, 'Ajo','2021-06-23', '2021-04-29', 1, 60, 0,'Ajo de rio IV', 'img-ajo.jpg', 200, 3, 3, 2),
+(14, 'Brocoli','2021-06-23', '2021-04-29', 1, 200, 5,'Brocoli de rio IV', 'img-brocoli.jpg', 750, 1, 3, 2), 
+(15, 'Champinion cremini','2021-06-23', '2021-04-29', 1, 500, 0,'Champiniones de rio IV', 'img-champinion-cremini.jpg', 890, 3, 5, 2),  
+(16, 'Limon amarillo','2021-06-23', '2021-04-29', 1, 250, 10,'Limon amarillo de rio IV', 'img-limon-amarillo.jpg', 1100, 1, 1, 2),   
+(17, 'Pimiento-verde','2021-06-23', '2021-04-29', 1, 170, 0,'Piminiento verde de rio IV', 'img-pimiento-verde.jpg', 1400, 3, 1, 2),  
+(18, 'Naranja','2021-06-23', '2021-04-29', 1, 210, 0,'Naranja de rio IV', 'img-naranja.jpg', 1700, 3, 1, 1),
+(19, 'Durazno','2021-06-23', '2021-04-29', 1, 300, 0,'Durazno de rio IV', 'img-durazno.jpg', 1900, 3, 1, 1),
+(20, 'Uva','2021-06-23', '2021-04-29', 1, 400, 0,'Uva de rio IV', 'img-uva.jpg', 2500, 3, 4, 1);
+ 
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 

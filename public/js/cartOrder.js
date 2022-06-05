@@ -25,6 +25,9 @@ function readLocalStorage() {
            
         let price = product.price;
         let name = product.name;
+        let quantity = product.value;
+        let subtotal = price * quantity;
+        console.log(name);
 
         let cartItemContainer = document.getElementsByClassName('cart-items')[0];
 
@@ -34,11 +37,11 @@ function readLocalStorage() {
 
         let quantityData = document.createElement('td');
         newRowCart.classList.add('order-quantity-container');
-        quantityData.innerHTML = `<input type="number" name="" class="order-quantity" id="order-quantity" value=${product.value}>`;
+        quantityData.innerHTML = `<input type="number" name="product_quantity" class="order-quantity" id="order-quantity" value=${quantity}>`;
 
         let nameData = document.createElement('td');
         nameData.classList.add('product-name-order');
-        nameData.innerText = name;
+        nameData.innerHTML = name;
 
         let priceData = document.createElement('td');
         priceData.classList.add('order-price');
@@ -46,7 +49,7 @@ function readLocalStorage() {
 
         let subTotal = document.createElement('td');
         subTotal.classList.add('subtotal-product')
-        subTotal.innerText = (price*product.value)
+        subTotal.innerHTML = `$<input type="number"  name="total" class="subtotal-product" id="subtotal-product" value=${subtotal} readonly>`;
 
         let cancelData = document.createElement('td');
         cancelData.innerHTML = '<i class="fas fa-solid fa-ban"></i>';
@@ -77,8 +80,8 @@ const removeItem = (e) =>{
     console.log(productNameElement);
     productName = productNameElement.innerText
     console.log(productName);
-    updateCartTotal();
     removeProductLocalStorage(productName);
+    updateCartTotal(); 
 }
 
 const updateCartSubtotal = () =>{
@@ -95,7 +98,7 @@ const updateCartSubtotal = () =>{
         let subTotalElement = cartRow.getElementsByClassName('subtotal-product')[0];
         let price = parseFloat(priceElement.innerText.replace('$', ''));
         let quantity = quantityElement.value;
-        subTotalElement.innerText =  (price * quantity);
+        subTotalElement.innerHTML = `$<input type="number" name="total" class="subtotal-product" id="subtotal-product" value=${price*quantity} readonly>`;
         
     }
      
@@ -166,8 +169,28 @@ function purchaseProcess(){
             return
             // Hacer un else if de userlogged o usar middelware de auth en la ruta para crear una compra 
         } else {
-            location.href = 'products';
-            removeAllLocalStorage()
+            const itemsToBuy = [];
+            console.log(itemsToBuy);
+            let cartItemContainer = document.getElementsByClassName('cart-items')[0];
+            let cartRows = cartItemContainer.getElementsByClassName('cart-row');
+            for (let i = 0; i < cartRows.length; i++) {
+                const product = cartRows[i];
+                let obj = {
+                    name: product.getElementsByClassName('product-name-order')[0].innerText,
+                    product_quantity: product.getElementsByClassName('order-quantity')[0].value,
+                    price: product.getElementsByClassName('order-price')[0].innerText
+                }
+                
+                itemsToBuy.push(obj)
+                
+            }
+            fetch('http://localhost:3001/cartOrder',{
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify(itemsToBuy)
+            })
         }
     })
 }
@@ -175,3 +198,30 @@ function purchaseProcess(){
 function removeAllLocalStorage(){
     localStorage.clear();
 }
+
+// function purchaseProcess(){
+//     let confirmPurchaseButton = document.querySelector('.confirm-cart')
+
+//     confirmPurchaseButton.addEventListener('click', function(e){
+//         e.preventDefault()
+//         if(getProductLocalStorage().length === 0){
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Oops...',
+//                 text: 'Antes de comprar debe agregar productos a su carrito',
+//               }).then(function(){
+//                   window.location = 'products'
+//               })
+//             return
+//             // Hacer un else if de userlogged o usar middelware de auth en la ruta para crear una compra 
+//         } 
+//         else {
+//             location.href = 'products';
+//             removeAllLocalStorage()
+//         }
+//     })
+// }
+
+// function removeAllLocalStorage(){
+//     localStorage.clear();
+// }

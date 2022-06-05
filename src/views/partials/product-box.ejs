@@ -10,8 +10,8 @@
         <%} %> 
         <p class="product-name"> <%= product.name %> </p>
         <a href="/products/<%= product.id %> " class="product-detail-cart">Ver detalle</a>
-        <p class="presentation">PRESENTACIÓN: <%= product.mensure_value + ' ' + product.unit_mensure   %> </p>
-        <button class="cart-button" type="submit" data-name="<%= product.name %>" data-price="<%= product.price %>" data-unit="<%= product.unit_mensure%>"  data-value="<%= product.mensure_value%>" >
+        <p class="presentation">PRESENTACIÓN: <%= product.mensure_value + ' ' + product.unitMensure.type%> </p>
+        <button class="cart-button" type="submit" data-name="<%= product.name %>" data-price="<%= product.price %>" data-unit="<%= product.unit_mensure%>"  data-value="<%= product.mensure_value%>" data-value="<%= product.id%> >
             <i class="fas fa-shopping-cart"></i>AGREGAR
         </button>
     </div>

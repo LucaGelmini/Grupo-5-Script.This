@@ -1708,6 +1708,14 @@ tfoot tr {
   .cart-table .cart-items .product-name-order {
     width: 48%;
     text-align: left;
+    
+}
+
+.cart-table .cart-items .product-name-order input {
+    width: 70%;
+    border-style: hidden;
+    background-color: white;
+    outline: none;
 }
 .cart-table .cart-items td, .cart-table .cart-items .order-price, .cart-table .cart-items .subtotal-product, .cart-table .cart-items .fas {
     width: 13%;
@@ -1716,10 +1724,24 @@ tfoot tr {
 }
 
 .cart-table .cart-items .order-quantity{
-    width: 35%;
+    width: 40%;
 }
  
- 
+.cart-table .cart-items .order-price{
+    width: 13%;
+}
+
+.cart-table .cart-items .order-price input {
+    width: 50%;
+    
+    
+}
+.cart-table .cart-items .subtotal-product input {
+    width: 70%;
+    border-style: hidden;
+    background-color: white;
+    outline: none;
+}
  
 
 @media (min-width:277px) {
