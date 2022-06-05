@@ -24,7 +24,10 @@ const productsController = {
         // let products = Products.findAll();
         db.Product
         .findAll({
-            include: [{association: 'unitMensure'}]
+            include: [
+                {association: 'unitMensure'},
+                {association: "category"}
+            ]
         })
         
         .then(products => res.render('products', {products}))
@@ -38,7 +41,8 @@ const productsController = {
     detail: (req,res) => {
         let idProduct = req.params.id;
 
-        Product.findByPk(idProduct,{
+        db.Product
+        .findByPk(idProduct,{
             include: [
                 {association: "cartOrders"},
                 {association: "unitMensure"},
