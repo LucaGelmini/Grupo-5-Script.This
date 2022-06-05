@@ -43,21 +43,22 @@
                         <h5>CATEGORÍAS</h5>
                     </div>
                     <div class="products-category">
-                        <a class="list-group-item" href="#">TODOS LOS PRODUCTOS</a>
-                        <a class="list-group-item" href="#">FRUTAS</a>
-                        <a class="list-group-item" href="#">VERDURAS</a>
-                        <a class="list-group-item" href="#">HIERBAS</a>
-                        <a class="list-group-item" href="#">SECOS</a>
+                        <a class="list-group-item" id="allProducts" href="">TODOS LOS PRODUCTOS</a>
+                        <a class="list-group-item" id="frutas" href="#">FRUTAS</a>
+                        <a class="list-group-item" id="verduras" href="#">VERDURAS</a>
+                        <a class="list-group-item" id="hierbas" href="#">HIERBAS</a>
+                        <a class="list-group-item" id="secos" href="#">SECOS</a>
                     </div>
                 </div>
-                <div class="products-cart-container">
-                    <% products.forEach(product=>{%>
+                <div class="products-cart-container" id="box-products-container">
+                    <% let Allproducts = products.forEach(product=>{%>
                         <%- include('./partials/product-box',{product}) %>
                     <%}) %> 
                 </div>
             </div>
         </div>
         <script src="/js/orders.js"></script>
+        <script src="/js/filterCategory.js"></script>
     </main>
      <%-include('./partials/footer')  %> 
 </body>
