@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         }, 
         total: {
-            type: dataTypes.DECIMAL(10,2),
+            type: dataTypes.BIGINT(10),
             allowNull: false
         },
         cancel_date: {
