@@ -1,3 +1,4 @@
+
 window.addEventListener('load', function(){
    readLocalStorage()
    updateCartTotal()
@@ -47,6 +48,7 @@ const addCartItem = () => {
         let addCartButton = addCartButtons[i];
         addCartButton.addEventListener('click', function(e){
             let addCartButtonClicked = e.target.dataset
+            console.log(addCartButtonClicked);
              
             let price = addCartButtonClicked.price;
             let name = addCartButtonClicked.name;

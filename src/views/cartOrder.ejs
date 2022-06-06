@@ -14,7 +14,7 @@
             </div>
         <div class="cart-tables-container">
             <div class="table-container">
-                <form action=""> 
+                <form class="order-form" action="/cartOrder" method="POST" name="order-form"> 
                     <table class="cart-table-labels">
                         <thead>
                             <tr>
@@ -40,8 +40,8 @@
                                         </td>
                                    </tr>
                                     <tr>
-                                        <td class="text-right"><a href="/products"><button class="continue-cart">Seguir Comprando</button></a></td>
-                                        <td class="text-right"><button class="confirm-cart">Confirmar pedido</button></td>
+                                        <td class="text-right"><a href="/products"><button  class="continue-cart">Seguir Comprando</button></a></td>
+                                        <td class="text-right"><button type="submit" class="confirm-cart">Confirmar pedido</button></td>
                                     </tr>
                             </tfoot>
                         </table>

@@ -1,6 +1,7 @@
 <!-- Cargo el script para usar la barra de búsqueda. -->
 <script src="/js/mainHeader.js"></script>
 
+
 <div class="envío-sin-cargo">
     <p>Envío sin cargo si tu compra supera los $2.000. <a href="#" style="color:#D84D09">Empezá a comprar ahora mismo!</a> </p>
 </div>
@@ -47,7 +48,7 @@
         <nav class="nav01">
             <ul>
                 <% if(locals.isLogged){ %> 
-                    <li><a href="/users/profile">Hi, <%= locals.logedUser.username %></a></li>
+                    <li><a id="user-logIn-name" href="/users/profile">Hi, <%= locals.logedUser.username %></a></li>
                     <li><a href="/users/logout">Log Out</a></li>
                 <% }else{%> 
                     <li><a href="/users/register">Creá tu cuenta</a></li>

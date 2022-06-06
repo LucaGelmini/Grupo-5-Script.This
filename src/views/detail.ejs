@@ -21,8 +21,10 @@
                     <p class="price-product">$ <%= productDetail.price %> </p>
                     <p class="discount-price">OFF% <%= productDetail.discount %> </p>
                        <p class="product-name"> <%= productDetail.name %> </p>
-                    <p class="presentation">PRESENTACIÓN: <%=`${productDetail.mensure_value} ${productDetail.unit_mensure}`  %></p>
+                    <p class="presentation">PRESENTACIÓN: <%=`${productDetail.mensure_value} ${productDetail.unitMensure.type}`  %></p>
                     <p class="description">DESCRIPCIÓN: <%= productDetail.description %></p> 
+                    <p class="description">EXPOSICIÓN: <%= productDetail.exposition.type %></p> 
+                    <p class="description">CATEGORÍA: <%= productDetail.category.name %></p> 
                     <a href="/products/edit/<%= productDetail.id %> ">
                         <button class="cart-button" type="button">
                              <p>EDITAR</p> 

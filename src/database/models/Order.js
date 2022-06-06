@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         total: {
-            type: dataTypes.DECIMAL(10,2),
+            type: dataTypes.BIGINT(10),
             allowNull: false
         },
         cancel_date: {
