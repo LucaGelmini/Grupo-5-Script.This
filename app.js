@@ -9,6 +9,8 @@ const methodOverride = require('method-override');// Para poder usar los método
 
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+
+const favicon = require('serve-favicon');
  
 
 // ************ express() - (don't touch) ************
@@ -20,7 +22,7 @@ app.set('view engine', 'ejs');
 
 
  // ************ Middlewares - (don't touch) *************
-
+app.use(favicon('./favicon.ico'));
 app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
 app.use(logger('dev')); 
@@ -36,6 +38,7 @@ app.use(session({
 app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
+
  
 
 
