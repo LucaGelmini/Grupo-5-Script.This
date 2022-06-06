@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <%-include("./partials/head", {title:'Register'})%>
+        <script src="/js/registerPreviewImage.js"></script>
     </head>
     <body>
         <header>
@@ -96,13 +97,13 @@
                  
             </div>
 
-                <div class="user-profile-select">
+            <div class="user-profile-select">
                     <label class="label-header-user-profile">Perfil del usuario</label>
                     <select name="role_id" id="">
                         <option value="1" selected>comprador</option>
                         <option value="2">vendedor</option>
                     </select>
-                </div>
+            </div>
                 <!-- <div class="perfil-usr">
                     <div>
                         <label class="comprador"><input type="radio" name="role_id" value="1" <%#    locals.oldData && (oldData.role_id == '1') ? 'selected' : null %>> comprador</label>
@@ -112,13 +113,18 @@
                     </div>
                 </div> -->
  
-            <div class="input-control" id="input-control">
-                    <label class="label-header">Imagen de perfil:</label>
-                    <br> 
-                    <input type="file" name="userfile" id="userfile" accept="'.jpg', '.jpeg' , '.png', '.gif'">      
+            <div class="input-control image-preview-containter" id="input-control">
+                <img alt="Foto de perfil" id="preview-usr-image"
+                 class="preview-image-register" src="/img/users/default-user-image.png" >
+                <label class="label-header image-upload-button">
+                    Elija su imagen de perfil
+                    <input class="input-usr-image" type="file" name="userfile" id="userfile" accept="'.jpg', '.jpeg' , '.png', '.gif'">      
+                </label>
+                <br>
                 <% if (locals.errors && errors.userfile) { %>
                     <p style="color: #D84D09;"><%= errors.userfile.msg %> </p> 
-                 <% } %>
+                <% } %>
+
                  <i class="fas fa-check-circle"></i>
                  <i class="fas fa-exclamation-circle"></i>
                  <br>   

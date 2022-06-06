@@ -58,10 +58,9 @@ span {
 form{
     display: flex;
     flex-direction: column;
-    /*margin: 0 0 25px 0;
-    width: 100%;
-    background-color: #efefef;*/
+    background-color: #ddd;
 }
+
 /* REGLAS PARA PARTIALS */
 
 /* 1. HEADER */
@@ -693,11 +692,7 @@ HASTA ACA REFACTORIZÓ LUCA
     font-size:12px;
 }*/
 
-
-
- 
-
-.producto-detail {
+/* .producto-detail {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -714,8 +709,12 @@ HASTA ACA REFACTORIZÓ LUCA
 .producto-detail-container{
     display: flex;
     justify-content: center;
-}
-.product-detail {
+} */
+
+
+ 
+
+/* .product-detail {
     text-align: justify;
     border: solid 2px black;
     width: 65%;
@@ -723,8 +722,16 @@ HASTA ACA REFACTORIZÓ LUCA
     padding: 10px;
     line-height: 20px;
     margin-bottom: 25px;
+} */
+
+/* .banner-cart-container{
+    width: 100%;
 }
 
+.banner-cart-img{
+    display: block;
+    width: 100%;
+} */
  .container-products-wrapper{
     display: flex;
     flex-wrap: wrap;
@@ -732,14 +739,6 @@ HASTA ACA REFACTORIZÓ LUCA
      width: 100%;
  }
  
-.banner-cart-container{
-    width: 100%;
-}
-
-.banner-cart-img{
-    display: block;
-    width: 100%;
-}
 
  .col-1 {
      background-color: white;
@@ -919,7 +918,7 @@ HASTA ACA REFACTORIZÓ LUCA
 }
 
 .product-detail-cart{
-    color: red;
+    color: #D84D09;
 }
 
 .product-detail-cart:hover{
@@ -1009,23 +1008,14 @@ HASTA ACA REFACTORIZÓ LUCA
 
     
 /*Estilo para paginas de formularios*/
+
+
+/*### LOGIN ###*/
 .main-login{
     background-image: url("../img/frutas-login.jpeg");
     background-size: cover;
     width: 100vw;
     height: 100vh;
-}
-
-/*Estilos para formularios*/
-
-
-form{
-    display: flex;
-    flex-direction: column;
-    /*margin: 0 0 25px 0;
-    width: 100%;*/
-    background-color: #fff;
-
 }
 .formulario-login{
     position: relative;
@@ -1033,43 +1023,118 @@ form{
     padding: 10px;
     top: 35%;
     width: 35%; 
-
     height: 300px;
-
-    height: 17vh;
-
+    height: auto;
     min-width: 250px;
     max-width: 400px;
     border-radius: 5px;
     box-shadow: 10px 5px 20px black ;
     justify-content: space-between;
-    
 }
-.formulario-register,
+
+.login-troubleshooting{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+.login-troubleshooting a{
+    margin: 4px;
+}
+.login-troubleshooting a:hover{
+    color: #D84D09;
+}
+
+/*Estilos para formularios*/
+
+
+
+/* .formulario-register,
 .create-product-form,
 .formulario-login,
 .create-product-form,
 .editar-product-form{
     background-color: #ddd;
-}
-.formulario-register, .create-product-form{
-    max-width: 400px;
+} */
+
+/* FORMULARIO REGISTER */
+.formulario-register{
+    max-width: 600px;
     width: 100%;
     overflow: hidden;
-    
-}
-
-.formulario-register, .create-product-form, .editar-product-form{
     width: 90%;
     margin: auto;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0,  0, 0.3) ;
 }
-.create-product-form, .editar-product-form{
+
+.image-preview-containter{
+    width: 200px;
+    /*Para que quede bien, la altura de esta caja debe ser
+    el ancho de la misma más el alto de .preview-img*/
+    height: 250px;
+    margin: auto ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /*border: black 2px solid;*/
+}
+.preview-image-register{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.image-upload-button{
+    /*Esto es el boton de agregar foto*/
+    position: relative;
+    width: 100%;
+    bottom: 30px;
+    margin: auto;
+    background-color: #89cd4d;
+    height: 55px;
+    max-width: 250px;
+    color: white;
+    border: none;
+    border-radius: 0 0 5px 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    text-align: center;
+}
+.input-usr-image{
+    visibility: hidden;
+    height: 0;
+}
+
+
+.create-product-form{
+    max-width: 400px;
+    width: 100%;
+    overflow: hidden;
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0,  0, 0.3) ;
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+.create-product-form{
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0,  0, 0.3) ;
+}
+.editar-product-form{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
 .create-product-form h3, .complete-data-title{
     color: black;
     font-size: 16px;
@@ -1087,19 +1152,8 @@ form{
     width: 100vw;
     height: 100%;
 }
-.login-troubleshooting{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-}
-.login-troubleshooting a{
-    margin: 4px;
-}
-.login-troubleshooting a:hover{
-    color: #D84D09;
-}
-.perfil-usr{
+
+/* .perfil-usr{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -1115,9 +1169,9 @@ form{
     display: flex;
     align-items: center;
     
-}
+} */
 
-.categorias-interes{
+/* .categorias-interes{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -1140,7 +1194,7 @@ form{
 
 .categoria-int:hover{
     background-color: #D84D09;
-}
+} */
 
 .input-texto{
     border: 2px solid #f0f0f0;
