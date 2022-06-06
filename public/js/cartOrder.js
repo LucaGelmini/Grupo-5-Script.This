@@ -154,10 +154,14 @@ function removeProductLocalStorage (productName) {
 }
 
 function purchaseProcess(){
-    let confirmPurchaseButton = document.querySelector('.confirm-cart')
+    let confirmPurchaseButton = document.querySelector('.confirm-cart');  
+    let userNameElement = document.getElementById('user-logIn-name');
+
+    
 
     confirmPurchaseButton.addEventListener('click', function(e){
         e.preventDefault()
+        console.log(userNameElement);
         if(getProductLocalStorage().length === 0){
             Swal.fire({
                 icon: 'error',
@@ -168,7 +172,18 @@ function purchaseProcess(){
               })
             return
             // Hacer un else if de userlogged o usar middelware de auth en la ruta para crear una compra 
-        } else {
+        } 
+        else if(!userNameElement){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes realizar LOG IN antes de confirmar la compra',
+              }).then(function(){
+                  window.location = 'users/login'
+              })
+            return
+        } 
+        else {
             const itemsToBuy = [];
             console.log(itemsToBuy);
             let cartItemContainer = document.getElementsByClassName('cart-items')[0];
