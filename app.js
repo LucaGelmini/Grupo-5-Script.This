@@ -53,9 +53,6 @@ const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
 
-
-const apiUsers = require('./src/routes/apis/users');
-
 const paymentsRouter = require('./src/routes/payments')
 const cartOrderRouter = require('./src/routes/cartOrder')
 const estatusRouter = require('./src/routes/estatus')
@@ -63,8 +60,11 @@ const unitsRouter = require('./src/routes/unitsMeasure')
 const categoriesRouter = require('./src/routes/categories')
 const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
-const APIRouter = require('./src/routes/api/tablasSecundarias')
 const tablasRouter = require('./src/routes/tablasRouter')
+
+const apiSecundarias = require('./src/routes/api/tablasSecundarias');
+const apiUsers = require('./src/routes/api/users');
+const apiCartOrder = require('./src/routes/api/cartOrder');
 
 
 
@@ -75,12 +75,6 @@ app.use('/data',dataRouter);
 app.use('/users', usersRouter);
 
 
- 
-
-
-app.use('/api', apiUsers);
- 
-
 app.use('/cartOrder', cartOrderRouter); 
 app.use('/tablas',tablasRouter)
 app.use('/units',unitsRouter);
@@ -89,7 +83,10 @@ app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
-app.use('/api/secundarias',APIRouter)
+
+app.use('/api/secundarias', apiSecundarias)
+app.use('/api', apiUsers);
+app.use('/api/cartOrder', apiCartOrder);
 
 
  

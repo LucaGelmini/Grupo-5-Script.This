@@ -1,5 +1,6 @@
 const db = require('../database/models')
 
+
 const cartOrderController = {
     cart: (req, res)=>{
         res.render('cartOrder')
@@ -7,7 +8,7 @@ const cartOrderController = {
     purchase: (req, res) => {
         let cartOrderData = req.body
         let totalCartOrder = 0;
-        console.log(cartOrderData)
+        console.log(typeof cartOrderData)
         cartOrderData.forEach(order => {
            let totalOrder = Number(order.product_quantity)  * Number(order.price.replace('$', '')) 
            
@@ -26,14 +27,22 @@ const cartOrderController = {
             status_id: 2
         }
         console.log(cartOrderCreated);
-        db.CartOrder
-				.create({
-                    ...cartOrderCreated
-				})
-				.then(()=>{
-					res.redirect('/');
-				})
-				.catch(err =>{res.send(err)});
+        
+        try{
+            // db.CartOrder
+            // .create({
+            //     ...cartOrderCreated
+            // })
+            // .then(()=>{
+            //     console.log('LLEGA???')
+                 res.redirect('/');
+            // })
+            // .catch(err =>{res.send(err)});
+        }catch(error){
+            console.log(error.message);
+            console.log('explotó')
+        }
+        console.log(db.CartOrder);
         
     }
 }

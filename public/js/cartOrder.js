@@ -199,13 +199,13 @@ function purchaseProcess(){
                 itemsToBuy.push(obj)
                 
             }
-            fetch('http://localhost:3001/cartOrder',{
+            fetch('http://localhost:3001/api/cartOrder',{
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json' 
                 },
                 body: JSON.stringify(itemsToBuy)
-            })
+            }).then(console.log)
         }
     })
 }
