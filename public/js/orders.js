@@ -52,6 +52,9 @@ const addCartItem = () => {
              
             let price = addCartButtonClicked.price;
             let name = addCartButtonClicked.name;
+            let id = addCartButtonClicked.id;
+            console.log('soy el id');
+            console.log(id);
 
             console.log(price, name);
             console.log(e.target.dataset);
@@ -89,11 +92,16 @@ const addCartItem = () => {
             let cancelData = document.createElement('td');
             cancelData.innerHTML = '<i class="fas fa-solid fa-ban"></i>';
 
+            let idData = document.createElement('td');
+            idData.classList.add('product-id');
+            idData.style.display = 'none'
+            idData.innerHTML = id;
+
             newRowCart.appendChild(quantityData);
             newRowCart.appendChild(nameData);
             newRowCart.appendChild(priceData);
             newRowCart.appendChild(cancelData);
-
+            newRowCart.appendChild(idData);
              
 
             //Agregar funcion AddEventListener para las nuevas ordenes creadas en Carrito que antes no estaban cuando se cargo "load" la pagina. Si esta funcion no se podría remover las nuevas ordenes.
@@ -123,7 +131,7 @@ const updateCartTotal = () =>{
         let price = parseFloat(priceElement.innerText.replace('$', ''));
         let quantity = quantityElement.value;
         total = total + (price * quantity);
-        console.log(total);
+        // console.log(total);
     }
     total = Math.round(total*100)/100
   document.getElementsByClassName('cart-total')[0].innerText = `SUBTOTAL $ ${total}`
