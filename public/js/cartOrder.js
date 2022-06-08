@@ -1,10 +1,12 @@
+ 
+
 window.addEventListener('load', function(){
     readLocalStorage()
     quantityCondition()
     updateCartSubtotal()
     updateCartTotal()
     removeCartItem()
-    purchaseProcess()
+    sendForm()
 })
 
 
@@ -26,8 +28,9 @@ function readLocalStorage() {
         let price = product.price;
         let name = product.name;
         let quantity = product.value;
+        let id = product.id;
         let subtotal = price * quantity;
-        console.log(name);
+        
 
         let cartItemContainer = document.getElementsByClassName('cart-items')[0];
 
@@ -41,7 +44,7 @@ function readLocalStorage() {
 
         let nameData = document.createElement('td');
         nameData.classList.add('product-name-order');
-        nameData.innerHTML = name;
+        nameData.innerHTML = `<input type="text" name="name" class="product-name-order" id="product-name-order" value="${name}">`;
 
         let priceData = document.createElement('td');
         priceData.classList.add('order-price');
@@ -54,12 +57,18 @@ function readLocalStorage() {
         let cancelData = document.createElement('td');
         cancelData.innerHTML = '<i class="fas fa-solid fa-ban"></i>';
 
+        let idData = document.createElement('td');
+        idData.classList.add('product-id');
+        idData.style.display = 'none';
+        idData.innerHTML = `$<input type="number"  name="id" class="product-id" id="product-id" value=${id} readonly>`;
+
         
         newRowCart.appendChild(nameData);
         newRowCart.appendChild(quantityData);
         newRowCart.appendChild(priceData);
         newRowCart.appendChild(subTotal);
         newRowCart.appendChild(cancelData);
+        newRowCart.appendChild(idData);
 
     })
 }
@@ -77,19 +86,28 @@ const removeItem = (e) =>{
     let buttonClicked = e.target;
     buttonClicked.parentElement.parentElement.remove();
     productNameElement = buttonClicked.parentElement.parentElement.getElementsByClassName('product-name-order')[0];
-    console.log(productNameElement);
-    productName = productNameElement.innerText
-    console.log(productName);
-    removeProductLocalStorage(productName);
+    productName = productNameElement.getElementsByClassName('product-name-order')[0].value
+    
     updateCartTotal(); 
+    removeProductLocalStorage(productName);
+}
+
+function removeProductLocalStorage (productName) {
+    let productsLocalStorage;
+    productsLocalStorage = getProductLocalStorage()
+    productsLocalStorage.forEach((productLS, index)=>{
+        if(productLS.name === productName){
+            console.log(productLS.name);
+            console.log(productName);
+            productsLocalStorage.splice(index, 1);
+        }
+    });
+    localStorage.setItem('productos', JSON.stringify(productsLocalStorage));
 }
 
 const updateCartSubtotal = () =>{
     let cartItemContainer = document.getElementsByClassName('cart-items')[0];
     let cartRows = cartItemContainer.getElementsByClassName('cart-row');
- 
-   
-    
 
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i];
@@ -107,20 +125,17 @@ const updateCartSubtotal = () =>{
 const updateCartTotal = () =>{
     let cartItemContainer = document.getElementsByClassName('cart-items')[0];
     let cartRows = cartItemContainer.getElementsByClassName('cart-row');
-    console.log(cartRows);
-    let total = 0; // usamos let ya que el valor cambia N veces
    
-    
+    let total = 0; // usamos let ya que el valor cambia N veces
 
     for (let i = 0; i < cartRows.length; i++) {
         let cartRow = cartRows[i];
-        console.log(cartRow);
+       
         let priceElement = cartRow.getElementsByClassName('order-price')[0];
         let quantityElement = cartRow.getElementsByClassName('order-quantity')[0];
         let price = parseFloat(priceElement.innerText.replace('$', ''));
         let quantity = quantityElement.value;
-        total = total + (price * quantity);
-        console.log(total);
+        total = total + (price * quantity);    
     }
     total = Math.round(total*100)/100
   document.getElementsByClassName('text-total')[0].innerText = `TOTAL $ ${total}`
@@ -142,27 +157,12 @@ const quantityChanged = (e) =>{
     updateCartSubtotal()
 }
 
-function removeProductLocalStorage (productName) {
-    let productsLocalStorage;
-    productsLocalStorage = getProductLocalStorage()
-    productsLocalStorage.forEach((productLS, index)=>{
-        if(productLS.name === productName){
-            productsLocalStorage.splice(index, 1);
-        }
-    });
-    localStorage.setItem('productos', JSON.stringify(productsLocalStorage));
-}
-
-function purchaseProcess(){
-    let confirmPurchaseButton = document.querySelector('.confirm-cart');  
+function sendForm () {
+    let orderFormElement = document.getElementById('order-form');
     let userNameElement = document.getElementById('user-logIn-name');
-
-    
-
-    confirmPurchaseButton.addEventListener('click', function(e){
-        e.preventDefault()
-        console.log(userNameElement);
+    orderFormElement.addEventListener('submit', function(e){
         if(getProductLocalStorage().length === 0){
+            e.preventDefault()
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -171,9 +171,8 @@ function purchaseProcess(){
                   window.location = 'products'
               })
             return
-            // Hacer un else if de userlogged o usar middelware de auth en la ruta para crear una compra 
-        } 
-        else if(!userNameElement){
+        } else if(!userNameElement) {
+            e.preventDefault()
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -182,33 +181,68 @@ function purchaseProcess(){
                   window.location = 'users/login'
               })
             return
-        } 
-        else {
-            const itemsToBuy = [];
-            console.log(itemsToBuy);
-            let cartItemContainer = document.getElementsByClassName('cart-items')[0];
-            let cartRows = cartItemContainer.getElementsByClassName('cart-row');
-            for (let i = 0; i < cartRows.length; i++) {
-                const product = cartRows[i];
-                let obj = {
-                    name: product.getElementsByClassName('product-name-order')[0].innerText,
-                    product_quantity: product.getElementsByClassName('order-quantity')[0].value,
-                    price: product.getElementsByClassName('order-price')[0].innerText
-                }
-                
-                itemsToBuy.push(obj)
-                
-            }
-            fetch('http://localhost:3001/cartOrder',{
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify(itemsToBuy)
-            })
+        } else {
+            console.log('se envio el forma al')
         }
     })
 }
+
+
+// function purchaseProcess(){
+//     let confirmPurchaseButton = document.querySelector('.confirm-cart');  
+//     let userNameElement = document.getElementById('user-logIn-name');
+
+//     confirmPurchaseButton.addEventListener('click', function(e){
+//         e.preventDefault()
+        
+//         if(getProductLocalStorage().length === 0){
+           
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Oops...',
+//                 text: 'Antes de comprar debe agregar productos a su carrito',
+//               }).then(function(){
+//                   window.location = 'products'
+//               })
+//             return
+//             // Hacer un else if de userlogged o usar middelware de auth en la ruta para crear una compra 
+//         } 
+//         else if(!userNameElement){
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Oops...',
+//                 text: 'Debes realizar LOG IN antes de confirmar la compra',
+//               }).then(function(){
+//                   window.location = 'users/login'
+//               })
+//             return
+//         }  
+        // else {
+        //     const itemsToBuy = [];
+        //     console.log(itemsToBuy);
+        //     let cartItemContainer = document.getElementsByClassName('cart-items')[0];
+        //     let cartRows = cartItemContainer.getElementsByClassName('cart-row');
+        //     for (let i = 0; i < cartRows.length; i++) {
+        //         const product = cartRows[i];
+        //         let obj = {
+        //             name: product.getElementsByClassName('product-name-order')[0].innerText,
+        //             product_quantity: product.getElementsByClassName('order-quantity')[0].value,
+        //             price: product.getElementsByClassName('order-price')[0].innerText
+        //         }
+                
+        //         itemsToBuy.push(obj)
+                
+        //     }
+        //     fetch('http://localhost:3001/cartOrder',{
+        //         method: 'POST',
+        //         headers:{
+        //             'Content-Type': 'application/json' 
+        //         },
+        //         body: JSON.stringify(itemsToBuy)
+        //     })
+        // }
+//     })
+// }
 
 function removeAllLocalStorage(){
     localStorage.clear();

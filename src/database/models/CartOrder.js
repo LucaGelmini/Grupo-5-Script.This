@@ -13,11 +13,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         cancel_date: {
             type: dataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         confirm_date: {
             type: dataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         user_id: dataTypes.BIGINT(10),
         payment_id: dataTypes.BIGINT(10),
