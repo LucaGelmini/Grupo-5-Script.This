@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <%-include("./partials/head", {title:'Register'})%>
+        <script src="/js/registerPreviewImage.js"></script>
     </head>
     <body>
         <header>
@@ -9,108 +10,161 @@
         </header>
         <main class="main-register">
             <form class="formulario-register" action="/users/register" method="POST" name= "formulario-registro" enctype="multipart/form-data">
-                <h2>Creá tu cuenta</h2>
-            
+                <h2>Creár Cuenta</h2>
+                
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Nombre y Apellido</label>
-                <input class="input-texto" type="text" name="fullname" placeholder="Ingrese su Nombre/s y apellido/s" value="<%= locals.oldData && oldData.fullname? oldData.fullname :null%>">
+                <input class="input-texto" type="text" id="fullname" name="fullname" placeholder="Ingrese su Nombre/s y apellido/s" value="<%= locals.oldData && oldData.fullname? oldData.fullname :null%>">
                 <% if (locals.errors && errors.fullname) { %>
                    <p style="color: #D84D09;"><%= errors.fullname.msg %> </p> 
                 <% } %>
-
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+                
+                
+                
+            </div>
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Usuario</label>
-                <input class="input-texto" type="text" name="username" placeholder="Ingrese su nombre de usuario" value="<%= locals.oldData && oldData.username? oldData.username :null%>">
+                <input class="input-texto" type="text" id="username" name="username" placeholder="Ingrese su nombre de usuario" value="<%= locals.oldData && oldData.username? oldData.username :null%>">
                 <% if (locals.errors && errors.username) { %>
                     <p style="color: #D84D09;"><%= errors.username.msg %> </p> 
                  <% } %>
-
+                 <i class="fas fa-check-circle"></i>
+                 <i class="fas fa-exclamation-circle"></i>
+                 <small></small>
+                 
+                 
+            </div>
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Correo electrónico</label>
-                <input class="input-texto" type="email" name="email" placeholder="Ingrese su correo electrónico" value="<%= locals.oldData && oldData.email? oldData.email :null%>">
+                <input class="input-texto" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" value="<%= locals.oldData && oldData.email? oldData.email :null%>">
                 <% if (locals.errors && errors.email) { %>
                     <p style="color: #D84D09;"><%= errors.email.msg %> </p> 
                  <% } %>
-
+                 <i class="fas fa-check-circle"></i>
+                 <i class="fas fa-exclamation-circle"></i>
+                 <small></small>
+                 
+                 
+            </div>
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Fecha de nacimiento: </label>
-                <input class="input-texto" type="date" name="brithdate" value="<%= locals.oldData && oldData.brithdate? oldData.brithdate :null%>">
+                <input class="input-texto" type="date" id="brithdate" name="brithdate" value="<%= locals.oldData && oldData.brithdate? oldData.brithdate :null%>">
                 <% if (locals.errors && errors.brithdate) { %>
                     <p style="color: #D84D09;"><%= errors.brithdate.msg %> </p> 
                  <% } %>
-                
+                 <i class="fas fa-check-circle brithdate"></i>
+                 <i class="fas fa-exclamation-circle brithdate"></i>
+                 <small></small>
+                 
+            </div>
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Domicilio</label>
-                <input class="input-texto" type="text" name="adress" placeholder="Ingrese calle, N°, piso, dpto., provincia y localidad" value="<%= locals.oldData && oldData.adress? oldData.adress :null%>">
+                <input class="input-texto" type="text" id="adress" name="adress" placeholder="Ingrese calle, N°, piso, dpto." value="<%= locals.oldData && oldData.adress? oldData.adress :null%>">
                 <% if (locals.errors && errors.adress) { %>
                     <p style="color: #D84D09;"><%= errors.adress.msg %> </p> 
                  <% } %>
-
+                 <i class="fas fa-check-circle"></i>
+                 <i class="fas fa-exclamation-circle"></i>
+                 <small></small>
+                 
+                 
+            </div>
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Código postal</label>
-                <input class="input-texto" type="number" name="postalcode" placeholder="Ingrese su código postal" value="<%= locals.oldData && oldData.postalcode? oldData.postalcode :null%>">
+                <input class="input-texto" type="number" id="postalcode" name="postalcode" placeholder="Ingrese su código postal" value="<%= locals.oldData && oldData.postalcode? oldData.postalcode :null%>">
                 <% if (locals.errors && errors.postalcode) { %>
                     <p style="color: #D84D09;"><%= errors.postalcode.msg %> </p> 
                  <% } %>
-
+                 <i class="fas fa-check-circle"></i>
+                 <i class="fas fa-exclamation-circle"></i>
+                 <small></small>
+                 
+                 
+            </div>
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Telefono (celular)</label>
-                <input class="input-texto" type="tel" name="phone" placeholder="Ingrese su numero de telefono" value="<%= locals.oldData && oldData.phone? oldData.phone :null%>">
+                <input class="input-texto" type="tel" id="phone" name="phone" placeholder="Ingrese su numero de telefono" value="<%= locals.oldData && oldData.phone? oldData.phone :null%>">
                 <% if (locals.errors && errors.phone) { %>
                     <p style="color: #D84D09;"><%= errors.phone.msg %> </p> 
                  <% } %>
+                 <i class="fas fa-check-circle"></i>
+                 <i class="fas fa-exclamation-circle"></i>
+                 <small></small>
+                 
+                 
+            </div>
 
-               
-                <label class="label-header">Perfil del usuario</label>
-                <div class="perfil-usr">
+            <div class="user-profile-select">
+                    <label class="label-header-user-profile">Perfil del usuario</label>
+                    <select name="role_id" id="">
+                        <option value="1" selected>comprador</option>
+                        <option value="2">vendedor</option>
+                    </select>
+            </div>
+                <!-- <div class="perfil-usr">
                     <div>
-                        <label class="comprador"><input type="radio" name="role_id" value="1" <%= locals.oldData && (oldData.role_id == '1') ? 'selected' : null %>> comprador</label>
+                        <label class="comprador"><input type="radio" name="role_id" value="1" <%#    locals.oldData && (oldData.role_id == '1') ? 'selected' : null %>> comprador</label>
                     </div>
                     <div>            
-                        <label class="vendedor"><input type="radio" name="role_id" value="2" <%= locals.oldData && (oldData.role_id == '2') ? 'selected' : null %>> vendedor</label>
+                        <label class="vendedor"><input type="radio" name="role_id" value="2" <%# locals.oldData && (oldData.role_id == '2') ? 'selected' : null %>> vendedor</label>
                     </div>
-                </div>
-  <%# 
-                <label class="label-header">Intereses</label>
-                <div class="categorias-interes">
-                    
-                    <div class="categoria-int">
-                        <label for="verduras">Verduras</label>
-                        <input type="checkbox" id="verduras" value="verduras">
-                    </div>
-                    <div class="categoria-int">
-                        <label for="Frutas">Frutas</label>
-                        <input type="checkbox" id="Frutas" value="frutas">
-                    </div>
-                    <div class="categoria-int">
-                        <label for="frutos-secos">Frutos secos</label>
-                        <input type="checkbox" id="frutos-secos" value="secos">
-                    </div>
-                    <div class="categoria-int">
-                        <label for="vida-sana">Hierbas</label>
-                        <input type="checkbox" id="vida-sana" value="hierbas">
-                    </div>
-                </div> %>
-             
-                <div class="img-perfil-container">
-                    <label class="label-header">Imagen de perfil:</label>
-                    <br> 
-                    <input type="file" name="userfile" id="userfile" accept=".jpg, .png">
-                    
-                </div> 
+                </div> -->
+ 
+            <div class="input-control image-preview-containter" id="input-control">
+                <img alt="Foto de perfil" id="preview-usr-image"
+                 class="preview-image-register" src="/img/users/default-user-image.png" >
+                <label class="label-header image-upload-button">
+                    Elija su imagen de perfil
+                    <input class="input-usr-image" type="file" name="userfile" id="userfile" accept="'.jpg', '.jpeg' , '.png', '.gif'">      
+                </label>
+                <br>
                 <% if (locals.errors && errors.userfile) { %>
                     <p style="color: #D84D09;"><%= errors.userfile.msg %> </p> 
-                 <% } %>
+                <% } %>
+
+                 <i class="fas fa-check-circle"></i>
+                 <i class="fas fa-exclamation-circle"></i>
+                 <br>   
+                 <small></small>
+                 
+                 
+            </div>
+
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Constraseña</label>
-                <input class="input-texto" type="password"  name="password" placeholder="Su contraseña debe ser alfanumerica mínimo de 6 caractéres">
+                <input class="input-texto" type="password" id="password" name="password" placeholder="Contraseña alfanumerica y hasta 8 caracteres">
                 <% if (locals.errors && errors.password) { %>
                     <p style="color: #D84D09;"><%= errors.password.msg %> </p> 
                 <% } %>
                  <% if (locals.password != locals.confirmPassword) { %>
                     <p style="color: #D84D09;"><%= noSamePassmsg %> </p>
                    <% } %>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+                
+                
+            </div>
 
+            <div class="input-control" id="input-control">
                 <label class="label-header" for="">Repita su Contraseña</label>
-                <input class="input-texto" type="password" name="confirmPassword"  placeholder="Repita su contraseña anteriormente ingresada">
+                <input class="input-texto" type="password" id="confirmPassword" name="confirmPassword"  placeholder="Ingrese nuevamente su contraseña">
                 <% if (locals.errors && errors.confirmPassword) { %>
                     <p style="color: #D84D09;"><%= errors.confirmPassword.msg %> </p> 
                  <% } %>
                  <% if (locals.password != locals.confirmPassword) { %>
                     <p style="color: #D84D09;"><%= noSamePassmsg %> </p>
                 <% } %>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small></small>
+                
+                
+            </div>
+                
 
                 <div class="botones-register">
                     <button type="submit"><p>Enviar</p></button>
@@ -119,5 +173,6 @@
             </form>
         </main>
         <%-include('./partials/footer')  %> 
+        <script src="/js/register.js"></script>
     </body>
 </html>

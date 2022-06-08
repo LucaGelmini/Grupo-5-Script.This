@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head',{title: 'Lista de tablas'}) %> 
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+        <%- include('./partials/carrusel') %> 
+    </header>
+    <main class="main-de-products">
+        <div class="container-products-wrapper">
+            <div class="filter-title-result">
+                    <p> <small>CATEGORÍA:</small>  <strong>Tablas secundarias</strong> </p> 
+            </div>
+            <hr>
+            <div class="row">
+
+                <div class="secondary-tables-container">
+                   
+                    <% contenidotablas.forEach(item=>{ %>
+                        <%-include('./partials/tableCards',{item})%>
+                    <%})%>         
+                    
+                </div>
+            </div>
+        </div>
+        <script src="/js/orders.js"></script>
+    </main>
+     <%-include('./partials/footer')  %> 
+</body>
+</html>

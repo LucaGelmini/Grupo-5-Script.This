@@ -10,6 +10,9 @@ const methodOverride = require('method-override');// Para poder usar los método
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
+const favicon = require('serve-favicon');
+ 
+
 // ************ express() - (don't touch) ************
 const app = express();
 
@@ -19,7 +22,7 @@ app.set('view engine', 'ejs');
 
 
  // ************ Middlewares - (don't touch) *************
-
+app.use(favicon('./favicon.ico'));
 app.use(express.static(path.join(__dirname,'./public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // Necesario para procesar los datos enviados por los formularios
 app.use(logger('dev')); 
@@ -36,6 +39,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
 
+ 
+
 
 
 
@@ -47,6 +52,10 @@ const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
 const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
+
+
+const apiUsers = require('./src/routes/apis/users');
+
 const paymentsRouter = require('./src/routes/payments')
 const cartOrderRouter = require('./src/routes/cartOrder')
 const estatusRouter = require('./src/routes/estatus')
@@ -54,7 +63,9 @@ const unitsRouter = require('./src/routes/unitsMeasure')
 const categoriesRouter = require('./src/routes/categories')
 const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
-const APIRouter = require('./src/routes/APIRouter')
+const APIRouter = require('./src/routes/api/tablasSecundarias')
+const tablasRouter = require('./src/routes/tablasRouter')
+
 
 
 
@@ -62,14 +73,24 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/data',dataRouter);
 app.use('/users', usersRouter);
+
+
+ 
+
+
+app.use('/api', apiUsers);
+ 
+
 app.use('/cartOrder', cartOrderRouter); 
+app.use('/tablas',tablasRouter)
 app.use('/units',unitsRouter);
 app.use('/estatus',estatusRouter);
 app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
-app.use('/API',APIRouter)
+app.use('/api/secundarias',APIRouter)
+
 
  
 const PORT = 3001
