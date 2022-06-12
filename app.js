@@ -11,6 +11,7 @@ const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 const favicon = require('serve-favicon');
+const cors = require('cors');
  
 
 // ************ express() - (don't touch) ************
@@ -38,6 +39,7 @@ app.use(session({
 app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
+app.use(cors())
 
  
 
@@ -65,6 +67,7 @@ const expositionsRouter = require('./src/routes/exposition')
 const rolesRouter = require('./src/routes/roles')
 const APIRouter = require('./src/routes/api/tablasSecundarias')
 const tablasRouter = require('./src/routes/tablasRouter')
+const apiProducts = require('./src/routes/api/products')
 
 
 
@@ -89,7 +92,8 @@ app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
-app.use('/api/secundarias',APIRouter)
+app.use('/api/secundarias',APIRouter);
+app.use('/api/products', apiProducts);
 
 
  
