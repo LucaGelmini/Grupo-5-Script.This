@@ -63,4 +63,4 @@ const APIController = {
     }
 
 }
-module.exports=APIController;
+module.exports = APIController;
