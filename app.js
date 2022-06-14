@@ -4,7 +4,7 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const cors = require('cors')
 const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
 
 const session = require('express-session');
@@ -40,7 +40,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
 app.use(cors())
+<<<<<<< HEAD
 
+=======
+>>>>>>> 576ffac2aa31d004bc89a66d66e58f99f85c276d
  
 
 
