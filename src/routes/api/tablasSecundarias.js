@@ -14,7 +14,7 @@ router.get('/expositions', APIController.gettingAllExpositions)
 //**GET de todos los payments*/
 router.get('/payments', APIController.gettingAllPayments)
 //**GET de todos los roles*/
-router.get('/orders', APIController.gettingAllRoles)
+router.get('/roles', APIController.gettingAllRoles)
 //**GET de todos los categories*/
 router.get('/categories', APIController.gettingAllCategories)
 module.exports = router;
