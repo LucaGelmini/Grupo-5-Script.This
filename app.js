@@ -11,7 +11,7 @@ const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 const favicon = require('serve-favicon');
-const cors = require('cors');
+
  
 
 // ************ express() - (don't touch) ************
@@ -40,10 +40,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
 app.use(cors())
-<<<<<<< HEAD
-
-=======
->>>>>>> 576ffac2aa31d004bc89a66d66e58f99f85c276d
  
 
 
