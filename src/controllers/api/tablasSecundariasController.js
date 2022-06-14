@@ -71,8 +71,10 @@ const APIController = {
             include:'products'
         })
             .then(respuesta =>{                 
+
                 return res.status(200).json({
                     data:respuesta,
+                    count:respuesta.length,
                     status:200
                 })
             })
