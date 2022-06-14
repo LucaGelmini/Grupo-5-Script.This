@@ -2,19 +2,26 @@ const db = require('../../database/models')
 
 const APIController = {
     gettingAllUnits: function(req,res){
-        db.UnitMensure.findAll()
+        db.UnitMensure.findAll({
+            include:'products'
+        })
             .then(respuesta =>{
+                            
                 return res.status(200).json({
                     data:respuesta,
+                    count:respuesta.length,
                     status:200
                 })
             })
     },
     gettingAllEstatus: function(req,res){
-        db.Exposition.findAll()
-            .then(respuesta =>{                
+        db.Exposition.findAll({
+            include:'products'
+        })
+            .then(respuesta =>{  
                 return res.status(200).json({
                     data: respuesta,
+                    count:respuesta.length,
                     status:200
                 })
             }
@@ -22,10 +29,14 @@ const APIController = {
             .catch(console.log)
     },
     gettingAllExpositions: function(req,res){      
-        db.Status.findAll()
-            .then(respuesta =>{                 
+        db.Status.findAll({
+            include:'cartsOrders'
+        })
+            .then(respuesta =>{   
+
                 return res.status(200).json({
                     data:respuesta,
+                    count:respuesta.length,
                     status:200
                 })
             })
