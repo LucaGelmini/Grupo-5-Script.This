@@ -4,16 +4,14 @@ const path = require('path');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const cors = require('cors');
-
-
-
+const cors = require('cors')
 const methodOverride = require('method-override');// Para poder usar los métodos: PUT y DELETE
 
 const session = require('express-session');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 const favicon = require('serve-favicon');
+
  
 
 // ************ express() - (don't touch) ************
@@ -41,8 +39,7 @@ app.use(session({
 app.use(express.json());
 app.use(cookieParser());
 app.use(userLoggedMiddleware);
-app.use(cors());
-
+app.use(cors())
  
 
 
@@ -59,6 +56,16 @@ const usersRouter = require('./src/routes/users');
 
 
 
+const paymentsRouter = require('./src/routes/payments')
+const cartOrderRouter = require('./src/routes/cartOrder')
+const estatusRouter = require('./src/routes/estatus')
+const unitsRouter = require('./src/routes/unitsMeasure')
+const categoriesRouter = require('./src/routes/categories')
+const expositionsRouter = require('./src/routes/exposition')
+const rolesRouter = require('./src/routes/roles')
+const APIRouter = require('./src/routes/api/tablasSecundarias')
+const tablasRouter = require('./src/routes/tablasRouter')
+const apiProducts = require('./src/routes/api/products')
 
 const paymentsRouter = require('./src/routes/payments');
 const cartOrderRouter = require('./src/routes/cartOrder');
@@ -95,10 +102,13 @@ app.use('/expositions', expositionsRouter);
 app.use('/payments', paymentsRouter);
 app.use('/roles',rolesRouter);
 app.use('/categories',categoriesRouter);
-app.use('/api/secundarias',APIRouter)
 app.use('/api', apiUsers);
 app.use('/api',  apiCartOrder); 
 app.use('/api',  apiOrder); 
+app.use('/api/secundarias',APIRouter);
+app.use('/api/products', apiProducts);
+
+
  
 const PORT = 3001
 app.listen(PORT, ()=>{
