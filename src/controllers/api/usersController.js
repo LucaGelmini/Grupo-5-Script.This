@@ -8,7 +8,10 @@ const usersController = {
         db.User 
         .findAll(
           {
-            attributes:['id', 'fullname', 'email']
+            attributes:['id', 'fullname', 'email', 'role_id'],
+            include: [
+                {association: 'role'} 
+            ]
           }
         )
         .then(users =>{
@@ -16,7 +19,7 @@ const usersController = {
                 meta:{
                     total: users.length,
                     status: 200,
-                    url: 'http://localhost:3001/api/users'
+                    url: 'http://localhost:3001/api/users/list'
                 },
                 data: users
                  
@@ -56,7 +59,7 @@ const usersController = {
                 meta:{
                     total: users.length,
                     status: 200,
-                    url: 'http://localhost:3001/api/users'
+                    url: 'http://localhost:3001/api/users?page='
                 },
                 data: results 
                  
