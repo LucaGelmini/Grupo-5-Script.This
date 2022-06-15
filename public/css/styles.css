@@ -489,8 +489,8 @@ padding-bottom: 10px;
 .form-zones-days-container {
     margin: 0 15px;
     padding: 15px;
-    background-color: #d9edf7;
-    border: 1px solid transparent;
+    background-color: #ddd;
+    border: 2px solid #0A9FB2;
     border-radius: 4px;
     margin-bottom: 15px;
 }
@@ -498,8 +498,8 @@ padding-bottom: 10px;
     width: auto;
     padding: 15px;
     margin: 15px;
-    background-color: #d9edf7;
-    border: 1px solid transparent;
+    background-color: #ddd;
+    border: 2px solid #0A9FB2;
     border-radius: 4px;
 }
 .form-unreach-zone {
