@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let submit = document.querySelector('.create-product-button');
     let form = document.querySelector('.create-product-form');
     let formErrorsList = document.createElement("div");
-    formErrorsList.classList.add("form-errors-list");
+    formErrorsList.classList.add("form-errors-list-hidden");
     form.appendChild(formErrorsList);
     
     
@@ -108,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function(){
         });
         if (errors.length != 0){
             event.preventDefault();
+            formErrorsList.classList.remove("form-errors-list-hidden");
+            formErrorsList.classList.add("form-errors-list-visible");
             formErrorsList.innerHTML = `
                 <ul>
                     ${errors.map(error => `<li>${error}</li>`)}

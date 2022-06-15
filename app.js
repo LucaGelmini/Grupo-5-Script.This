@@ -67,16 +67,8 @@ const APIRouter = require('./src/routes/api/tablasSecundarias')
 const tablasRouter = require('./src/routes/tablasRouter')
 const apiProducts = require('./src/routes/api/products')
 
-const paymentsRouter = require('./src/routes/payments');
-const cartOrderRouter = require('./src/routes/cartOrder');
-const estatusRouter = require('./src/routes/estatus');
-const unitsRouter = require('./src/routes/unitsMeasure');
-const categoriesRouter = require('./src/routes/categories');
-const expositionsRouter = require('./src/routes/exposition');
-const rolesRouter = require('./src/routes/roles');
-const APIRouter = require('./src/routes/api/tablasSecundarias');
+
 const apiUsers = require('./src/routes/api/users');
-const tablasRouter = require('./src/routes/tablasRouter');
 const apiCartOrder = require('./src/routes/api/cartOrder');
 const apiOrder = require('./src/routes/api/order');
 
