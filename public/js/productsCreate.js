@@ -116,8 +116,6 @@ document.addEventListener("DOMContentLoaded", function(){
             console.log(errors)
         }else{
             formErrorsList.innerHTML = ''
-            event.preventDefault();
-            alert('sin errores')
         }
     };
 
