@@ -1,11 +1,44 @@
-const db = require('../../database/models')
+const db = require('../../database/models');
+const { productsData } = require('../dataController');
 
 const productsController = {
     findAll: function(req, res){
-        db.Product.findAll()
+        db.Product.findAll({
+            include: [
+                {association: 'unitMensure'},
+                {association: 'exposition'},
+                {association: 'category'}
+            ]
+        })
         .then(respuesta =>{
+            let total = respuesta.length;
+            
+            let categoriesArray = respuesta.map(product => product.category.name);
+            let byCategories = {}
+            categoriesArray.forEach(function (x) { byCategories[x] = (byCategories[x] || 0) + 1; });
+
+            let unitMensureArray = respuesta.map(product => product.unitMensure.type);
+            let byunitMensure = {}
+            unitMensureArray.forEach(function (x) { byunitMensure[x] = (byunitMensure[x] || 0) + 1; });
+
+            let ExpositionArray = respuesta.map(product => product.exposition.type);
+            let byExposition = {}
+            ExpositionArray.forEach(function (x) { byExposition[x] = (byExposition[x] || 0) + 1; });
+
+
+            let processed = {
+                total,
+                byCategories,
+                byunitMensure,
+                byExposition
+
+            }
+
+    
+
+
             return res.status(200).json({
-                data:respuesta,
+                data:processed,
                 status:200
             })
         })
