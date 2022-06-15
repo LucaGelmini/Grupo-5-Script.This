@@ -1497,11 +1497,12 @@ HASTA ACA REFACTORIZÓ LUCA
     margin: 10px;
     text-align: center;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .payment-method-info {
     text-align: left;
-    margin-left: 90px;
     margin-top: 10px;
     
 }
@@ -1563,6 +1564,24 @@ tfoot tr {
     padding: 10px;
     color: white;
     cursor: pointer;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
  }
 
  .confirm-cart {
@@ -1570,6 +1589,24 @@ tfoot tr {
      padding: 10px;
      color: white;
      cursor: pointer;
+     display: inline-block;
+     padding: 6px 12px;
+     margin-bottom: 0;
+     font-size: 14px;
+     font-weight: 400;
+     line-height: 1.42857143;
+     text-align: center;
+     white-space: nowrap;
+     vertical-align: middle;
+     -ms-touch-action: manipulation;
+     touch-action: manipulation;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     background-image: none;
+     border: 1px solid transparent;
+     border-radius: 4px;
  }
 
  .text-total {
@@ -1796,7 +1833,37 @@ tfoot tr {
     background-color: white;
     outline: none;
 }
+
+.important p{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.min-buy-info{
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    width: 80%;
+    align-self: center;
+}
+
+.payment-method-info{
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    width: 80%;
+    text-align: center;
+    align-self: center;
+}
  
+
+.alert {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 
 @media (min-width:277px) {
     .google-map-container {
