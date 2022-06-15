@@ -489,8 +489,8 @@ padding-bottom: 10px;
 .form-zones-days-container {
     margin: 0 15px;
     padding: 15px;
-    background-color: #d9edf7;
-    border: 1px solid transparent;
+    background-color: #ddd;
+    border: 2px solid #0A9FB2;
     border-radius: 4px;
     margin-bottom: 15px;
 }
@@ -498,8 +498,8 @@ padding-bottom: 10px;
     width: auto;
     padding: 15px;
     margin: 15px;
-    background-color: #d9edf7;
-    border: 1px solid transparent;
+    background-color: #ddd;
+    border: 2px solid #0A9FB2;
     border-radius: 4px;
 }
 .form-unreach-zone {
@@ -1073,8 +1073,9 @@ HASTA ACA REFACTORIZÓ LUCA
     width: 200px;
     /*Para que quede bien, la altura de esta caja debe ser
     el ancho de la misma más el alto de .preview-img*/
+    padding-top: 15px;
     height: 250px;
-    margin: auto ;
+    margin: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -1129,6 +1130,20 @@ HASTA ACA REFACTORIZÓ LUCA
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0,  0, 0.3) ;
 }
+.form-errors-list-hidden{
+    display: none;
+}
+.form-errors-list-visible{
+    text-align: center;
+    background-color:  #FF7D3C;
+    border-radius: 5px;
+    padding: 5px;
+}
+.form-errors-list li{
+    list-style-type: none;
+}
+
+
 .editar-product-form{
     margin-top: 25px;
     margin-bottom: 25px;

@@ -123,7 +123,7 @@ const onlyText = /^[A-Za-z\s]+$/; /^\s*$/
 
  
 
-const passParam = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+const passParam = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
  //Check que el campo password sea strong password
  if(passwordValue == ''){
   setErrorFor(password, '* El campo no puede estar vacio');
@@ -168,14 +168,17 @@ const setErrorFor = (input, message) =>{
     const inputControl = input.parentElement;
     const small = inputControl.querySelector('small');
 
-   
-    inputControl.className = 'input-control error';
+    inputControl.classList.add('input-control');
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success');
     small.innerText = message;
 };
 
 const setSuccessFor = (input) =>{
     const inputControl = input.parentElement;
-    inputControl.className = 'input-control success';
+    inputControl.classList.add('input-control');
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
 };
 
  
