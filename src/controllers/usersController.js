@@ -109,9 +109,7 @@ const usersController = {
                 console.log(bcrypt.compareSync(req.body.password, userInDB.password));
                 bcrypt.compare(req.body.password, userInDB.password)
                 .then((passwordOk)=>{
-                    console.log(req.body.password);
-                    console.log(userInDB.password);
-                    console.log(passwordOk);
+                    
                     if(passwordOk){
                         delete userInDB.password;
                         req.session.logedUser = userInDB;
