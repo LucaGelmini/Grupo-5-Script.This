@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'roles';
+    let alias = 'Role';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -14,7 +14,8 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        timestamps: false 
+        timestamps: false,
+        tableName: 'roles'
     };
 
     const Role = sequelize.define(alias, cols, config);

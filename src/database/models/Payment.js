@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'payments';
+    let alias = 'Payment';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -22,7 +22,8 @@ module.exports = (sequelize, dataTypes) => {
     Payment.associate = models => {
         Payment.hasMany(models.CartOrder, {
             as: "cartsOrders",
-            foreignKey: "payment_id"
+            foreignKey: "payment_id",
+            tableName: 'payments'
         })
     }
 

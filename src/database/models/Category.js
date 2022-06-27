@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'categories';
+    let alias = 'Category';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -13,7 +13,8 @@ module.exports = (sequelize, dataTypes) => {
 
     };
     let config = {
-        timestamps: false
+        timestamps: false,
+        tableName: 'categories'
     };
 
     const Category = sequelize.define(alias, cols, config);

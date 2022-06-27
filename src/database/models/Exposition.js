@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'expositions';
+    let alias = 'Exposition';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -21,7 +21,8 @@ module.exports = (sequelize, dataTypes) => {
     Exposition.associate = models => {
         Exposition.hasMany(models.Product, {
             as: "products",
-            foreignKey: "exposition_id"
+            foreignKey: "exposition_id",
+            tableName: 'expositions'
         })
     }
 
