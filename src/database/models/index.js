@@ -12,7 +12,8 @@ let sequelize;
 console.log('\n\n\n'+process.env.DATABASE_URL+'\n\n\n')
 if (process.env.DATABASE_URL) {
   sequelize = new Sequelize(process.env.DATABASE_URL, {dialect: "postgres" ,dialectOptions: {
-    ssl: true
+    ssl: true,
+    rejectUnauthorized: false
   }});
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
