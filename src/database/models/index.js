@@ -9,6 +9,7 @@ const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
+console.log('\n\n\n'+process.env.DATABASE_URL+'\n\n\n')
 if (process.env.DATABASE_URL) {
   sequelize = new Sequelize(process.env.DATABASE_URL, {dialect: "postgres"});
 } else {
