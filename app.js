@@ -51,7 +51,6 @@ app.use(cors())
 // ************ Route System require and use() ************
 const indexRouter = require('./src/routes/index');
 const productsRouter = require('./src/routes/products');
-const dataRouter = require('./src/routes/data');
 const usersRouter = require('./src/routes/users');
 
 
@@ -76,7 +75,6 @@ const apiOrder = require('./src/routes/api/order');
 
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
-app.use('/data',dataRouter);
 app.use('/users', usersRouter);
 
 

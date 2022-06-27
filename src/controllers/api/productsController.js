@@ -1,11 +1,10 @@
 const db = require('../../database/models');
-const { productsData } = require('../dataController');
 
 const productsController = {
     findAll: function(req, res){
         db.Product.findAll({
             include: [
-                {association: 'unitMensure'},
+                {association: 'unitMeasure'},
                 {association: 'exposition'},
                 {association: 'category'}
             ]
@@ -17,9 +16,9 @@ const productsController = {
             let byCategories = {}
             categoriesArray.forEach(function (x) { byCategories[x] = (byCategories[x] || 0) + 1; });
 
-            let unitMensureArray = respuesta.map(product => product.unitMensure.type);
-            let byunitMensure = {}
-            unitMensureArray.forEach(function (x) { byunitMensure[x] = (byunitMensure[x] || 0) + 1; });
+            let unitmeasureArray = respuesta.map(product => product.unitmeasure.type);
+            let byunitmeasure = {}
+            unitmeasureArray.forEach(function (x) { byunitmeasure[x] = (byunitmeasure[x] || 0) + 1; });
 
             let ExpositionArray = respuesta.map(product => product.exposition.type);
             let byExposition = {}
@@ -29,7 +28,7 @@ const productsController = {
             let processed = {
                 total,
                 byCategories,
-                byunitMensure,
+                byunitmeasure,
                 byExposition
 
             }
@@ -72,7 +71,7 @@ const productsController = {
         db.Product.findAll({
             include: [
                 {association: "cartOrders"},
-                {association: "unitMensure"}
+                {association: "unitmeasure"}
             ]
             
         })
@@ -83,7 +82,7 @@ const productsController = {
                     totalQuantity: Object.values(product.cartOrders // de las Orders que mapeamos nos quedamos con un array de las cantidades
                         .map(co => co.Order.product_quantity)) //mapeamos todos los cartOrders quedandonos las orders
                             .reduce((prev, current)=> prev + current,0), // devuelve el total de ordenes sumando las cantidades de cada orden
-                    unitMensure: product.unitMensure.type
+                    unitmeasure: product.unitmeasure.type
                     } 
             })
             bestSellers.sort((a, b)=> b.totalQuantity-a.totalQuantity) //ordeno el objeto en orden descendente por cantidad

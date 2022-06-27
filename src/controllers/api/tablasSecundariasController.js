@@ -2,7 +2,7 @@ const db = require('../../database/models')
 
 const APIController = {
     gettingAllUnits: function(req,res){
-        db.UnitMensure.findAll({
+        db.UnitMeasure.findAll({
             include:'products'
         })
             .then(respuesta =>{

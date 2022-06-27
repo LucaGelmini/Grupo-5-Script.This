@@ -16,10 +16,10 @@ inner join products on orders.product_id = products.id
 -- --> se ve que un cart_order pertenece a un solo user.
 -- --> se ve que dentro del cart_order sus ordenes tiene el mismo metodo de pago y mismo estado "confirmado".
 
-select carts_orders.id ,orders.id  , products.name , products.price , products.discount, orders.product_quantity, orders.total , carts_orders.total , users.fullName, payments.`method`, statuss.name  from orders
+select carts_orders.id ,orders.id  , products.name , products.price , products.discount, orders.product_quantity, orders.total , carts_orders.total , users.fullName, payments.`method`, status.name  from orders
 inner join carts_orders on orders.cart_order_id  = carts_orders.id 
 inner join users on carts_orders.user_id  = users.id 
 inner join products on orders.product_id = products.id
 inner join payments on carts_orders.payment_id = payments.id 
-inner join statuss on carts_orders.status_id = statuss.id 
+inner join status on carts_orders.status_id = status.id 
 where carts_orders.id = 11

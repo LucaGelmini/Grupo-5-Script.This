@@ -3,7 +3,8 @@ const db = require('../database/models');
 
 const cartOrderController = {
     cart: (req, res)=>{
-        res.render('cartOrder')
+        res.send('hola')
+        // res.render('cartOrder')
     },
     purchase: (req, res) => {
         console.log(req.body);
@@ -27,7 +28,7 @@ const cartOrderController = {
        
         let cartOrderCreated = {
             total: total,
-            user_id: req.session.logedUser.id,
+            user_id: req.session.loggedUser.id,
             payment_id: 4,
             status_id: 2
         }

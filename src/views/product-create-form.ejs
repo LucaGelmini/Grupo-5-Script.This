@@ -20,20 +20,20 @@
                  <p style="color: #D84D09;"><%= errors.name.msg %></p>  
                 <% } %>
                 <!-- Messure units -->
-                <select name="unit_mensure" id="unit_mensure" class="input-texto">
+                <select name="unit_measure_id" id="unit_measure" class="input-texto">
                     <option value="">Elegí</option>
-                    <% let unitMensure = secondaryTables.unitMensure %> 
-                    <% for (let key in unitMensure){%>
-                        <option value="<%= unitMensure[key].id %> "><%= unitMensure[key].type  %> </option>
+                    <% let unitMeasure = secondaryTables.unitMeasure %> 
+                    <% for (let key in unitMeasure){%>
+                        <option value=<%= unitMeasure[key].id %>><%= unitMeasure[key].type  %> </option>
                     <% } %>   
                 </select>
-                <% if (locals.errors && errors.unit_mensure) { %>
-                    <p style="color: #D84D09;"><%= errors.unit_mensure.msg %></p>  
+                <% if (locals.errors && errors.unit_measure) { %>
+                    <p style="color: #D84D09;"><%= errors.unit_measure.msg %></p>  
                 <% } %>
                 <!-- Quantity -->
-                <input class="input-texto" type="text" name="mensure_value" placeholder="Ingrese el valor de la unidad de medida" value="<%= locals.oldData? oldData.mensure_value : null %>">
-                <% if (locals.errors && errors.mensure_value) { %>
-                    <p style="color: #D84D09;"><%= errors.mensure_value.msg %></p>  
+                <input class="input-texto" type="text" name="measure_value" placeholder="Ingrese el valor de la unidad de medida" value="<%= locals.oldData? oldData.measure_value : null %>">
+                <% if (locals.errors && errors.measure_value) { %>
+                    <p style="color: #D84D09;"><%= errors.measure_value.msg %></p>  
                    <% } %>
                 <!-- Price -->
                 <input class="input-texto" type="number" name="price" placeholder="Ingrese el precio de su producto" value="<%= locals.oldData? oldData.price : null %>">
@@ -46,12 +46,12 @@
                     <p style="color: #D84D09;"><%= errors.discount.msg %></p>  
                    <% } %>
                 <!-- Category -->
-                <label for="category" class="form-label">Categoría:</label>
-                <select name="category" id="category" class="input-texto">
+                <label for="category_id" class="form-label">Categoría:</label>
+                <select name="category_id" id="category" class="input-texto">
                     <option value="">Elegí</option>
                     <% let category = secondaryTables.category %> 
                     <% for (let key in category){%>
-                        <option value="<%= category[key].id %> "><%= category[key].name  %> </option>
+                        <option value=<%= category[key].id %> ><%= category[key].name  %> </option>
                     <% } %>   
                 </select>
 
@@ -59,12 +59,12 @@
                     <p style="color: #D84D09;"><%= errors.category.msg %></p>  
                 <% } %>
                 <!-- Exposition -->
-                <label for="exposicion" class="form-label">Exposición:</label>
-                <select name="exposicion" id="exposicion" class="input-texto">
+                <label for="exposition_id" class="form-label">Exposición:</label>
+                <select name="exposition_id" id="exposicion" class="input-texto">
                     <option value="">Elegí</option>
                     <% let exposition = locals.secondaryTables.exposition %> 
                     <% for (let key in exposition){%>
-                        <option value="<%= exposition[key].id %> "><%= exposition[key].type  %> </option>
+                        <option value=<%= exposition[key].id %> ><%= exposition[key].type  %> </option>
                     <% } %>  
                 <% if (locals.errors && errors.exposicion) { %>
                     <p style="color: #D84D09;"><%= errors.exposicion.msg %></p>  

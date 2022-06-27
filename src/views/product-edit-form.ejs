@@ -16,55 +16,56 @@
             <h3 class="complete-data-title">Modifica los datos para editar tu producto:</h3>
             <!-- TITULO -->
             <label for="name" class="form-label">Nombre:</label>
-            <input class="input-texto" type="text" name="name" placeholder="<%= productToEdit.name %> ">
+            <input class="input-texto" type="text" name="name" value="<%= productToEdit.name %> ">
             <!-- UNIDAD DE MEDIDA -->
-            <label for="unit_mensure" class="form-label">Unidad de medida:</label>
-            <select name="unit_mensure" id="unit_mensure" class="form-input">
-                <option value=<% productToEdit.unit_mensure_id %>>
-                    <%= productToEdit.unitMensure.dataValues.type %> 
-                </option>
-                <% let unitMensure = secondaryTables.unitMensure %> 
-                <% for (let key in unitMensure){%>
-                    <option value="<%= unitMensure[key].id %> "><%= unitMensure[key].type  %> </option>
+            <label for="unit_measure_id" class="form-label">Unidad de medida:</label>
+            <select name="unit_measure_id" id="unit_measure" class="form-input" value=<%= productToEdit.unit_measure_id %>>
+                <% console.log(productToEdit.image) %> 
+                <% let unitMeasure = secondaryTables.unitMeasure %> 
+                <% for (let key in unitMeasure){%>
+                    <option value=<%= unitMeasure[key].id %>
+                        <%= unitMeasure[key].id == productToEdit.unit_measure_id && 'selected'%>
+                        >
+                        <%= unitMeasure[key].type  %>
+                    </option>
                 <% } %>   
             </select>
             <!-- CANTIDAD POR UNIDAD -->
-            <label for="mensure_value" class="form-label">Cantidad por unidad:</label>
-            <input class="input-texto" type="text" name="mensure_value" placeholder="<%= productToEdit.mensure_value %>">
+            <label for="measure_value" class="form-label">Cantidad por unidad:</label>
+            <input class="input-texto" type="text" name="measure_value" value="<%= productToEdit.measure_value %>">
             <!-- PRECIO -->
             <label for="price" class="form-label">Precio:</label>
-            <input class="input-texto" type="number" name="price" placeholder="<%= productToEdit.price %>">
+            <input class="input-texto" type="number" name="price" value="<%= productToEdit.price %>">
             <!-- DESCUENTO -->
             <label for="discount" class="form-label">Descuento:</label>
-            <input class="input-texto" type="number" name="discount" placeholder="<%= productToEdit.discount %>">
+            <input class="input-texto" type="number" name="discount" value="<%= productToEdit.discount %>">
             <!-- CATEGORIA -->
-            <label for="category" class="form-label">Categoría:</label>
-            <select name="category" id="category" class="form-input">
-                <option value= <%= productToEdit.category_id %> >
-                    <%= productToEdit.category.dataValues.name %>
-                </option>
+            <label for="category_id" class="form-label">Categoría:</label>
+            <select name="category_id" id="category" class="form-input">
+
                 <% let category = secondaryTables.category %> 
                 <% for (let key in category){%>
-                    <option value="<%= category[key].id %> "><%= category[key].name  %> </option>
+                    <option value=<%= category[key].id %> <%= category[key].id==productToEdit.category_id && 'selected' %> >
+                        <%= category[key].name  %>
+                    </option>
                 <% } %>   
             </select>
             <!-- EXPOSICIÓN -->
-            <label for="exposicion" class="form-label">exposición:</label>
-			<select name="exposicion" id="exposicion" class="form-input">
-				<option value= <%= productToEdit.exposition_id %>>
-                    <%= productToEdit.exposition.dataValues.type %>
-                </option>
+            <label for="exposition_id" class="form-label">exposición:</label>
+			<select name="exposition_id" id="exposicion" class="form-input">
                 <% let exposition = locals.secondaryTables.exposition %> 
                 <% for (let key in exposition){%>
-                    <option value="<%= exposition[key].id %> "><%= exposition[key].type  %> </option>
+                    <option value=<%= exposition[key].id %> <%= exposition[key].id==productToEdit.exposition_id && 'selected' %> >
+                        <%= exposition[key].type  %>
+                    </option>
                 <% } %>   
 			</select>
             <!-- DESCRIPCIÓN -->
             <label for="description" class="form-label">Descripción:</label>
-            <input class="input-texto" type="text" name="description" placeholder="<%= productToEdit.description %>">
+            <input class="input-texto" type="text" name="description" value="<%= productToEdit.description %>">
             <!-- IMAGEN -->
             <label class="editar-product-photo-label">Actualice la foto de su producto:</label>
-            <input class="editar-product-photo" type="file" name="img" accept=".jpg, .png" multiple>
+            <input class="editar-product-photo" type="file" name="img" accept=".jpg, .png"  multiple>
             <!-- SUBMIT -->
             <div class="submit-editar-product-container">
                 <button class="editar-product-button">

@@ -106,29 +106,29 @@ INSERT INTO `expositions` VALUES
 UNLOCK TABLES;
 
 --
--- Table structure for table `units_mensures`
+-- Table structure for table `units_measures`
 --
 
-drop table if exists `units_mensures`;
-create table `units_mensures` (
+drop table if exists `units_measures`;
+create table `units_measures` (
 `id` int(10) unsigned not null auto_increment,
 `type`varchar(50) not null,
 primary key (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `units_mensures`
+-- Dumping data for table `units_measures`
 --
 
-LOCK TABLES `units_mensures` WRITE;
-/*!40000 ALTER TABLE `units_mensures` DISABLE KEYS */;
-INSERT INTO `units_mensures` VALUES  
+LOCK TABLES `units_measures` WRITE;
+/*!40000 ALTER TABLE `units_measures` DISABLE KEYS */;
+INSERT INTO `units_measures` VALUES  
  (1,'kg'),
  (2,'gr'),
  (3,'unidad'),
  (4,'ramo'),
  (5,'bandeja');
-/*!40000 ALTER TABLE `units_mensures` ENABLE KEYS */;
+/*!40000 ALTER TABLE `units_measures` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -170,21 +170,21 @@ create table `products` (
 `name`varchar(100) collate utf8_unicode_ci not null,
 `create_date` timestamp null default null,
 `update_date` timestamp null default null,
-`mensure_value` int not null,
+`measure_value` int not null,
 `price` decimal(10,2) not null,
 `discount` int not null,
 `description` text not null,
 `image` varchar(50) collate utf8_unicode_ci not null,
 `stock` int not null,
 `exposition_id` int(10) unsigned not null,
-`unit_mensure_id` int(10) unsigned not null,
+`unit_measure_id` int(10) unsigned not null,
 `category_id` int(10) unsigned not null,
 primary key (`id`),
 key `products_exposition_id_foreign` (`exposition_id`),
-key `products_unit_mensure_id_foreign` (`unit_mensure_id`),
+key `products_unit_measure_id_foreign` (`unit_measure_id`),
 key `products_category_id_foreign` (`category_id`),
 constraint `products_exposition_id_foreign` FOREIGN key (`exposition_id`) references `expositions` (`id`),
-constraint `products_unit_mensure_id_foreign` FOREIGN key (`unit_mensure_id`) references `units_mensures` (`id`),
+constraint `products_unit_measure_id_foreign` FOREIGN key (`unit_measure_id`) references `units_measures` (`id`),
 constraint `products_category_id_foreign` FOREIGN key (`category_id`) references `categories` (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -250,24 +250,24 @@ UNLOCK TABLES;
 -- Table structure for table `payments`
 --
 
-drop table if exists `statuss`;
-create table `statuss` (
+drop table if exists `status`;
+create table `status` (
 `id` int(10) unsigned not null auto_increment,
 `name`varchar(50) not null,
 primary key (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `statuss`
+-- Dumping data for table `status`
 --
 
-LOCK TABLES `statuss` WRITE;
-/*!40000 ALTER TABLE `statuss` DISABLE KEYS */;
-INSERT INTO `statuss` VALUES  
+LOCK TABLES `status` WRITE;
+/*!40000 ALTER TABLE `status` DISABLE KEYS */;
+INSERT INTO `status` VALUES  
  (1,'pendiente'),
  (2,'confirmada'),
  (3,'cancelada');
-/*!40000 ALTER TABLE `statuss` ENABLE KEYS */;
+/*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -293,7 +293,7 @@ key `carts_orders_payment_id_foreign` (`payment_id`),
 key `carts_orders_status_id_foreign` (`status_id`),
 constraint `carts_orders_user_id_foreign` FOREIGN key (`user_id`) references `users` (`id`),
 constraint `carts_orders_payment_id_foreign` FOREIGN key (`payment_id`) references `payments` (`id`),
-constraint `carts_orders_status_id_foreign` FOREIGN key (`status_id`) references `statuss` (`id`)
+constraint `carts_orders_status_id_foreign` FOREIGN key (`status_id`) references `status` (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

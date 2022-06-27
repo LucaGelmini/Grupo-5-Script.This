@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         input.classList.remove('form-input-error');
                     };
                     break;
-                case 'unit_mensure':
+                case 'unit_measure_id':
                     if(input.value === ''){
                         input.classList.add('form-input-error');
                         errors.push('Ingrese un unidad de medida');
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         input.classList.remove('form-input-error');
                     };
                     break;
-                case 'mensure_value':
+                case 'measure_value':
                     if(input.value === ''){
                         input.classList.add('form-input-error');
                         errors.push('Ingrese un unidad de medida');
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         input.classList.remove('form-input-error');
                         break;
                     };
-                case 'category':
+                case 'category_id':
                     if(input.value === ''){
                         input.classList.add('form-input-error');
                         errors.push('Ingrese una categoría');
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         input.classList.remove('form-input-error');
                     };
                     break;
-                case 'exposicion':
+                case 'exposition_id':
                     if(input.value === ''){
                         input.classList.add('form-input-error');
                         errors.push('Ingrese un tipo de exposición');

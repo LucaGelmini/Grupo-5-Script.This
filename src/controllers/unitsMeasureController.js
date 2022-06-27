@@ -1,10 +1,10 @@
 const {validationResult} = require('express-validator')
 const db = require('../database/models')
-const unitsModel = require('../database/models/UnitMensure')
+// const unitsModel = require('../database/models/UnitMeasure')
 
 const unidades = {
     getAll: function(req,res){
-        db.UnitMensure.findAll()
+        db.UnitMeasure.findAll()
             .then(unit =>{            
                 return res.render('listUnitsMeasures',{unidades:unit})
             })
@@ -13,7 +13,7 @@ const unidades = {
         res.render('unitsCreate')
     },
     creacion: function(req,res){ 
-        db.UnitMensure.findAll()
+        db.UnitMeasure.findAll()
             .then(respuesta=>{
                 const validaciones = validationResult(req)   
                 if(validaciones.errors.length > 0){
@@ -26,7 +26,7 @@ const unidades = {
                 }else{                 
                     let existe=respuesta.find(unidad => unidad.dataValues.type== req.body.unidad)
                     if(existe == undefined){
-                        db.UnitMensure.create({
+                        db.UnitMeasure.create({
                             type:req.body.unidad
                         })
                         res.redirect('/units')
@@ -41,7 +41,7 @@ const unidades = {
        
     },
     editar: function(req,res){        
-        db.UnitMensure.findByPk(req.params.id)
+        db.UnitMeasure.findByPk(req.params.id)
             .then(unit =>{
                 return  res.render('updateUnits',{unidades:unit})
             })
@@ -50,7 +50,7 @@ const unidades = {
     edicion: function(req,res){
         let unidadEditada=req.body.datoEditar
         let id = req.params.id       
-        db.UnitMensure.update({type:unidadEditada }
+        db.UnitMeasure.update({type:unidadEditada }
             ,{
             where:{
                 id
@@ -64,7 +64,7 @@ const unidades = {
     },
     eliminacion: function(req,res){
        const idEliminar = req.params.id   
-        db.UnitMensure.destroy({
+        db.UnitMeasure.destroy({
             where:{
                 type: idEliminar
             }

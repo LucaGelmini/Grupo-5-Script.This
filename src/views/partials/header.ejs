@@ -3,7 +3,7 @@
 
 
 <div class="envío-sin-cargo">
-    <p>Envío sin cargo si tu compra supera los $2.000. <a href="#" style="color:#D84D09">Empezá a comprar ahora mismo!</a> </p>
+    <p>Envío sin cargo si tu compra supera los $2.000. <a href="/products" style="color:#D84D09">Empezá a comprar ahora mismo!</a> </p>
 </div>
 <div class="logo-mas-buscador">
     <div class="logo-container">
@@ -48,7 +48,7 @@
         <nav class="nav01">
             <ul>
                 <% if(locals.isLogged){ %> 
-                    <li><a id="user-logIn-name" href="/users/profile">Hi, <%= locals.logedUser.username %></a></li>
+                    <li><a id="user-logIn-name" href="/users/profile">Hi, <%= locals.loggedUser.username %></a></li>
                     <li><a href="/users/logout">Log Out</a></li>
                 <% }else{%> 
                     <li><a href="/users/register">Creá tu cuenta</a></li>
@@ -63,7 +63,7 @@
     <p>
         <i class="fas fa-map-marker-alt"></i>
         <% if(locals.isLogged){ %>
-            <%= locals.logedUser.adress %>
+            <%= locals.loggedUser.adress %>
         <% }else{ %>
             Enviar a tu domicilio
         <% }; %>  

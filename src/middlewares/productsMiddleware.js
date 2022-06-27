@@ -6,17 +6,17 @@ const path = require('path');
 const validateProducts = [
     body('name')
           .notEmpty().withMessage('* Debes completar el nombre del producto'),
-    body('unit_mensure')
+    body('unit_measure_id')
           .notEmpty().withMessage('* Debes completar la unidad de medida del producto'),
-    body('mensure_value')
+    body('measure_value')
           .notEmpty().withMessage('* Debes completar el valor de la unidad de medida definida anteriormente'),
     body('price')
           .notEmpty().withMessage('* Debe definir el precio del producto'),
     body('discount')
           .notEmpty().withMessage('* Debes definir el descuento para el producto'),
-    body('category')
+    body('category_id')
           .notEmpty().withMessage('* Debes seleccionar una category'),     
-    body('exposicion')
+    body('exposition_id')
           .notEmpty().withMessage('* Debes seleccionar una exposición'),
     body('description')
           .notEmpty().withMessage('* Debes detallar una breve descripción del producto'),        

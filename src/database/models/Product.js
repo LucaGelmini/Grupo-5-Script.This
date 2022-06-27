@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(50),
             allowNull: false
         },
-        mensure_value: {
+        measure_value: {
             type: dataTypes.BIGINT(10),
             allowNull: false
         },
@@ -36,7 +36,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         exposition_id: dataTypes.BIGINT(10),
-        unit_mensure_id: dataTypes.BIGINT(10),
+        unit_measure_id: dataTypes.BIGINT(10),
         category_id: dataTypes.BIGINT(10) 
     };
     let config = {
@@ -63,9 +63,9 @@ module.exports = (sequelize, dataTypes) => {
             // timestamps: true
         }),
         */
-        Product.belongsTo(models.UnitMensure, {
-            as: "unitMensure",
-            foreignKey: "unit_mensure_id"
+        Product.belongsTo(models.UnitMeasure, {
+            as: "unitMeasure",
+            foreignKey: "unit_measure_id"
             // timestamps: false,
             // onDelete: 'CASCADE'
         }),
