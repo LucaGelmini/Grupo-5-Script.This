@@ -101,7 +101,7 @@ app.use('/api/products', apiProducts);
 
  
 
-app.listen(process.env.PORT || 3000, ()=>{
+app.listen(process.env.PORT, ()=>{
   console.log(`##########################\n\nServidor encendido en el puerto ${process.env.PORT || 3000}!!!!\n\n###########################`);
 })
 
