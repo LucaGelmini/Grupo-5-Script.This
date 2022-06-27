@@ -5,9 +5,9 @@ const indexController = require('../controllers/indexController');
 
 
 
-router.get('/',indexController.index)
+router.get('/',/*indexController.index*/(req,res)=>res.send('HOLA'))
 
-router.post('/',indexController.search)
+// router.post('/',indexController.search)
 
 //Para probar los models y etc
 router.get('/testdb', indexController.testDb)

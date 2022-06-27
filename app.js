@@ -74,34 +74,34 @@ const apiOrder = require('./src/routes/api/order');
 
 
 app.use('/', indexRouter);
-app.use('/products', productsRouter);
-app.use('/users', usersRouter);
+// app.use('/products', productsRouter);
+// app.use('/users', usersRouter);
+// 
+// 
+//  
+// 
+// 
+// 
+//  
+// 
+// app.use('/cartOrder', cartOrderRouter); 
+// app.use('/tablas',tablasRouter)
+// app.use('/units',unitsRouter);
+// app.use('/estatus',estatusRouter);
+// app.use('/expositions', expositionsRouter);
+// app.use('/payments', paymentsRouter);
+// app.use('/roles',rolesRouter);
+// app.use('/categories',categoriesRouter);
+// app.use('/api', apiUsers);
+// app.use('/api',  apiCartOrder); 
+// app.use('/api',  apiOrder); 
+// app.use('/api/secundarias',APIRouter);
+// app.use('/api/products', apiProducts);
 
 
  
 
-
-
- 
-
-app.use('/cartOrder', cartOrderRouter); 
-app.use('/tablas',tablasRouter)
-app.use('/units',unitsRouter);
-app.use('/estatus',estatusRouter);
-app.use('/expositions', expositionsRouter);
-app.use('/payments', paymentsRouter);
-app.use('/roles',rolesRouter);
-app.use('/categories',categoriesRouter);
-app.use('/api', apiUsers);
-app.use('/api',  apiCartOrder); 
-app.use('/api',  apiOrder); 
-app.use('/api/secundarias',APIRouter);
-app.use('/api/products', apiProducts);
-
-
- 
-
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
   console.log(`##########################\n\nServidor encendido en el puerto ${process.env.PORT || 3000}!!!!\n\n###########################`);
 })
 
