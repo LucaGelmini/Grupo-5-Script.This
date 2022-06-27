@@ -4,7 +4,7 @@
   "description": "Proyecto didáctico para DigitalHouse. Desarrollo full-stack de sitio web de e-commerce\r ★ Temática del sitio y público objetivo - (Archivo README.md):",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -e js,ejs,html,css -w . -w public -w views -w routes -w models app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
