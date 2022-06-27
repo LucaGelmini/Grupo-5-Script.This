@@ -100,9 +100,9 @@ app.use('/api/products', apiProducts);
 
 
  
-const PORT = 3001
-app.listen(PORT, ()=>{
-  console.log(`##########################\n\nServidor encendido en el puerto ${PORT}!!!!\n\n###########################`);
+
+app.listen(process.env.PORT || 3000, ()=>{
+  console.log(`##########################\n\nServidor encendido en el puerto ${process.env.PORT || 3000}!!!!\n\n###########################`);
 })
 
 

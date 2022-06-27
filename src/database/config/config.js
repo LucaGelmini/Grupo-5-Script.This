@@ -1,23 +1,9 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "twzqucbiestlkh",
+    "password": "34a56f19fa27729f7df6e20a50055625d1fbd61f574a87b96ce092ab76c46f75",
     "database": "bolsonverde_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "bolsonverde_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "bolsonverde_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "ec2-44-206-89-185.compute-1.amazonaws.com",
+    "dialect": "postgresql"
   }
 }
