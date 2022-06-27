@@ -10,6 +10,7 @@ module.exports = {
         require: true,
         rejectUnauthorized: false
       }
+    }
   },
   "production": {
     "username": "twzqucbiestlkh",
