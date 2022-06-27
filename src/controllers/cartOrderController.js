@@ -3,8 +3,7 @@ const db = require('../database/models');
 
 const cartOrderController = {
     cart: (req, res)=>{
-        res.send('hola')
-        // res.render('cartOrder')
+        res.render('cartOrder')
     },
     purchase: (req, res) => {
         console.log(req.body);

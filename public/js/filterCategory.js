@@ -17,7 +17,7 @@ filterSecos()
 const filterAllProducts = () =>{
     allProductsLink.addEventListener('click', function(e){
         e.preventDefault()
-        console.log('hola todos!'); 
+        // console.log('hola todos!'); 
         console.log(e.target.innerText.toLowerCase());  
         categoriesElements.forEach(category =>{
             console.log(category.innerText);
